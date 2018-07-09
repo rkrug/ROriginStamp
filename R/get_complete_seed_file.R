@@ -47,7 +47,9 @@ get_complete_seed_file <- function(
       con = file,
       sep = ""
     )
+    return( invisible( result ) )
+  } else {
+    return( result )
   }
   ##
-  invisible( result  )
 }
