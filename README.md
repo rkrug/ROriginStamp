@@ -1,4 +1,5 @@
-R Notebook
+ROriginStamp - a simple interface to
+[OriginStamp](https://originstamp.org/)
 ================
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
