@@ -2,6 +2,12 @@
 #'
 #' Store a hash to obtain a Trusted Time Stamp
 #' wrapper around https://doc.originstamp.org/#!/default/post_hash_string
+#'
+#' @param hash hash for which shuld be sum=bmitted to OroginStamp
+#' @param error_on_fail if \code{TRUE}, raise error when api call fails, otherwise return the failed response.
+#' @param information contains information which is stored together with the submitted hash_string. Has to be a named list with each element being of length one
+
+
 #' @return object of type \code{OriginStampResponse}
 #' @importFrom httr POST add_headers stop_for_status content
 #' @importFrom jsonlite fromJSON toJSON
@@ -11,7 +17,7 @@
 store_hash <- function(
   hash,
   error_on_fail = TRUE,
-  information = list(email = "sample", name = NULL, comment = "test")
+  information = list(email = "none", name = NULL, comment = "Just a test")
 ) {
   result <- new_OriginStampResponse()
   ##

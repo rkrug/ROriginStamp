@@ -9,7 +9,7 @@ get_hash_info(hash, error_on_fail = TRUE, file = "")
 \arguments{
 \item{hash}{hast from which to download the info}
 
-\item{error_on_fail}{if TRUE, raise error when api call fails, otherwise return the failed response.}
+\item{error_on_fail}{if \code{TRUE}, raise error when api call fails, otherwise return the failed response.}
 
 \item{file}{file name to store the info to as \code{.yml} file. If \code{NULL}, save to default name (\code{HASH.OriginStamp.hash-inf0.txt}), if \code{""} (default) do not save, otherwise to \code{file}.}
 }

@@ -4,7 +4,15 @@
 \alias{store_hash}
 \title{Storing a hash}
 \usage{
-store_hash(hash, error_on_fail = TRUE, information = NULL)
+store_hash(hash, error_on_fail = TRUE, information = list(email = "none",
+  name = NULL, comment = "Just a test"))
+}
+\arguments{
+\item{hash}{hash for which shuld be sum=bmitted to OroginStamp}
+
+\item{error_on_fail}{if \code{TRUE}, raise error when api call fails, otherwise return the failed response.}
+
+\item{information}{contains information which is stored together with the submitted hash_string. Has to be a named list with each element being of length one}
 }
 \value{
 object of type \code{OriginStampResponse}
