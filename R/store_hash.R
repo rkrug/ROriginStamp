@@ -11,19 +11,33 @@
 store_hash <- function(
   hash,
   error_on_fail = TRUE,
-  information = NULL
+  information = list(email = "sample", name = NULL, comment = "test")
 ) {
   result <- new_OriginStampResponse()
   ##
   url <- paste0(get_option("os_url"), hash)
-  request_body_json <- jsonlite::toJSON( information, auto_unbox = TRUE )
+  if (
+    max(
+      sapply(
+        information,
+        length
+      )
+    ) > 1
+  ) {
+    stop("Argument 'Information' has to be a named list with a maximum length of one per object!")
+  }
+  request_body_json <- as.character( jsonlite::toJSON( information, auto_unbox = TRUE ) )
+  request_body_json <- gsub("\\{\\}", "null", request_body_json)
   result$response <- httr::POST(
-    url,
+    url = url,
     httr::add_headers(
-      Authorization = get_option("api_key"),
-      body = request_body_json
+      authorization = get_option("api_key"),
+      body = request_body_json,
+      'content-type' = "application/json",
+      accept = "application/json",
+      'user-agent' = "OriginStamp cURL Test"
     ),
-    httr::content_type_json()
+    body = request_body_json
   )
   if (error_on_fail) {
     httr::stop_for_status(result$response)
