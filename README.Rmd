@@ -3,5 +3,76 @@ title: "ROriginStamp - a simple interface to [OriginStamp](https://originstamp.o
 output: github_document
 ---
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
 [![Build Status](https://travis-ci.org/rkrug/ROriginStamp.svg?branch=master)](https://travis-ci.org/rkrug/ROriginStamp)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-orange.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![Coverage Status](https://img.shields.io/codecov/c/github/rkrug/ROriginStamp/master.svg)](https://codecov.io/github/rkrug/ROriginStamp?branch=master)
+
+<!-- [![Inline docs](http://inch-ci.org/github/rkrug/ROriginStamp.svg?branch=master)](http://inch-ci.org/github/rkrug/ROriginStamp) -->
+
+
+-------
+
+# Overview
+This packages allows to obtain Trusted Timestamps from [OriginStamp](https://originstamp.org) for hashes. The hashes can be from anything, files, R objects, numbers, text, ... whatever you can calculate a hash from.
+
+It is only available on github, so you can install it by using devtools:
+
+```{r ex_install, eval = TRUE}
+if (!require(devtools)) {
+  install.packages("devtools")
+  library(devtools)
+}
+devtools::install_github("rkrug/ROriginStamp")
+```
+
+Before yo can use the package, you have to get an API key from [OriginStamp]().
+
+Due to the limimtations of sha1, it is recommended to use sha256, by using e.g. 
+
+```{r ex_hash_file, eval = FALSE}
+library(openssl)
+fnc <- file.path( dir, fn )
+f <- file( fnc, open = "rb" )
+hash <- as.character( openssl::sha256( f ) )
+close(f)
+rm(f)
+```
+
+As an example, let's use the hash from the tests:
+```{r ex_hash, eval = TRUE}
+library(ROriginStamp)
+hash <- "2200aa551985698a96823da13d7ea36ad62bc9a040e30690fe11294982a74f21"
+```
+
+This hash can than be trusted timestamped by simply using
+
+```{r ex_store_hash, eval = TRUE}
+store_hash( hash )
+```
+
+The status of the timestamb can be queried by
+
+```{r ex_get_status, eval = TRUE}
+get_hash_info( hash )
+```
+
+and the complete seed file can be downloaded by
+
+```{r ex_get_seed_file, eval = TRUE}
+get_complete_seed_file( hash )
+```
+
+## Background
+
+### What are Trusted Timestamps?
+
+From [Wikipedia](https://en.wikipedia.org/wiki/Trusted_timestamping)
+
+> Trusted timestamping is the process of securely keeping track of the creation and modification time of a document. Security here means that no one—not even the owner of the document—should be able to change it once it has been recorded provided that the timestamper's integrity is never compromised.
+
+### How is it done
+
+From the [OriginStamp website](https://originstamp.org/home)
+
+> OriginStamp is a web-based, trusted timestamping service that uses the decentralized blockchain to store anonymous, tamper-proof time stamps for any digital content. OriginStamp allows users to hash files, emails, or plain text, and subsequently store the created hashes in the blockchain as well as retrieve and verify time stamps that have been committed to the blockchain. OriginStamp is free of charge and easy to use. It enables anyone, e.g., students, researchers, authors, journalists, or artists, to prove that they were the originator of certain information at a given point in time.
+
