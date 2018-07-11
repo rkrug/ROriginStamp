@@ -13,9 +13,9 @@ test_that(
 test_that(
   "check set_option",
   {
-    expect_equal( object = set_option( name = "os_url", "Test Value" ), expected = "https://api.originstamp.org/api/")
-    expect_equal( object = get_option( name = "os_url" ), expected = "Test Value")
-    expect_equal( object = set_option( name = "os_url", "https://api.originstamp.org/api/" ), expected = "Test Value")
+    expect_null( object = set_option( name = "newoption", "First Value" ))
+    expect_equal( object = set_option( name = "newoption", "Second Value" ), expected = "First Value")
+    expect_equal( object = get_option( name = "newoption" ), expected = "Second Value")
   }
 )
 
