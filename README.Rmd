@@ -17,7 +17,7 @@ This packages allows to obtain Trusted Timestamps from [OriginStamp](https://ori
 
 It is only available on github, so you can install it by using devtools:
 
-```{r ex_install, eval = TRUE}
+```{r ex_install, eval = FALSE}
 if (!require(devtools)) {
   install.packages("devtools")
   library(devtools)
@@ -25,7 +25,7 @@ if (!require(devtools)) {
 devtools::install_github("rkrug/ROriginStamp")
 ```
 
-Before yo can use the package, you have to get an API key from [OriginStamp]().
+**Before yo can use the package, you have to get an API key from [OriginStamp](http://originstamp.org/dev).**
 
 Due to the limimtations of sha1, it is recommended to use sha256, by using e.g. 
 
@@ -50,7 +50,7 @@ This hash can than be trusted timestamped by simply using
 store_hash( hash )
 ```
 
-The status of the timestamb can be queried by
+The status of the timestammp can be queried by
 
 ```{r ex_get_status, eval = TRUE}
 get_hash_info( hash )

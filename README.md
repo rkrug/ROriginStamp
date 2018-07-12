@@ -28,19 +28,11 @@ if (!require(devtools)) {
   install.packages("devtools")
   library(devtools)
 }
-```
-
-    ## Loading required package: devtools
-
-``` r
 devtools::install_github("rkrug/ROriginStamp")
 ```
 
-    ## Skipping install of 'ROriginStamp' from a github remote, the SHA1 (851d30a9) has not changed since last install.
-    ##   Use `force = TRUE` to force installation
-
-Before yo can use the package, you have to get an API key from
-[OriginStamp]().
+**Before yo can use the package, you have to get an API key from
+[OriginStamp](http://originstamp.org/dev).**
 
 Due to the limimtations of sha1, it is recommended to use sha256, by
 using e.g.
@@ -124,7 +116,7 @@ store_hash( hash )
     ## 
     ## $content$multi_seed
     ## $content$multi_seed$block_depth
-    ## [1] 58051
+    ## [1] 58177
     ## 
     ## $content$multi_seed$seed_hash
     ## [1] "52dc85185278934a4f42b8b7fd6ece7b11d5783808eb1fb3e8dab33f6377da0a"
@@ -151,7 +143,7 @@ store_hash( hash )
     ## 
     ## $response
     ## Response [https://api.originstamp.org/api/2200aa551985698a96823da13d7ea36ad62bc9a040e30690fe11294982a74f21]
-    ##   Date: 2018-07-11 07:55
+    ##   Date: 2018-07-12 06:51
     ##   Status: 200
     ##   Content-Type: application/json;charset=UTF-8
     ##   Size: 834 B
@@ -160,7 +152,7 @@ store_hash( hash )
     ## attr(,"class")
     ## [1] "OriginStampResponse"
 
-The status of the timestamb can be queried by
+The status of the timestammp can be queried by
 
 ``` r
 get_hash_info( hash )
@@ -223,7 +215,7 @@ get_hash_info( hash )
     ## 
     ## $content$multi_seed
     ## $content$multi_seed$block_depth
-    ## [1] 58051
+    ## [1] 58177
     ## 
     ## $content$multi_seed$seed_hash
     ## [1] "52dc85185278934a4f42b8b7fd6ece7b11d5783808eb1fb3e8dab33f6377da0a"
@@ -250,7 +242,7 @@ get_hash_info( hash )
     ## 
     ## $response
     ## Response [https://api.originstamp.org/api/2200aa551985698a96823da13d7ea36ad62bc9a040e30690fe11294982a74f21]
-    ##   Date: 2018-07-11 07:55
+    ##   Date: 2018-07-12 06:51
     ##   Status: 200
     ##   Content-Type: application/json;charset=UTF-8
     ##   Size: 834 B
@@ -270,7 +262,7 @@ get_complete_seed_file( hash )
     ## 
     ## $response
     ## Response [https://api.originstamp.org/api/download/seed/2200aa551985698a96823da13d7ea36ad62bc9a040e30690fe11294982a74f21]
-    ##   Date: 2018-07-11 07:55
+    ##   Date: 2018-07-12 06:51
     ##   Status: 200
     ##   Content-Type: application/json;charset=UTF-8
     ##   Size: 428 kB
