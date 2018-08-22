@@ -51,11 +51,7 @@ store_hash <- function(
   ##
   try(
     {
-      result$content <- httr::content(
-        x = result$response,
-        as = "text"
-      )
-      result$content <- jsonlite::fromJSON( result$content )
+      result$content <- extractContent( result$response )
     },
     silent = TRUE
   )

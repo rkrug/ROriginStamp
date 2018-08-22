@@ -1,7 +1,7 @@
 Package: ROriginStamp
 Type: Package
 Title: Interface to OriginStamp to obtain Trusted Time Stamps
-Version: 0.5.1
+Version: 0.5.2
 Author: Rainer M Krug
 Maintainer: Rainer M Krug <Rainer@krugs.de>
 Description: Obtain trusted timestamps from OriginStamp
