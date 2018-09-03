@@ -1,6 +1,11 @@
 context("store hash")
 library(ROriginStamp)
 
+set_option(
+  "api_key",
+  Sys.getenv("api_key")
+)
+
 test_that(
   "error if information not in correct format",
   {

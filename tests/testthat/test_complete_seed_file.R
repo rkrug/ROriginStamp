@@ -1,6 +1,11 @@
 context("get complete seed file")
 library(ROriginStamp)
 
+set_option(
+  "api_key",
+  Sys.getenv("api_key")
+)
+
 test_that(
   "result is as expected",
   {
