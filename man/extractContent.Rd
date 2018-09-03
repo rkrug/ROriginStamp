@@ -7,7 +7,7 @@
 extractContent(response)
 }
 \arguments{
-\item{content}{response as returned from \code{store_hash()} and \code{get_hash_info()}}
+\item{response}{response as returned from \code{store_hash()} and \code{get_hash_info()}}
 }
 \value{
 content in JSON

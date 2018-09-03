@@ -7,7 +7,6 @@
 #' @export
 #'
 #' @examples
-#'
 set_option <- function(name, value) {
   if (exists(name, .ORIGINSTAMP_CACHE)) {
     res <- base::get(name, envir = .ORIGINSTAMP_CACHE)

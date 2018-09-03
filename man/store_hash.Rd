@@ -5,7 +5,7 @@
 \title{Storing a hash}
 \usage{
 store_hash(hash, error_on_fail = TRUE, information = list(email = "none",
-  name = NULL, comment = "Just a test"))
+  name = "NULL", comment = "Just a test"))
 }
 \arguments{
 \item{hash}{hash for which shuld be sum=bmitted to OroginStamp}

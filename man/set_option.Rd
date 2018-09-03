@@ -17,6 +17,3 @@ the old value from that Option
 \description{
 Set Option
 }
-\examples{
-
-}

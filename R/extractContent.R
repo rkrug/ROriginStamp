@@ -1,7 +1,7 @@
 #' Extract and convert content from response
 #'
 #'  Convert timestamps to human readable date
-#' @param content response as returned from \code{store_hash()} and \code{get_hash_info()}
+#' @param response response as returned from \code{store_hash()} and \code{get_hash_info()}
 #'
 #' @return content in JSON
 #' @importFrom httr content
