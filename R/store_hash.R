@@ -17,7 +17,7 @@
 store_hash <- function(
   hash,
   error_on_fail = TRUE,
-  information = list(email = "none", name = NULL, comment = "Just a test")
+  information = list(email = "none", name = "NULL", comment = "Just a test")
 ) {
   result <- new_OriginStampResponse()
   ##
