@@ -39,3 +39,20 @@ test_that(
   }
 )
 
+test_that(
+  "Wrong argument for 'information' raises error",
+  {
+    expect_error(
+      object = store_hash(
+        hash = "53618057a7dd4063c0ed48b6dba2608e46740558",
+        information = list( names = c("RMK", "tester") )
+      )
+    )
+    expect_error(
+      object = store_hash(
+        hash = "53618057a7dd4063c0ed48b6dba2608e46740558",
+        information = list( "RMK", "test" )
+      )
+    )
+  }
+)

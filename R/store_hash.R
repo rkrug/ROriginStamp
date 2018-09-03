@@ -30,7 +30,7 @@ store_hash <- function(
       )
     ) > 1
   ) {
-    stop("Argument 'Information' has to be a named list with a maximum length of one per object!")
+    stop("Argument 'Information' has to be a list with a maximum length of one per object!")
   }
   request_body_json <- as.character( jsonlite::toJSON( information, auto_unbox = TRUE ) )
   request_body_json <- gsub("\\{\\}", "null", request_body_json)
