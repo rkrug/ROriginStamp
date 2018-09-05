@@ -5,9 +5,7 @@
 #'
 #' @return content in JSON
 #' @importFrom httr content
-#' @export
 #'
-#' @examples
 extractContent <- function(
   response
 ){
