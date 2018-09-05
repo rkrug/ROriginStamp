@@ -10,6 +10,16 @@
 #' @export
 #'
 #' @examples
+#' x <- new_OriginStampResponse()
+#' x
+#' # $content
+#' # [1] NA
+#' #
+#' # $response
+#' # [1] NA
+#' #
+#' # attr(,"class")
+#' # [1] "OriginStampResponse"
 new_OriginStampResponse <- function() {
   result <- list(
     content = NA,

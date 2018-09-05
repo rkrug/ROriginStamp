@@ -19,3 +19,11 @@ object of type \code{OriginStampResponse}, \code{content} contains the additiona
 \description{
 wrapper around \url{https://doc.originstamp.org/#!/default/getHashInformation}
 }
+\examples{
+  \dontrun{
+    # get hash info
+    get_hash_info(
+      hash = "53618057a7dd4063c0ed48b6dba2608e46740558"
+    )
+  }
+}

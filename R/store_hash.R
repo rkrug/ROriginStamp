@@ -14,6 +14,13 @@
 #' @export
 #'
 #' @examples
+#'   \dontrun{
+#'     # Store hash
+#'     store_hash(
+#'       hash = "53618057a7dd4063c0ed48b6dba2608e46740558",
+#'       information = list(name = "My Name", comments = "A fantastic example")
+#'     )
+#'   }
 store_hash <- function(
   hash,
   error_on_fail = TRUE,

@@ -12,6 +12,12 @@
 #' @export
 #'
 #' @examples
+#'   \dontrun{
+#'     # get hash info
+#'     get_hash_info(
+#'       hash = "53618057a7dd4063c0ed48b6dba2608e46740558"
+#'     )
+#'   }
 get_hash_info <- function(
   hash,
   error_on_fail = TRUE,

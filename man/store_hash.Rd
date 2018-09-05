@@ -21,3 +21,12 @@ object of type \code{OriginStampResponse}
 Store a hash to obtain a Trusted Time Stamp
 wrapper around \url{https://doc.originstamp.org/#!/default/post_hash_string}
 }
+\examples{
+  \dontrun{
+    # Store hash
+    store_hash(
+      hash = "53618057a7dd4063c0ed48b6dba2608e46740558",
+      information = list(name = "My Name", comments = "A fantastic example")
+    )
+  }
+}

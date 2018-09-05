@@ -21,3 +21,11 @@ The following options are supported
 }
 }
 
+\examples{
+  ROriginStamp_options("api_key")
+  # [1] "Please get valid API key from Originstamp.org!"
+
+  ROriginStamp_options( api_key = "My new API key")
+  ROriginStamp_options("api_key")
+  # [1] "My new API key"
+}

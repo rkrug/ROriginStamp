@@ -19,3 +19,11 @@ object of class \code{OriginStampResponse}, \code{content} contains seed
 \description{
 wrapper around \url{https://doc.originstamp.org/#!/default/get_download_seed_hash_string}
 }
+\examples{
+  \dontrun{
+    # Retrieve complete seed filf
+    get_complete_seed_file(
+      hash = "53618057a7dd4063c0ed48b6dba2608e46740558"
+    )
+  }
+}

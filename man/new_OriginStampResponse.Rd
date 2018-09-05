@@ -16,3 +16,15 @@ Create new \code{OriginStampResponse} object. The object contains the following 
   \item{response}{The actual respons from the call via the \code{httr} package as an object of type \code{response}.}
 }
 }
+\examples{
+x <- new_OriginStampResponse()
+x
+# $content
+# [1] NA
+#
+# $response
+# [1] NA
+#
+# attr(,"class")
+# [1] "OriginStampResponse"
+}
