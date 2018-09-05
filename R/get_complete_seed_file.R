@@ -18,10 +18,10 @@ get_complete_seed_file <- function(
 ) {
   result <- new_OriginStampResponse()
   ##
-  url <- paste0(get_option("os_url"), "download/seed/", hash)
+  url <- paste0(ROriginStamp_options("api_url"), "download/seed/", hash)
   result$response <- httr::GET(
     url = url,
-    httr::add_headers( Authorization = get_option("api_key") )
+    httr::add_headers( Authorization = ROriginStamp_options("api_key") )
   )
   if (error_on_fail) {
     httr::stop_for_status(result$response)

@@ -1,7 +1,7 @@
 Package: ROriginStamp
 Type: Package
 Title: Interface to OriginStamp to obtain Trusted Time Stamps
-Version: 0.5.2
+Version: 0.6
 Author: Rainer M Krug
 Maintainer: Rainer M Krug <Rainer@krugs.de>
 Description: Obtain trusted timestamps from OriginStamp
@@ -9,7 +9,8 @@ License: GPL-3 + file LICENSE
 Imports:
         httr,
         jsonlite,
-        yaml
+        yaml,
+        settings
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1

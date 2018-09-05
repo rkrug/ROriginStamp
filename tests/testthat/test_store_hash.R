@@ -1,9 +1,8 @@
 context("store hash")
 library(ROriginStamp)
 
-set_option(
-  "api_key",
-  Sys.getenv("api_key")
+ROriginStamp_options(
+  api_key = Sys.getenv("api_key")
 )
 
 test_that(

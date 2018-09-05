@@ -21,7 +21,7 @@ store_hash <- function(
 ) {
   result <- new_OriginStampResponse()
   ##
-  url <- paste0(get_option("os_url"), hash)
+  url <- paste0(ROriginStamp_options("api_url"), hash)
   if (
     max(
       sapply(
@@ -37,7 +37,7 @@ store_hash <- function(
   result$response <- httr::POST(
     url = url,
     httr::add_headers(
-      authorization = get_option("api_key"),
+      authorization = ROriginStamp_options("api_key"),
       body = request_body_json,
       'content-type' = "application/json",
       accept = "application/json",
