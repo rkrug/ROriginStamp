@@ -17,5 +17,5 @@ get_hash_info(hash, error_on_fail = TRUE, file = "")
 object of type \code{OriginStampResponse}, \code{content} contains the additional info as \code{list}.
 }
 \description{
-wrapper around https://doc.originstamp.org/#!/default/getHashInformation
+wrapper around \url{https://doc.originstamp.org/#!/default/getHashInformation}
 }

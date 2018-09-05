@@ -1,7 +1,7 @@
 #' Storing a hash
 #'
 #' Store a hash to obtain a Trusted Time Stamp
-#' wrapper around https://doc.originstamp.org/#!/default/post_hash_string
+#' wrapper around \url{https://doc.originstamp.org/#!/default/post_hash_string}
 #'
 #' @param hash hash for which shuld be sum=bmitted to OroginStamp
 #' @param error_on_fail if \code{TRUE}, raise error when api call fails, otherwise return the failed response.

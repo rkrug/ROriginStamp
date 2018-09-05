@@ -17,5 +17,5 @@ get_complete_seed_file(hash, file = "", error_on_fail = TRUE)
 object of class \code{OriginStampResponse}, \code{content} contains seed
 }
 \description{
-wrapper around https://doc.originstamp.org/#!/default/get_download_seed_hash_string
+wrapper around \url{https://doc.originstamp.org/#!/default/get_download_seed_hash_string}
 }

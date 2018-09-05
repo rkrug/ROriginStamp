@@ -1,6 +1,6 @@
 #' Get complete Seed File
 #'
-#' wrapper around https://doc.originstamp.org/#!/default/get_download_seed_hash_string
+#' wrapper around \url{https://doc.originstamp.org/#!/default/get_download_seed_hash_string}
 #' @param hash hast from which to download the seed
 #' @param file file name to store the seed to. If \code{NULL}, save to default name (\code{HASH.OriginStamp.seed.txt}), if \code{""} (default) do not save, otherwise to \code{file}.
 #' @param error_on_fail if TRUE, raise error when api call fails, otherwise return the failed response.

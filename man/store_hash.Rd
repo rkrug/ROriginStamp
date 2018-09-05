@@ -19,5 +19,5 @@ object of type \code{OriginStampResponse}
 }
 \description{
 Store a hash to obtain a Trusted Time Stamp
-wrapper around https://doc.originstamp.org/#!/default/post_hash_string
+wrapper around \url{https://doc.originstamp.org/#!/default/post_hash_string}
 }
