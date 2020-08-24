@@ -14,22 +14,35 @@
 #' @examples
 #'   \dontrun{
 #'     # get hash info
-#'     get_hash_info(
+#'     get_hash_status(
 #'       hash = "53618057a7dd4063c0ed48b6dba2608e46740558"
 #'     )
 #'   }
-get_hash_info <- function(
+get_hash_status <- function(
   hash,
   error_on_fail = TRUE,
   file = ""
 ) {
   result <- new_OriginStampResponse()
-  ##
-  url <- paste0(ROriginStamp_options("api_url"), hash)
+
+  # Assemble URL ------------------------------------------------------------
+
+  url <- paste(api_url(), "timestamp", hash, sep = "/")
+  gsub("//", "/", url)
+
+  # GET request -------------------------------------------------------------
+
   result$response <- httr::GET(
     url = url,
-    httr::add_headers( Authorization = ROriginStamp_options("api_key") )
+    ## -H
+    config = httr::add_headers(
+      accept = "application/json",
+      Authorization = api_key()
+    )
   )
+
+  # Process return value ----------------------------------------------------
+
   if (error_on_fail) {
     httr::stop_for_status(result$response)
   }

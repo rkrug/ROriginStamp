@@ -1,4 +1,4 @@
-context("store hash")
+context("001 store hash")
 library(ROriginStamp)
 
 ROriginStamp_options(

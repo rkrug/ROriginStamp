@@ -1,4 +1,4 @@
-context("get hash info")
+context("002 get hash info")
 library(ROriginStamp)
 
 ROriginStamp_options(

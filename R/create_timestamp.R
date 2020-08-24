@@ -1,6 +1,6 @@
-#' Storing a hash
+#' Create a timestamp for a hash
 #'
-#' Store a hash to obtain a Trusted Time Stamp
+#' Submit a hash to obtain a Trusted Time Stamp for that hash
 #' wrapper around \url{https://doc.originstamp.org/#!/default/post_hash_string}
 #'
 #' @param hash hash for which shuld be sum=bmitted to OroginStamp
@@ -21,14 +21,13 @@
 #'       information = list(name = "My Name", comments = "A fantastic example")
 #'     )
 #'   }
-store_hash <- function(
+create_timestamp <- function(
   hash,
   error_on_fail = TRUE,
   information = list(email = "none", name = "NULL", comment = "Just a test")
 ) {
   result <- new_OriginStampResponse()
   ##
-  url <- paste0(ROriginStamp_options("api_url"), hash)
   if (
     max(
       sapply(
@@ -39,19 +38,39 @@ store_hash <- function(
   ) {
     stop("Argument 'Information' has to be a list with a maximum length of one per object!")
   }
+
+  # Assemble URL ------------------------------------------------------------
+
+  url <- paste(api_url(), "timestamp", "create", sep= "/")
+  gsub("//", "/", url)
+
+  # Assemble body -----------------------------------------------------------
+
+  body <- information
+  body$hash <- hash
+  body$notifications <- list( currency = 0, notification_type = 0, target = information$email)
+
   request_body_json <- as.character( jsonlite::toJSON( information, auto_unbox = TRUE ) )
   request_body_json <- gsub("\\{\\}", "null", request_body_json)
+
+  # POST request ------------------------------------------------------------
+
   result$response <- httr::POST(
     url = url,
-    httr::add_headers(
-      authorization = ROriginStamp_options("api_key"),
+    ## -H
+    config = httr::add_headers(
+      accept = "application/json",
+      Authorization = api_key(),
       body = request_body_json,
       'content-type' = "application/json",
-      accept = "application/json",
       'user-agent' = "OriginStamp cURL Test"
     ),
+    ## -d
     body = request_body_json
   )
+
+  # Process return value ----------------------------------------------------
+
   if (error_on_fail) {
     httr::stop_for_status(result$response)
   }

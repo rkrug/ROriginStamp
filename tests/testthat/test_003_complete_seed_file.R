@@ -1,4 +1,4 @@
-context("get complete seed file")
+context("003 get complete seed file")
 library(ROriginStamp)
 
 ROriginStamp_options(
