@@ -7,10 +7,8 @@ if ( Sys.getenv("api_key") == "" ) {
   }
 }
 
-ROriginStamp_options(
-  api_key = Sys.getenv("api_key")
-)
+api_key( Sys.getenv("api_key") )
 
-if ( ROriginStamp_options("api_key") != "" ) {
+if ( api_key()("api_key") != "" ) {
   test_check("ROriginStamp")
 }

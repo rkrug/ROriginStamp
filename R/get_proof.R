@@ -31,7 +31,7 @@ get_proof <- function(
   # Assemble URL ------------------------------------------------------------
 
   url <- paste(api_url(), "timestamp", "proof", "url", sep = "/")
-  gsub("//", "/", url)
+  url <- gsub("//", "/", url)
 
   # Assemble body -----------------------------------------------------------
 
@@ -73,6 +73,20 @@ get_proof <- function(
     },
     silent = TRUE
   )
+
+
+  # Check if error  ---------------------------------------------------------
+
+  if (result$content$error_code != 0) {
+    stop(
+      sprintf(
+        "OriginStamp API request failed [%s]\n%s\n\n<%s>",
+        result$content$error_code,
+        result$content$error_message,
+        "see https://api.originstamp.com/swagger/swagger-ui.html#/proof/getProof for details"
+      )
+    )
+  }
 
   # Download proof --------------------------------------------------------
 

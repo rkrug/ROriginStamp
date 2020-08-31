@@ -17,40 +17,48 @@
 #'   \dontrun{
 #'     # Store hash
 #'     store_hash(
-#'       hash = "53618057a7dd4063c0ed48b6dba2608e46740558",
+#'       hash = "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e",
 #'       information = list(name = "My Name", comments = "A fantastic example")
 #'     )
 #'   }
 create_timestamp <- function(
   hash,
   error_on_fail = TRUE,
-  information = list(email = "none", name = "NULL", comment = "Just a test")
+  comment = "None",
+  notifications = list(
+    currency = 0,
+    notification_type = 0,
+    target = "originstamp@trashmail.com"
+  )
 ) {
   result <- new_OriginStampResponse()
   ##
-  if (
-    max(
-      sapply(
-        information,
-        length
-      )
-    ) > 1
-  ) {
-    stop("Argument 'Information' has to be a list with a maximum length of one per object!")
-  }
+  # if (
+  #   max(
+  #     sapply(
+  #       information,
+  #       length
+  #     )
+  #   ) > 1
+  # ) {
+  #   stop("Argument 'Information' has to be a list with a maximum length of one per object!")
+  # }
 
   # Assemble URL ------------------------------------------------------------
 
   url <- paste(api_url(), "timestamp", "create", sep= "/")
-  gsub("//", "/", url)
+  url <- gsub("//", "/", url)
 
   # Assemble body -----------------------------------------------------------
 
-  body <- information
-  body$hash <- hash
-  body$notifications <- list( currency = 0, notification_type = 0, target = information$email)
+  body <- list(
+    comment = comment,
+    hash = hash,
+    notifications = notifications,
+    url = ""
+  )
 
-  request_body_json <- as.character( jsonlite::toJSON( information, auto_unbox = TRUE ) )
+  request_body_json <- as.character( jsonlite::toJSON( body, auto_unbox = TRUE ) )
   request_body_json <- gsub("\\{\\}", "null", request_body_json)
 
   # POST request ------------------------------------------------------------
@@ -61,8 +69,8 @@ create_timestamp <- function(
     config = httr::add_headers(
       accept = "application/json",
       Authorization = api_key(),
-      body = request_body_json,
-      'content-type' = "application/json",
+      'Content-Type' = "application/json",
+      body = "request_body_json",
       'user-agent' = "OriginStamp cURL Test"
     ),
     ## -d
@@ -81,6 +89,20 @@ create_timestamp <- function(
     },
     silent = TRUE
   )
+
+  # Check if error  ---------------------------------------------------------
+
+  if (result$content$error_code != 0) {
+    stop(
+      sprintf(
+        "OriginStamp API request failed [%s]\n%s\n\n<%s>",
+        result$content$error_code,
+        result$content$error_message,
+        "see https://api.originstamp.com/swagger/swagger-ui.html#/proof/createTimestamp for details"
+      )
+    )
+  }
+
   ##
   return(result)
 }

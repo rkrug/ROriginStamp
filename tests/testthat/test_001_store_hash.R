@@ -1,57 +1,30 @@
-context("001 store hash")
+context("001 create timestamp")
 library(ROriginStamp)
 
-ROriginStamp_options(
-  api_key = Sys.getenv("api_key")
-)
+api_key("none")
 
 test_that(
-  "error if information not in correct format",
+  "result is as expected",
   {
     expect_error(
-      object = store_hash(
-        hash = "53618057a7dd4063c0ed48b6dba2608e467",
-        information = list(name = "RMK", comments = "comment1")
-      )
+      object = create_timestamp(hash = "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"),
+      regexp = "OriginStamp API request failed [3115]*."
     )
   }
+)
+
+
+api_key(
+  Sys.getenv("api_key")
 )
 
 test_that(
   "result is as expected",
   {
-    expect_known_output(
-      object = store_hash(
-        hash = "53618057a7dd4063c0ed48b6dba2608e46740558",
-        information = list(name = "RMK", comments = "comment1")
-      ),
-      file = file.path(system.file(package = "ROriginStamp", "testdata"), "store_hash.rds")
-    )
-  }
-)
-
-test_that(
-  "error or not depending on error_on_fail",
-  {
-    expect_error( object = store_hash(hash = "53618057a7dd4063c0ed48b6dba2608e467", error_on_fail = TRUE) )
-    expect_known_output( object = store_hash(hash = "53618057a7dd4063c0ed48b6dba2608e46", error_on_fail = FALSE), file = file.path(system.file(package = "ROriginStamp", "testdata"), "store_hash_error.rds") )
-  }
-)
-
-test_that(
-  "Wrong argument for 'information' raises error",
-  {
-    expect_error(
-      object = store_hash(
-        hash = "53618057a7dd4063c0ed48b6dba2608e46740558",
-        information = list( names = c("RMK", "tester") )
-      )
-    )
-    expect_error(
-      object = store_hash(
-        hash = "53618057a7dd4063c0ed48b6dba2608e46740558",
-        information = list( "RMK", "test" )
-      )
+    expect_known_value(
+      object = create_timestamp(hash = "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e")$content,
+      file = "ref_001_create_timestamp.rda",
+      update = TRUE
     )
   }
 )

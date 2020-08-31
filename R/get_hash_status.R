@@ -15,7 +15,7 @@
 #'   \dontrun{
 #'     # get hash info
 #'     get_hash_status(
-#'       hash = "53618057a7dd4063c0ed48b6dba2608e46740558"
+#'       hash = "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
 #'     )
 #'   }
 get_hash_status <- function(
@@ -28,7 +28,7 @@ get_hash_status <- function(
   # Assemble URL ------------------------------------------------------------
 
   url <- paste(api_url(), "timestamp", hash, sep = "/")
-  gsub("//", "/", url)
+  url <- gsub("//", "/", url)
 
   # GET request -------------------------------------------------------------
 
@@ -63,6 +63,20 @@ get_hash_status <- function(
       file = file
     )
   }
+
+  # Check if error  ---------------------------------------------------------
+
+  if (result$content$error_code != 0) {
+    stop(
+      sprintf(
+        "OriginStamp API request failed [%s]\n%s\n\n<%s>",
+        result$content$error_code,
+        result$content$error_message,
+        "see https://api.originstamp.com/swagger/swagger-ui.html#/proof/getHashStatus for details"
+      )
+    )
+  }
+
   ##
   return(result)
 }
