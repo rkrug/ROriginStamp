@@ -1,7 +1,7 @@
-#' Get the key usage
+#' Get the active currencies
 #'
-#' wrapper around \url{https://api.originstamp.com/swagger/swagger-ui.html#/API_Key/getApiKeyUsage}. The
-#' function downloads information about the api key.
+#' wrapper around \url{https://api.originstamp.com/swagger/swagger-ui.html#/scheduler/getActiveCurrenciese}. The
+#' function downloads information about the currencies.
 #' @param error_on_fail if TRUE, raise error when api call fails, otherwise
 #'   return the failed response.
 #'
@@ -12,16 +12,16 @@
 #' @examples
 #'   \dontrun{
 #'     # Retrieve complete merkle tree proof
-#'     get_key_usage()
+#'     get_currencies()
 #'   }
-get_key_usage<- function(
+get_currencies<- function(
   error_on_fail = TRUE
 ) {
   result <- new_OriginStampResponse()
 
   # Assemble URL ------------------------------------------------------------
 
-  url <- paste(api_url(), "api_key", "usage", sep = "/")
+  url <- paste(api_url(), "currencies", "get", sep = "/")
   url <- gsub("//", "/", url)
   url <- gsub(":/", "://", url)
 
@@ -62,7 +62,7 @@ get_key_usage<- function(
         "OriginStamp API request failed [%s]\n%s\n\n<%s>",
         result$content$error_code,
         result$content$error_message,
-        "see https://api.originstamp.com/swagger/swagger-ui.html#/API_Key/getApiKeyUsage"
+        "see https://api.originstamp.com/swagger/swagger-ui.html#/scheduler/getActiveCurrencies"
       )
     )
   }

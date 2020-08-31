@@ -7,7 +7,9 @@
 create_timestamp(
   hash,
   error_on_fail = TRUE,
-  information = list(email = "none", name = "NULL", comment = "Just a test")
+  comment = "None",
+  notifications = list(currency = 0, notification_type = 0, target =
+    "originstamp@trashmail.com")
 )
 }
 \arguments{
@@ -15,7 +17,9 @@ create_timestamp(
 
 \item{error_on_fail}{if \code{TRUE}, raise error when api call fails, otherwise return the failed response.}
 
-\item{information}{contains information which is stored together with the submitted hash_string. Has to be a named list with each element being of length one}
+\item{comment}{a comment for the new timestamp}
+
+\item{notifications}{notification settings}
 }
 \value{
 object of type \code{OriginStampResponse}
@@ -28,7 +32,7 @@ wrapper around \url{https://doc.originstamp.org/#!/default/post_hash_string}
   \dontrun{
     # Store hash
     store_hash(
-      hash = "53618057a7dd4063c0ed48b6dba2608e46740558",
+      hash = "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e",
       information = list(name = "My Name", comments = "A fantastic example")
     )
   }

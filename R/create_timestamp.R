@@ -5,10 +5,11 @@
 #'
 #' @param hash hash for which shuld be sum=bmitted to OroginStamp
 #' @param error_on_fail if \code{TRUE}, raise error when api call fails, otherwise return the failed response.
-#' @param information contains information which is stored together with the submitted hash_string. Has to be a named list with each element being of length one
-
-
+#' @param comment a comment for the new timestamp
+#' @param notifications notification settings
+#'
 #' @return object of type \code{OriginStampResponse}
+#'
 #' @importFrom httr POST add_headers stop_for_status content
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -56,7 +57,7 @@ create_timestamp <- function(
     comment = comment,
     hash = hash,
     notifications = notifications,
-    url = ""
+    url = "string"
   )
 
   request_body_json <- as.character( jsonlite::toJSON( body, auto_unbox = TRUE ) )
@@ -72,10 +73,11 @@ create_timestamp <- function(
       Authorization = api_key(),
       'Content-Type' = "application/json"#,
       # body = "request_body_json",
-      # 'user-agent' = "OriginStamp cURL Test"
+      # 'user-agent' = "libcurl/7.64.1 r-curl/4.3 httr/1.4.2 ROriginStamp"
     ),
     ## -d
-    body = request_body_json
+    body = request_body_json,
+    httr::verbose(data_out = TRUE, data_in = TRUE, info = TRUE)
   )
 
   # Process return value ----------------------------------------------------

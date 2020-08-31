@@ -12,6 +12,7 @@
 #'   \code{xml_document}.
 #' @importFrom httr POST add_headers stop_for_status content
 #' @importFrom jsonlite toJSON fromJSON
+#' @importFrom xml2 write_xml
 #' @export
 #'
 #' @examples

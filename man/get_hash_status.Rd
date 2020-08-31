@@ -4,14 +4,12 @@
 \alias{get_hash_status}
 \title{Retrieve hash Information}
 \usage{
-get_hash_status(hash, error_on_fail = TRUE, file = "")
+get_hash_status(hash, error_on_fail = TRUE)
 }
 \arguments{
 \item{hash}{hast from which to download the info}
 
 \item{error_on_fail}{if \code{TRUE}, raise error when api call fails, otherwise return the failed response.}
-
-\item{file}{file name to store the info to as \code{.yml} file. If \code{NULL}, save to default name (\code{HASH.OriginStamp.hash-inf0.txt}), if \code{""} (default) do not save, otherwise to \code{file}.}
 }
 \value{
 object of type \code{OriginStampResponse}, \code{content} contains the additional info as \code{list}.
@@ -23,7 +21,7 @@ wrapper around \url{https://doc.originstamp.org/#!/default/getHashInformation}
   \dontrun{
     # get hash info
     get_hash_status(
-      hash = "53618057a7dd4063c0ed48b6dba2608e46740558"
+      hash = "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
     )
   }
 }
