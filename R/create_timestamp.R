@@ -48,6 +48,7 @@ create_timestamp <- function(
 
   url <- paste(api_url(), "timestamp", "create", sep= "/")
   url <- gsub("//", "/", url)
+  url <- gsub(":/", "://", url)
 
   # Assemble body -----------------------------------------------------------
 
@@ -69,9 +70,9 @@ create_timestamp <- function(
     config = httr::add_headers(
       accept = "application/json",
       Authorization = api_key(),
-      'Content-Type' = "application/json",
-      body = "request_body_json",
-      'user-agent' = "OriginStamp cURL Test"
+      'Content-Type' = "application/json"#,
+      # body = "request_body_json",
+      # 'user-agent' = "OriginStamp cURL Test"
     ),
     ## -d
     body = request_body_json

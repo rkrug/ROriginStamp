@@ -1,4 +1,4 @@
-context("003 get complete seed file")
+context("003 get proof")
 library(ROriginStamp)
 
 api_key("none")

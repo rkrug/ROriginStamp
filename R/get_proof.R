@@ -32,6 +32,7 @@ get_proof <- function(
 
   url <- paste(api_url(), "timestamp", "proof", "url", sep = "/")
   url <- gsub("//", "/", url)
+  url <- gsub(":/", "://", url)
 
   # Assemble body -----------------------------------------------------------
 

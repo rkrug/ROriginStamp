@@ -1,4 +1,4 @@
-context("003 get complete seed file")
+context("002 get hash status")
 library(ROriginStamp)
 
 api_key("none")

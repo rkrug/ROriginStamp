@@ -29,6 +29,7 @@ get_hash_status <- function(
 
   url <- paste(api_url(), "timestamp", hash, sep = "/")
   url <- gsub("//", "/", url)
+  url <- gsub(":/", "://", url)
 
   # GET request -------------------------------------------------------------
 
