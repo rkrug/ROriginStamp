@@ -56,8 +56,7 @@ create_timestamp <- function(
   body <- list(
     comment = comment,
     hash = hash,
-    notifications = notifications,
-    url = "string"
+    notifications = notifications
   )
 
   request_body_json <- as.character( jsonlite::toJSON( body, auto_unbox = TRUE ) )
