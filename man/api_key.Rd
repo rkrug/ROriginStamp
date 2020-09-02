@@ -17,5 +17,5 @@ Get or set the api key for all operations.
 }
 \examples{
 api_key()
-..
+
 }

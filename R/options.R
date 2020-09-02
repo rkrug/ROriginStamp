@@ -7,7 +7,7 @@
 #'
 #' @examples
 #' api_key()
-#'..
+#'
 api_key <- function(key) {
   old_key <- getOption("ROriginStamp")$api_key
   if (!missing(key)) {
