@@ -20,6 +20,6 @@ function downloads information about the currencies.
 \examples{
   \dontrun{
     # Retrieve complete merkle tree proof
-    get_key_usage()
+    get_currencies()
   }
 }
