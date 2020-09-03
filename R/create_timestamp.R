@@ -25,8 +25,8 @@
 create_timestamp <- function(
   hash,
   error_on_fail = TRUE,
-  comment = "None",
-  notifications = list(
+  comment = "test",
+  notifications = data.frame(
     currency = 0,
     notification_type = 0,
     target = "originstamp@trashmail.com"
@@ -75,8 +75,8 @@ create_timestamp <- function(
       # 'user-agent' = "libcurl/7.64.1 r-curl/4.3 httr/1.4.2 ROriginStamp"
     ),
     ## -d
-    body = request_body_json,
-    httr::verbose(data_out = TRUE, data_in = TRUE, info = TRUE)
+    body = request_body_json #,
+    # httr::verbose(data_out = TRUE, data_in = TRUE, info = TRUE)
   )
 
   # Process return value ----------------------------------------------------
