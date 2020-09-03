@@ -1,6 +1,6 @@
 opt <- list(
   api_url = "https://api.originstamp.com/v3",
-  api_key = "Please get valid API key from https://Originstamp.com!"
+  api_key = ""
 )
 
 options(ROriginStamp = opt)

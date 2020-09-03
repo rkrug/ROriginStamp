@@ -13,7 +13,8 @@ api_key(key)
 Either the old api key (when \code{key} is supplied) or the current api key (when \code{key} is not supplied)
 }
 \description{
-Get or set the api key for all operations.
+If the api key \code{api_key() != ""}, that one is returned, otherwise
+the value of the environmental variable "ORIGINSTAMP_API_KEY" is returned
 }
 \examples{
 api_key()

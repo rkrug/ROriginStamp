@@ -33,17 +33,6 @@ create_timestamp <- function(
   )
 ) {
   result <- new_OriginStampResponse()
-  ##
-  # if (
-  #   max(
-  #     sapply(
-  #       information,
-  #       length
-  #     )
-  #   ) > 1
-  # ) {
-  #   stop("Argument 'Information' has to be a list with a maximum length of one per object!")
-  # }
 
   # Assemble URL ------------------------------------------------------------
 
