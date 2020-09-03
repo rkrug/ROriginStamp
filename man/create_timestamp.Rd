@@ -7,8 +7,8 @@
 create_timestamp(
   hash,
   error_on_fail = TRUE,
-  comment = "None",
-  notifications = list(currency = 0, notification_type = 0, target =
+  comment = "test",
+  notifications = data.frame(currency = 0, notification_type = 0, target =
     "originstamp@trashmail.com")
 )
 }

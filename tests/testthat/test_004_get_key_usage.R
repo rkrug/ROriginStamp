@@ -1,12 +1,10 @@
 context("004 get key usage")
-library(ROriginStamp)
 
 api_key("none")
 
 test_that(
   "result is as expected",
   {
-    testthat::skip_on_travis()
     expect_error(
       object = get_key_usage(),
       regexp = "OriginStamp API request failed [3201]*."
@@ -22,7 +20,6 @@ api_key(
 test_that(
   "result is as expected",
   {
-    testthat::skip_on_travis()
     expect_equal(
       object = get_key_usage()$content$error_code,
       expected = 0
