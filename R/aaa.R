@@ -1,6 +1,9 @@
-opt <- list(
-  api_url = "https://api.originstamp.com/v3",
-  api_key = "Please get valid API key from https://Originstamp.com!"
-)
+.onLoad <- function(libname, pkgname) {
+  opt <- list(
+    api_url = "https://api.originstamp.com/v3",
+    api_key = ""
+  )
 
-options(ROriginStamp = opt)
+  options(ROriginStamp = opt)
+  invisible()
+}

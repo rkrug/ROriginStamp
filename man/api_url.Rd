@@ -10,7 +10,8 @@ api_url(url)
 \item{url}{the api url to be used. The api url is returned invisibly.}
 }
 \value{
-Either the old api url (when \code{url} is supplied) or the current api url (when \code{url} is not supplied)
+Either the old api url (when \code{url} is supplied) or the current
+  api url (when \code{url} is not supplied)
 }
 \description{
 Get or set the api url for all operations.

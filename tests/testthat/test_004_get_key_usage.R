@@ -13,9 +13,7 @@ test_that(
 )
 
 
-api_key(
-  Sys.getenv("api_key")
-)
+api_key("")
 
 test_that(
   "result is as expected",
