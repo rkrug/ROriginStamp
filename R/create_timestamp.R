@@ -16,10 +16,9 @@
 #'
 #' @examples
 #'   \dontrun{
-#'     # Store hash
-#'     store_hash(
-#'       hash = "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e",
-#'       information = list(name = "My Name", comments = "A fantastic example")
+#'     # create timestamp
+#'     create_timestamp(
+#'       hash = "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
 #'     )
 #'   }
 create_timestamp <- function(
