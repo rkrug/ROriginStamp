@@ -11,7 +11,6 @@
 api_key <- function(key) {
   old_key <- getOption("ROriginStamp")$api_key
 
-  print(paste("####", old_key, "####"))
   if (!missing(key)) {
     opt <- getOption("ROriginStamp")
     opt$api_key <- key
@@ -21,7 +20,6 @@ api_key <- function(key) {
       old_key <- Sys.getenv("api_key")
     }
   }
-  print(paste(">>>>", old_key, "<<<<"))
   invisible(old_key)
 }
 
@@ -43,6 +41,5 @@ api_url <- function(url) {
     opt$api_url <- url
     options(ROriginStamp = opt)
   }
-  print(paste(">>>>>>>>>>>>", old_url, ">>>>>>>>>>>>>>>>>>>>>>>"))
   invisible(old_url)
 }
