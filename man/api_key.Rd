@@ -2,8 +2,7 @@
 % Please edit documentation in R/options.R
 \name{api_key}
 \alias{api_key}
-\title{If the api key \code{api_key() != ""}, that one is returned, otherwise
-the value of the environmental variable "api_key" is returned}
+\title{Allows the user to set and read the api key to be used as default for all functions in this package.}
 \usage{
 api_key(key)
 }
@@ -11,11 +10,14 @@ api_key(key)
 \item{key}{the api key to be used. The old api key is returned invisibly.}
 }
 \value{
-Either the old api key (when \code{key} is supplied) or the current api key (when \code{key} is not supplied)
+If \code{api_key()} with no arguments, the current value for the api
+  key is returned or, if it would be \code{(""}, the value of the
+  environmental variable \code{ROriginStamp_api_key} is returned. If the
+  argument \code{key} is specified, the api key will be set to the value of
+  \code{key} and the old api key will be returned invisibly.
 }
 \description{
-If the api key \code{api_key() != ""}, that one is returned, otherwise
-the value of the environmental variable "api_key" is returned
+Allows the user to set and read the api key to be used as default for all functions in this package.
 }
 \examples{
 api_key()

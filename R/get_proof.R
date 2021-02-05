@@ -1,11 +1,13 @@
 #' Get the Proof (Merkle Tree)
 #'
-#' wrapper around \url{https://api.originstamp.com/v3/timestamp/proof/url}. The
+#' wrapper around \url{https://api.originstamp.com/swagger/swagger-ui.html#/proof/getProof}. The
 #' function downloads the merkle tree as proof.
 #' @param hash hash from which to download the seed
 #' @param file if provided, file name to store the merkle tree as xml file to.
 #' @param error_on_fail if TRUE, raise error when api call fails, otherwise
 #'   return the failed response.
+#' @param url the url of the api. The default is to use the url as returned by the function \code{api_url()}
+#' @param key the api key. The default is to use the key as returned by the function \code{api_key()}
 #'
 #' @return object of class \code{OriginStampResponse}, with an additional
 #'   element, \code{return$proof}, which contains the merkle tree as an
@@ -25,13 +27,15 @@
 get_proof <- function(
   hash,
   file,
-  error_on_fail = TRUE
+  error_on_fail = TRUE,
+  url = api_url(),
+  key = api_key()
 ) {
   result <- new_OriginStampResponse()
 
   # Assemble URL ------------------------------------------------------------
 
-  url <- paste(api_url(), "timestamp", "proof", "url", sep = "/")
+  url <- paste(url, "timestamp", "proof", "url", sep = "/")
   url <- gsub("//", "/", url)
   url <- gsub(":/", "://", url)
 
@@ -53,7 +57,7 @@ get_proof <- function(
     ## -H
     config = httr::add_headers(
       accept = "application/json",
-      Authorization = api_key(),
+      Authorization = key,
       'content-type' = "application/json"
     ),
     body = request_body_json
@@ -79,7 +83,7 @@ get_proof <- function(
 
   # Check if error  ---------------------------------------------------------
 
-  if (result$content$error_code != 0) {
+  if ((result$content$error_code != 0) & error_on_fail) {
     stop(
       sprintf(
         "OriginStamp API request failed [%s]\n%s\n\n<%s>",
@@ -92,18 +96,19 @@ get_proof <- function(
 
   # Download proof --------------------------------------------------------
 
-  if (body$proof_type == 0) {
-    result$proof <- httr::content(
-      x = httr::GET( result$content$data$download_url ),
-      type = "text/xml"
-    )
-    if (!missing(file)) {
-      xml2::write_xml(
-        x = result$proof,
-        file = file
+  if (result$content$error_code == 0) {
+    if (body$proof_type == 0) {
+      result$proof <- httr::content(
+        x = httr::GET( result$content$data$download_url ),
+        type = "text/xml"
       )
+      if (!missing(file)) {
+        xml2::write_xml(
+          x = result$proof,
+          file = file
+        )
+      }
     }
   }
-
   return( result )
 }

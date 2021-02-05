@@ -64,7 +64,8 @@ deps:
 
 docs:
 	Rscript -e "devtools::document(roclets = c('rd', 'collate', 'namespace', 'vignette'))"
-
+	Rscript -e "codemetar::write_codemeta()"
+	
 ####
 
 vignettes: $(VIGHTML)

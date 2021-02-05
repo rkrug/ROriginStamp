@@ -9,7 +9,9 @@ create_timestamp(
   error_on_fail = TRUE,
   comment = "test",
   notifications = data.frame(currency = 0, notification_type = 0, target =
-    "originstamp@trashmail.com")
+    "originstamp@trashmail.com"),
+  url = api_url(),
+  key = api_key()
 )
 }
 \arguments{
@@ -20,6 +22,10 @@ create_timestamp(
 \item{comment}{a comment for the new timestamp}
 
 \item{notifications}{notification settings}
+
+\item{url}{the url of the api. The default is to use the url as returned by the function \code{api_url()}}
+
+\item{key}{the api key. The default is to use the key as returned by the function \code{api_key()}}
 }
 \value{
 object of type \code{OriginStampResponse}

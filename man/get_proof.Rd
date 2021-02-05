@@ -4,7 +4,7 @@
 \alias{get_proof}
 \title{Get the Proof (Merkle Tree)}
 \usage{
-get_proof(hash, file, error_on_fail = TRUE)
+get_proof(hash, file, error_on_fail = TRUE, url = api_url(), key = api_key())
 }
 \arguments{
 \item{hash}{hash from which to download the seed}
@@ -13,6 +13,10 @@ get_proof(hash, file, error_on_fail = TRUE)
 
 \item{error_on_fail}{if TRUE, raise error when api call fails, otherwise
 return the failed response.}
+
+\item{url}{the url of the api. The default is to use the url as returned by the function \code{api_url()}}
+
+\item{key}{the api key. The default is to use the key as returned by the function \code{api_key()}}
 }
 \value{
 object of class \code{OriginStampResponse}, with an additional
@@ -20,7 +24,7 @@ object of class \code{OriginStampResponse}, with an additional
   \code{xml_document}.
 }
 \description{
-wrapper around \url{https://api.originstamp.com/v3/timestamp/proof/url}. The
+wrapper around \url{https://api.originstamp.com/swagger/swagger-ui.html#/proof/getProof}. The
 function downloads the merkle tree as proof.
 }
 \examples{

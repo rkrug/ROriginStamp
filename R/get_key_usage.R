@@ -4,6 +4,8 @@
 #' function downloads information about the api key.
 #' @param error_on_fail if TRUE, raise error when api call fails, otherwise
 #'   return the failed response.
+#' @param url the url of the api. The default is to use the url as returned by the function \code{api_url()}
+#' @param key the api key. The default is to use the key as returned by the function \code{api_key()}
 #'
 #' @return object of class \code{OriginStampResponse}.
 #' @importFrom httr POST add_headers stop_for_status content
@@ -15,13 +17,15 @@
 #'     get_key_usage()
 #'   }
 get_key_usage<- function(
-  error_on_fail = TRUE
+  error_on_fail = TRUE,
+  url = api_url(),
+  key = api_key()
 ) {
   result <- new_OriginStampResponse()
 
   # Assemble URL ------------------------------------------------------------
 
-  url <- paste(api_url(), "api_key", "usage", sep = "/")
+  url <- paste(url, "api_key", "usage", sep = "/")
   url <- gsub("//", "/", url)
   url <- gsub(":/", "://", url)
 
@@ -32,7 +36,7 @@ get_key_usage<- function(
     ## -H
     config = httr::add_headers(
       accept = "*/*",
-      Authorization = api_key()
+      Authorization = key
     )
   )
 
@@ -56,7 +60,7 @@ get_key_usage<- function(
 
   # Check if error  ---------------------------------------------------------
 
-  if (result$content$error_code != 0) {
+  if ((result$content$error_code != 0) & error_on_fail) {
     stop(
       sprintf(
         "OriginStamp API request failed [%s]\n%s\n\n<%s>",

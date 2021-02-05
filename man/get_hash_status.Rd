@@ -4,18 +4,22 @@
 \alias{get_hash_status}
 \title{Retrieve hash Information}
 \usage{
-get_hash_status(hash, error_on_fail = TRUE)
+get_hash_status(hash, error_on_fail = TRUE, url = api_url(), key = api_key())
 }
 \arguments{
-\item{hash}{hast from which to download the info}
+\item{hash}{hash from which to download the info}
 
 \item{error_on_fail}{if \code{TRUE}, raise error when api call fails, otherwise return the failed response.}
+
+\item{url}{the url of the api. The default is to use the url as returned by the function \code{api_url()}}
+
+\item{key}{the api key. The default is to use the key as returned by the function \code{api_key()}}
 }
 \value{
 object of type \code{OriginStampResponse}, \code{content} contains the additional info as \code{list}.
 }
 \description{
-wrapper around \url{https://doc.originstamp.org/#!/default/getHashInformation}
+wrapper around \url{https://api.originstamp.com/swagger/swagger-ui.html#/timestamp/getHashStatus}
 }
 \examples{
   \dontrun{

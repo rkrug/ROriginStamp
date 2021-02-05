@@ -7,6 +7,8 @@
 #' @param error_on_fail if \code{TRUE}, raise error when api call fails, otherwise return the failed response.
 #' @param comment a comment for the new timestamp
 #' @param notifications notification settings
+#' @param url the url of the api. The default is to use the url as returned by the function \code{api_url()}
+#' @param key the api key. The default is to use the key as returned by the function \code{api_key()}
 #'
 #' @return object of type \code{OriginStampResponse}
 #'
@@ -29,7 +31,9 @@ create_timestamp <- function(
     currency = 0,
     notification_type = 0,
     target = "originstamp@trashmail.com"
-  )
+  ),
+  url = api_url(),
+  key = api_key()
 ) {
   result <- new_OriginStampResponse()
   ##
@@ -46,7 +50,7 @@ create_timestamp <- function(
 
   # Assemble URL ------------------------------------------------------------
 
-  url <- paste(api_url(), "timestamp", "create", sep= "/")
+  url <- paste(url, "timestamp", "create", sep= "/")
   url <- gsub("//", "/", url)
   url <- gsub(":/", "://", url)
 
@@ -68,7 +72,7 @@ create_timestamp <- function(
     ## -H
     config = httr::add_headers(
       accept = "application/json",
-      Authorization = api_key(),
+      Authorization = key,
       'Content-Type' = "application/json"#,
       # body = "request_body_json",
       # 'user-agent' = "libcurl/7.64.1 r-curl/4.3 httr/1.4.2 ROriginStamp"
@@ -93,7 +97,7 @@ create_timestamp <- function(
 
   # Check if error  ---------------------------------------------------------
 
-  if (result$content$error_code != 0) {
+  if ((result$content$error_code != 0) & error_on_fail) {
     stop(
       sprintf(
         "OriginStamp API request failed [%s]\n%s\n\n<%s>",

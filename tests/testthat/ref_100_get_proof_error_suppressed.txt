@@ -1,0 +1,6 @@
+ [1] "content.error_code"    "content.error_message" "content.data"         
+ [4] "content.date_created"  "content.single_seed"   "content.multi_seed"   
+ [7] "response.url"          "response.status_code"  "response.headers"     
+[10] "response.all_headers"  "response.cookies"      "response.content"     
+[13] "response.date"         "response.times"        "response.request"     
+[16] "response.handle"      

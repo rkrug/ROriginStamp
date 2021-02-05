@@ -1,8 +1,10 @@
 #' Retrieve hash Information
 #'
-#' wrapper around \url{https://doc.originstamp.org/#!/default/getHashInformation}
-#' @param hash hast from which to download the info
+#' wrapper around \url{https://api.originstamp.com/swagger/swagger-ui.html#/timestamp/getHashStatus}
+#' @param hash hash from which to download the info
 #' @param error_on_fail if \code{TRUE}, raise error when api call fails, otherwise return the failed response.
+#' @param url the url of the api. The default is to use the url as returned by the function \code{api_url()}
+#' @param key the api key. The default is to use the key as returned by the function \code{api_key()}
 #'
 #' @return object of type \code{OriginStampResponse}, \code{content} contains the additional info as \code{list}.
 #' @importFrom httr GET add_headers stop_for_status content
@@ -18,13 +20,15 @@
 #'   }
 get_hash_status <- function(
   hash,
-  error_on_fail = TRUE
+  error_on_fail = TRUE,
+  url = api_url(),
+  key = api_key()
 ) {
   result <- new_OriginStampResponse()
 
   # Assemble URL ------------------------------------------------------------
 
-  url <- paste(api_url(), "timestamp", hash, sep = "/")
+  url <- paste(url, "timestamp", hash, sep = "/")
   url <- gsub("//", "/", url)
   url <- gsub(":/", "://", url)
 
@@ -35,7 +39,7 @@ get_hash_status <- function(
     ## -H
     config = httr::add_headers(
       accept = "application/json",
-      Authorization = api_key()
+      Authorization = key
     )
   )
 
@@ -64,7 +68,7 @@ get_hash_status <- function(
 
   # Check if error  ---------------------------------------------------------
 
-  if (result$content$error_code != 0) {
+  if ((result$content$error_code != 0) & error_on_fail) {
     stop(
       sprintf(
         "OriginStamp API request failed [%s]\n%s\n\n<%s>",
