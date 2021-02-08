@@ -2,12 +2,12 @@
 % Please edit documentation in R/get_hash_status.R
 \name{get_hash_status}
 \alias{get_hash_status}
-\title{Retrieve hash Information}
+\title{Retrieve Information for the hash calculated from an R object or file.}
 \usage{
-get_hash_status(hash, error_on_fail = TRUE, url = api_url(), key = api_key())
+get_hash_status(x, error_on_fail = TRUE, url = api_url(), key = api_key())
 }
 \arguments{
-\item{hash}{hash from which to download the info}
+\item{x}{an R object of which a hash will be calculated using the function \code{hash(x)}. The resulting hash will be submitted to OriginStamp.}
 
 \item{error_on_fail}{if \code{TRUE}, raise error when api call fails, otherwise return the failed response.}
 
@@ -19,13 +19,26 @@ get_hash_status(hash, error_on_fail = TRUE, url = api_url(), key = api_key())
 object of type \code{OriginStampResponse}, \code{content} contains the additional info as \code{list}.
 }
 \description{
-wrapper around \url{https://api.originstamp.com/swagger/swagger-ui.html#/timestamp/getHashStatus}
+Wrapper around \url{https://api.originstamp.com/swagger/swagger-ui.html#/timestamp/getHashStatus}
+}
+\details{
+The behavior depends on the class of the argument \code{x}:
+\itemize{
+\item \strong{an object of class \code{hash} as returned by the package openssl}: the hash is submitted to OriginStamp
+\item \strong{\code{character} vector of length 1 containing the name of an existing file}: the hash of the file is
+calculated and submitted to OriginStamp
+\item \strong{any other R object}: the hash is calculated using the function \code{hash()} and submitted to OriginStamp
+}
 }
 \examples{
   \dontrun{
     # get hash info
+    x <- "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
+    class(x) <- "hash"
     get_hash_status(
-      hash = "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
+      x = x
     )
+
+    get_hash_status( x = letters )
   }
 }

@@ -1,2 +1,0 @@
-[1] "error_code"            "error_message"         "single_seed.timestamp"
-[4] "multi_seed.timestamp" 

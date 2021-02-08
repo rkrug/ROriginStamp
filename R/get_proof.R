@@ -1,8 +1,16 @@
-#' Get the Proof (Merkle Tree)
+#' Get the Proof (Merkle Tree) for the hash calculated from an R object or file.
 #'
-#' wrapper around \url{https://api.originstamp.com/swagger/swagger-ui.html#/proof/getProof}. The
+#' Wrapper around \url{https://api.originstamp.com/swagger/swagger-ui.html#/proof/getProof}. The
 #' function downloads the merkle tree as proof.
-#' @param hash hash from which to download the seed
+#'
+#' The behavior depends on the class of the argument `x`:
+#'    - **an object of class `hash` as returned by the package openssl**: the hash is submitted to OriginStamp
+#'    - **`character` vector of length 1 containing the name of an existing file**: the hash of the file is
+#'      calculated and submitted to OriginStamp
+#'    - **any other R object**: the hash is calculated using the function `hash()` and submitted to OriginStamp
+#'
+#' @md
+#' @param x an R object of which a hash will be calculated using the function `hash(x)`. The resulting hash will be submitted to OriginStamp.
 #' @param file if provided, file name to store the merkle tree as xml file to.
 #' @param error_on_fail if TRUE, raise error when api call fails, otherwise
 #'   return the failed response.
@@ -20,17 +28,25 @@
 #' @examples
 #'   \dontrun{
 #'     # Retrieve complete merkle tree proof
+#'     x <- "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
+#'     class(x) <- "hash"
 #'     get_proof(
-#'       hash = "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
+#'       x = x
 #'     )
 #'   }
 get_proof <- function(
-  hash,
+  x,
   file,
   error_on_fail = TRUE,
   url = api_url(),
   key = api_key()
 ) {
+  hash <- as.character( hash(x) )
+  class(hash) <- NULL
+
+
+  class(hash) <- NULL
+
   result <- new_OriginStampResponse()
 
   # Assemble URL ------------------------------------------------------------

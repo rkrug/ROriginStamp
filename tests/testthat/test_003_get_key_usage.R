@@ -1,29 +1,28 @@
-test_that(
-  "error",
-  {
-    expect_error(
-      object = {
-        api_key("none")
-        get_key_usage()
-      },
-      regexp = "OriginStamp API request failed [3201]*."
-    )
-  }
-)
+# test_that(
+#   "error",
+#   {
+#     expect_snapshot_error(
+#       x = {
+#         api_key("none")
+#         get_key_usage()
+#       },
+#       class = "error",
+#       cran = TRUE
+#     )
+#   }
+# )
 
 test_that(
   "error suppressed",
   {
-    expect_known_output(
-      object = {
+    expect_snapshot_output(
+      x = {
         api_key("dadada")
         get_key_usage(error_on_fail = FALSE) %>%
           unlist(recursive = FALSE) %>%
-          names() %>%
-          print()
+          names()
       },
-      file = "ref_003_get_key_usage_error_suppressed.txt",
-      update = TRUE
+      cran = TRUE
     )
   }
 )
@@ -31,16 +30,14 @@ test_that(
 test_that(
   "correct",
   {
-    expect_known_output(
-      object = {
+    expect_snapshot_output(
+      x = {
         api_key("")
         get_key_usage() %>%
           unlist(recursive = FALSE) %>%
-          names() %>%
-          print()
+          names()
       },
-      file = "ref_003_get_key_usage_correct.txt",
-      update = TRUE
+      cran = TRUE
     )
   }
 )

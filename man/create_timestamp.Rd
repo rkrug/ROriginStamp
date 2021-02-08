@@ -2,10 +2,10 @@
 % Please edit documentation in R/create_timestamp.R
 \name{create_timestamp}
 \alias{create_timestamp}
-\title{Create a timestamp for a hash}
+\title{Create a timestamp for a for an R object or file.}
 \usage{
 create_timestamp(
-  hash,
+  x,
   error_on_fail = TRUE,
   comment = "test",
   notifications = data.frame(currency = 0, notification_type = 0, target =
@@ -15,7 +15,7 @@ create_timestamp(
 )
 }
 \arguments{
-\item{hash}{hash for which shuld be sum=bmitted to OroginStamp}
+\item{x}{an R object of which a hash will be calculated using the function \code{hash(x)}. The resulting hash will be submitted to OriginStamp.}
 
 \item{error_on_fail}{if \code{TRUE}, raise error when api call fails, otherwise return the failed response.}
 
@@ -31,14 +31,23 @@ create_timestamp(
 object of type \code{OriginStampResponse}
 }
 \description{
-Submit a hash to obtain a Trusted Time Stamp for that hash
+Submit a hash of x to obtain a Trusted Time Stamp for that hash
 wrapper around \url{https://doc.originstamp.org/#!/default/post_hash_string}
+}
+\details{
+The behavior depends on the class of the argument \code{x}:
+\itemize{
+\item \strong{an object of class \code{hash} as returned by the package openssl}: the hash is submitted to OriginStamp
+\item \strong{\code{character} vector of length 1 containing the name of an existing file}: the hash of the file is
+calculated and submitted to OriginStamp
+\item \strong{any other R object}: the hash is calculated using the function \code{hash()} and submitted to OriginStamp
+}
 }
 \examples{
   \dontrun{
     # create timestamp
     create_timestamp(
-      hash = "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
+      x = letters
     )
   }
 }

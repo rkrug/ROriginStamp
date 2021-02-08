@@ -1,13 +1,12 @@
 test_that(
   "result is as expected",
   {
-    expect_known_output(
-      object = {
+    expect_snapshot_output(
+      x = {
         new_OriginStampResponse() %>%
           print()
       },
-      file = "ref_000_new_OriginStampResponse.txt",
-      update = TRUE
+      cran = TRUE
     )
   }
 )
