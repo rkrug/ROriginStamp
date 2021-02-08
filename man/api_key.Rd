@@ -21,5 +21,4 @@ Allows the user to set and read the api key to be used as default for all functi
 }
 \examples{
 api_key()
-
 }

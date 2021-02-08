@@ -43,12 +43,11 @@ object, by assigning the class \code{hash} (see example).
 \examples{
 ## hash of a file:
 
-hash( system.file( "DESCRIPTION", package = "ROriginStamp") )
+hash(system.file("DESCRIPTION", package = "ROriginStamp"))
 
 ## convert a character vector to a hash:
 
 x <- "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
 class(x) <- "hash"
 hash(x)
-
 }

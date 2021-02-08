@@ -31,14 +31,15 @@ calculated and submitted to OriginStamp
 }
 }
 \examples{
-  \dontrun{
-    # get hash info
-    x <- "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
-    class(x) <- "hash"
-    get_hash_status(
-      x = x
-    )
 
-    get_hash_status( x = letters )
-  }
+\dontrun{
+# get hash info
+x <- "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
+class(x) <- "hash"
+get_hash_status(
+  x = x
+)
+
+get_hash_status(x = letters)
+}
 }

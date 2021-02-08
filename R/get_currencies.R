@@ -12,15 +12,15 @@
 #' @export
 #'
 #' @examples
-#'   \dontrun{
-#'     # Retrieve complete merkle tree proof
-#'     get_currencies()
-#'   }
-get_currencies<- function(
-  error_on_fail = TRUE,
-  url = api_url(),
-  key = api_key()
-) {
+#'
+#' \dontrun{
+#' # Retrieve complete merkle tree proof
+#' get_currencies()
+#' }
+get_currencies <- function(
+                           error_on_fail = TRUE,
+                           url = api_url(),
+                           key = api_key()) {
   result <- new_OriginStampResponse()
 
   # Assemble URL ------------------------------------------------------------
@@ -52,7 +52,7 @@ get_currencies<- function(
         x = result$response,
         as = "text"
       )
-      result$content <- jsonlite::fromJSON( result$content )
+      result$content <- jsonlite::fromJSON(result$content)
     },
     silent = TRUE
   )
@@ -74,5 +74,5 @@ get_currencies<- function(
 
   # Return ------------------------------------------------------------------
 
-  return( result )
+  return(result)
 }

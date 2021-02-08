@@ -22,8 +22,9 @@ wrapper around \url{https://api.originstamp.com/swagger/swagger-ui.html#/schedul
 function downloads information about the currencies.
 }
 \examples{
-  \dontrun{
-    # Retrieve complete merkle tree proof
-    get_currencies()
-  }
+
+\dontrun{
+# Retrieve complete merkle tree proof
+get_currencies()
+}
 }

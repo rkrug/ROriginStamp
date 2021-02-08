@@ -18,5 +18,4 @@ Get or set the api url for all operations.
 }
 \examples{
 api_url()
-
 }

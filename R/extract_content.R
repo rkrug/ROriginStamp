@@ -7,8 +7,7 @@
 #' @importFrom httr content
 #'
 extract_content <- function(
-  response
-){
+                            response) {
   content <- httr::content(
     x = response,
     as = "parsed"

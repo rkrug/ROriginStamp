@@ -24,25 +24,25 @@
 #' @export
 #'
 #' @examples
-#'   \dontrun{
-#'     # create timestamp
-#'     create_timestamp(
-#'       x = letters
-#'     )
-#'   }
+#'
+#' \dontrun{
+#' # create timestamp
+#' create_timestamp(
+#'   x = letters
+#' )
+#' }
 create_timestamp <- function(
-  x,
-  error_on_fail = TRUE,
-  comment = "test",
-  notifications = data.frame(
-    currency = 0,
-    notification_type = 0,
-    target = "originstamp@trashmail.com"
-  ),
-  url = api_url(),
-  key = api_key()
-) {
-  hash <- as.character( hash(x) )
+                             x,
+                             error_on_fail = TRUE,
+                             comment = "test",
+                             notifications = data.frame(
+                               currency = 0,
+                               notification_type = 0,
+                               target = "originstamp@trashmail.com"
+                             ),
+                             url = api_url(),
+                             key = api_key()) {
+  hash <- as.character(hash(x))
   class(hash) <- NULL
 
   result <- new_OriginStampResponse()
@@ -60,7 +60,7 @@ create_timestamp <- function(
 
   # Assemble URL ------------------------------------------------------------
 
-  url <- paste(url, "timestamp", "create", sep= "/")
+  url <- paste(url, "timestamp", "create", sep = "/")
   url <- gsub("//", "/", url)
   url <- gsub(":/", "://", url)
 
@@ -72,7 +72,7 @@ create_timestamp <- function(
     notifications = notifications
   )
 
-  request_body_json <- as.character( jsonlite::toJSON( body, auto_unbox = TRUE ) )
+  request_body_json <- as.character(jsonlite::toJSON(body, auto_unbox = TRUE))
   request_body_json <- gsub("\\{\\}", "null", request_body_json)
 
   # POST request ------------------------------------------------------------
@@ -83,12 +83,12 @@ create_timestamp <- function(
     config = httr::add_headers(
       accept = "application/json",
       Authorization = key,
-      'Content-Type' = "application/json"#,
+      "Content-Type" = "application/json" # ,
       # body = "request_body_json",
       # 'user-agent' = "libcurl/7.64.1 r-curl/4.3 httr/1.4.2 ROriginStamp"
     ),
     ## -d
-    body = request_body_json #,
+    body = request_body_json # ,
     # httr::verbose(data_out = TRUE, data_in = TRUE, info = TRUE)
   )
 
@@ -100,7 +100,7 @@ create_timestamp <- function(
   ##
   try(
     {
-      result$content <- extract_content( result$response )
+      result$content <- extract_content(result$response)
     },
     silent = TRUE
   )

@@ -22,8 +22,9 @@ wrapper around \url{https://api.originstamp.com/swagger/swagger-ui.html#/API_Key
 function downloads information about the api key.
 }
 \examples{
-  \dontrun{
-    # Retrieve complete merkle tree proof
-    get_key_usage()
-  }
+
+\dontrun{
+# Retrieve complete merkle tree proof
+get_key_usage()
+}
 }

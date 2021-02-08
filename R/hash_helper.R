@@ -31,17 +31,16 @@
 #' @examples
 #' ## hash of a file:
 #'
-#' hash( system.file( "DESCRIPTION", package = "ROriginStamp") )
+#' hash(system.file("DESCRIPTION", package = "ROriginStamp"))
 #'
 #' ## convert a character vector to a hash:
 #'
 #' x <- "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
 #' class(x) <- "hash"
 #' hash(x)
-#'
-hash <- function( x ) {
+hash <- function(x) {
   if (is.character(x) && length(x == 1) && file.exists(x)) {
-    hash.file (x)
+    hash.file(x)
   } else {
     UseMethod("hash", x)
   }
@@ -49,27 +48,26 @@ hash <- function( x ) {
 
 #'
 #'  @export
-hash.hash <- function( x, ... ){
-  message( "\nx is already a hash - returnung x unprocessed")
+hash.hash <- function(x, ...) {
+  message("\nx is already a hash - returnung x unprocessed")
   return(x)
 }
 
 #'
 #'  @export
-hash.default <- function( x, ... ){
-  message( "\nCreate sha356 hash from R object x")
+hash.default <- function(x, ...) {
+  message("\nCreate sha356 hash from R object x")
   x_ser <- serialize(x, connection = NULL, ascii = FALSE, xdr = TRUE, version = 2, refhook = NULL)
-  hash <- openssl::sha256( x_ser )
+  hash <- openssl::sha256(x_ser)
   return(hash)
 }
 
 #'
 #' @export
-hash.file <- function( x ){
-  message( "\nCreate sha356 hash from R file x [", x, "]")
-  f <- file( x, open = "rb" )
-  hash <- openssl::sha256( f )
+hash.file <- function(x) {
+  message("\nCreate sha356 hash from R file x [", x, "]")
+  f <- file(x, open = "rb")
+  hash <- openssl::sha256(f)
   close(f)
   return(hash)
 }
-

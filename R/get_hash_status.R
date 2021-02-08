@@ -20,23 +20,23 @@
 #' @export
 #'
 #' @examples
-#'   \dontrun{
-#'     # get hash info
-#'     x <- "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
-#'     class(x) <- "hash"
-#'     get_hash_status(
-#'       x = x
-#'     )
 #'
-#'     get_hash_status( x = letters )
-#'   }
+#' \dontrun{
+#' # get hash info
+#' x <- "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
+#' class(x) <- "hash"
+#' get_hash_status(
+#'   x = x
+#' )
+#'
+#' get_hash_status(x = letters)
+#' }
 get_hash_status <- function(
-  x,
-  error_on_fail = TRUE,
-  url = api_url(),
-  key = api_key()
-) {
-  hash <- as.character( hash(x) )
+                            x,
+                            error_on_fail = TRUE,
+                            url = api_url(),
+                            key = api_key()) {
+  hash <- as.character(hash(x))
   class(hash) <- NULL
 
   result <- new_OriginStampResponse()
@@ -66,7 +66,7 @@ get_hash_status <- function(
   ##
   try(
     {
-      result$content <- extract_content( result$response )
+      result$content <- extract_content(result$response)
     },
     silent = TRUE
   )

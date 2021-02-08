@@ -44,10 +44,11 @@ calculated and submitted to OriginStamp
 }
 }
 \examples{
-  \dontrun{
-    # create timestamp
-    create_timestamp(
-      x = letters
-    )
-  }
+
+\dontrun{
+# create timestamp
+create_timestamp(
+  x = letters
+)
+}
 }

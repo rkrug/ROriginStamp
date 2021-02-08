@@ -37,12 +37,13 @@ calculated and submitted to OriginStamp
 }
 }
 \examples{
-  \dontrun{
-    # Retrieve complete merkle tree proof
-    x <- "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
-    class(x) <- "hash"
-    get_proof(
-      x = x
-    )
-  }
+
+\dontrun{
+# Retrieve complete merkle tree proof
+x <- "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
+class(x) <- "hash"
+get_proof(
+  x = x
+)
+}
 }

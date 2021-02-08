@@ -26,22 +26,22 @@
 #' @export
 #'
 #' @examples
-#'   \dontrun{
-#'     # Retrieve complete merkle tree proof
-#'     x <- "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
-#'     class(x) <- "hash"
-#'     get_proof(
-#'       x = x
-#'     )
-#'   }
+#'
+#' \dontrun{
+#' # Retrieve complete merkle tree proof
+#' x <- "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
+#' class(x) <- "hash"
+#' get_proof(
+#'   x = x
+#' )
+#' }
 get_proof <- function(
-  x,
-  file,
-  error_on_fail = TRUE,
-  url = api_url(),
-  key = api_key()
-) {
-  hash <- as.character( hash(x) )
+                      x,
+                      file,
+                      error_on_fail = TRUE,
+                      url = api_url(),
+                      key = api_key()) {
+  hash <- as.character(hash(x))
   class(hash) <- NULL
 
 
@@ -63,7 +63,7 @@ get_proof <- function(
     hash_string = hash
   )
 
-  request_body_json <- as.character( jsonlite::toJSON( body, auto_unbox = TRUE ) )
+  request_body_json <- as.character(jsonlite::toJSON(body, auto_unbox = TRUE))
   request_body_json <- gsub("\\{\\}", "null", request_body_json)
 
   # POST request ------------------------------------------------------------
@@ -74,7 +74,7 @@ get_proof <- function(
     config = httr::add_headers(
       accept = "application/json",
       Authorization = key,
-      'content-type' = "application/json"
+      "content-type" = "application/json"
     ),
     body = request_body_json
   )
@@ -91,7 +91,7 @@ get_proof <- function(
         x = result$response,
         as = "text"
       )
-      result$content <- jsonlite::fromJSON( result$content )
+      result$content <- jsonlite::fromJSON(result$content)
     },
     silent = TRUE
   )
@@ -115,7 +115,7 @@ get_proof <- function(
   if (result$content$error_code == 0) {
     if (body$proof_type == 0) {
       result$proof <- httr::content(
-        x = httr::GET( result$content$data$download_url ),
+        x = httr::GET(result$content$data$download_url),
         type = "text/xml"
       )
       if (!missing(file)) {
@@ -126,5 +126,5 @@ get_proof <- function(
       }
     }
   }
-  return( result )
+  return(result)
 }

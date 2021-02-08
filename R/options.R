@@ -10,7 +10,6 @@
 #'
 #' @examples
 #' api_key()
-#'
 api_key <- function(key) {
   old_key <- getOption("ROriginStamp")$api_key
 
@@ -37,7 +36,6 @@ api_key <- function(key) {
 #'
 #' @examples
 #' api_url()
-#'
 api_url <- function(url) {
   old_url <- getOption("ROriginStamp")$api_url
   if (!missing(url)) {
