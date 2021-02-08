@@ -6,7 +6,7 @@
 #' @return content in JSON
 #' @importFrom httr content
 #'
-extractContent <- function(
+extract_content <- function(
   response
 ){
   content <- httr::content(

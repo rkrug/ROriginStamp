@@ -66,7 +66,7 @@ get_hash_status <- function(
   ##
   try(
     {
-      result$content <- extractContent( result$response )
+      result$content <- extract_content( result$response )
     },
     silent = TRUE
   )
