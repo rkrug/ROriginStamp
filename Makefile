@@ -53,6 +53,14 @@ clean_readme:
 
 ####
 
+pkgdown:
+	@Rscript -e "pkgdown::build_site()"
+
+clean_pkgdown:
+	rm -rf ./docs
+
+####
+
 ########### Package  ###########
 
 ####
@@ -65,7 +73,7 @@ deps:
 docs:
 	Rscript -e "devtools::document(roclets = c('rd', 'collate', 'namespace', 'vignette'))"
 	Rscript -e "codemetar::write_codemeta()"
-	
+
 ####
 
 vignettes: $(VIGHTML)
