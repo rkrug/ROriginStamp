@@ -10,19 +10,26 @@
 #'    - **any other R object**: the hash is calculated using the function `hash()` and submitted to OriginStamp
 #'
 #' @md
-#' @param x an R object of which a hash will be calculated using the function `hash(x)`. The resulting hash will be submitted to OriginStamp.
-#' @param file if provided, file name to store the merkle tree as xml file to.
+#' @param x an R object of which a hash will be calculated using the function
+#'   `hash(x)`. The resulting hash will be submitted to OriginStamp.
+#' @param proof_type The type of the proof format. Either "pdf" or "xml" are
+#'   supported at the moment by OriginStamp.
+#' @param file if provided, file name to store the proof in. Otherwise, the from
+#'   OriginStamp is used \code{proof.CURRENCY.HASH.xml} for \code{proof_type == "xml"}
+#'   or \code{certificate.CURRENCY.HASH.pdf} for \code{proof_type == "pdf"}.
 #' @param error_on_fail if TRUE, raise error when api call fails, otherwise
 #'   return the failed response.
-#' @param url the url of the api. The default is to use the url as returned by the function \code{api_url()}
-#' @param key the api key. The default is to use the key as returned by the function \code{api_key()}
+#' @param url the url of the api. The default is to use the url as returned by
+#'   the function \code{api_url()}
+#' @param key the api key. The default is to use the key as returned by the
+#'   function \code{api_key()}
 #'
 #' @return object of class \code{OriginStampResponse}, with an additional
-#'   element, \code{return$proof}, which contains the merkle tree as an
-#'   \code{xml_document}.
-#' @importFrom httr POST add_headers stop_for_status content
+#'   element, \code{file}, which contains the name of the saved certificate or proof.
+#'
+#' @importFrom curl new_handle handle_setheaders handle_setopt curl_fetch_memory curl_download
 #' @importFrom jsonlite toJSON fromJSON
-#' @importFrom xml2 write_xml
+#'
 #' @export
 #'
 #' @examples
@@ -36,18 +43,27 @@
 #' )
 #' }
 get_proof <- function(
-                      x,
-                      file,
-                      error_on_fail = TRUE,
-                      url = api_url(),
-                      key = api_key()) {
+  x,
+  file,
+  proof_type = "pdf",
+  error_on_fail = TRUE,
+  url = api_url(),
+  key = api_key()
+) {
+
+  # encode proof_type -------------------------------------------------------
+
+  proof_type <- switch (
+    proof_type,
+    xml = 0,
+    pdf = 1,
+    stop("Not supported proof_type. Allowed are 'pdf' or 'xml'")
+  )
+
+  # prepare hash ------------------------------------------------------------
+
   hash <- as.character(hash(x))
   class(hash) <- NULL
-
-
-  class(hash) <- NULL
-
-  result <- new_OriginStampResponse()
 
   # Assemble URL ------------------------------------------------------------
 
@@ -58,73 +74,70 @@ get_proof <- function(
   # Assemble body -----------------------------------------------------------
 
   body <- list(
-    currency = 0,
-    proof_type = 0,
-    hash_string = hash
+    currency = "0",
+    hash_string = hash,
+    proof_type = proof_type
   )
 
-  request_body_json <- as.character(jsonlite::toJSON(body, auto_unbox = TRUE))
-  request_body_json <- gsub("\\{\\}", "null", request_body_json)
+  body <- as.character(jsonlite::toJSON(body, auto_unbox = TRUE))
+  body <- gsub("\\{\\}", "null", body)
 
   # POST request ------------------------------------------------------------
 
-  result$response <- httr::POST(
-    url = url,
-    ## -H
-    config = httr::add_headers(
-      accept = "application/json",
-      Authorization = key,
-      "content-type" = "application/json"
-    ),
-    body = request_body_json
+  h <- curl::new_handle()
+
+  curl::handle_setheaders(
+    h,
+    accept = " application/json",
+    Authorization = key,
+    "content-type" = "application/json"
   )
+
+  curl::handle_setopt(
+    h,
+    copypostfields = body
+  )
+
+  response <- curl::curl_fetch_memory( url, h )
 
   # Process return value ----------------------------------------------------
 
-  if (error_on_fail) {
-    httr::stop_for_status(result$response)
+  result <- new_OriginStampResponse( response )
+
+  # Error handling
+
+  if (!isTRUE(content_is_OK(result)) & error_on_fail) {
+    stop(content_is_OK(result))
   }
-  ##
-  try(
-    {
-      result$content <- httr::content(
-        x = result$response,
-        as = "text"
-      )
-      result$content <- jsonlite::fromJSON(result$content)
-    },
-    silent = TRUE
-  )
 
+  # download proof ----------------------------------------------------------
 
-  # Check if error  ---------------------------------------------------------
+  if (isTRUE(content_is_OK(result))) {
+    h <- curl::new_handle()
 
-  if ((result$content$error_code != 0) & error_on_fail) {
-    stop(
-      sprintf(
-        "OriginStamp API request failed [%s]\n%s\n\n<%s>",
-        result$content$error_code,
-        result$content$error_message,
-        "see https://api.originstamp.com/swagger/swagger-ui.html#/proof/getProof for details"
-      )
+    curl::handle_setheaders(
+      h,
+      Accept = "application/octet-stream"
+    )
+
+    result$file <- ifelse(
+      missing(file),
+      result$content$data$file_name,
+      file
+    )
+
+    curl::curl_download(
+      url = result$content$data$download_url,
+      destfile = ifelse(
+        missing(file),
+        result$file,
+        file
+      ),
+      handle = h
     )
   }
 
-  # Download proof --------------------------------------------------------
+  ##
 
-  if (result$content$error_code == 0) {
-    if (body$proof_type == 0) {
-      result$proof <- httr::content(
-        x = httr::GET(result$content$data$download_url),
-        type = "text/xml"
-      )
-      if (!missing(file)) {
-        xml2::write_xml(
-          x = result$proof,
-          file = file
-        )
-      }
-    }
-  }
   return(result)
 }

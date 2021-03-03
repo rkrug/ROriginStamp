@@ -5,18 +5,18 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "ROriginStamp",
-  "description": "Functions to get and download trusted timestamps and seed files from OriginStamp.",
+  "description": "Functions to get and download trusted timestamps and seed files from OriginStamp <https://originstamp.com>.",
   "name": "ROriginStamp: Interface to OriginStamp API to Obtain Trusted Time Stamps",
   "codeRepository": "https://github.com/rkrug/ROriginStamp",
-  "issueTracker": "https://github.com/rkrug/ROriginStamp/issues",
-  "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.6.1.1",
+  "issueTracker": "<https://github.com/rkrug/ROriginStamp/issues>",
+  "license": "https://spdx.org/licenses/GPL-2.0",
+  "version": "0.7.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.3 (2020-10-10)",
+  "runtimePlatform": "R version 4.0.4 (2021-02-15)",
   "author": [
     {
       "@type": "Person",
@@ -72,15 +72,15 @@
   "softwareRequirements": [
     {
       "@type": "SoftwareApplication",
-      "identifier": "httr",
-      "name": "httr",
+      "identifier": "curl",
+      "name": "curl",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://CRAN.R-project.org/package=httr"
+      "sameAs": "https://CRAN.R-project.org/package=curl"
     },
     {
       "@type": "SoftwareApplication",
@@ -96,18 +96,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "xml2",
-      "name": "xml2",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=xml2"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "openssl",
       "name": "openssl",
       "provider": {
@@ -120,7 +108,7 @@
     }
   ],
   "readme": "https://github.com/rkrug/ROriginStamp/blob/master/README.md",
-  "fileSize": "601.573KB",
+  "fileSize": "804.374KB",
   "contIntegration": ["https://travis-ci.org/rkrug/ROriginStamp", "https://codecov.io/github/rkrug/ROriginStamp?branch=master"],
   "developmentStatus": "https://www.tidyverse.org/lifecycle/#maturing"
 }

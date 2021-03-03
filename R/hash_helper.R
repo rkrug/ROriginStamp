@@ -23,9 +23,13 @@
 #' object, by assigning the class `hash` (see example).
 #' @md
 #' @param x object
+#' @param ... additional arguments for methods - not used at the moment
 #'
 #' @return sha256 hash object
 #' @importFrom openssl sha256
+#'
+#' @rdname hash
+#'
 #' @export
 #'
 #' @examples
@@ -47,14 +51,20 @@ hash <- function(x) {
 }
 
 #'
-#'  @export
+#' Return x as is.
+#' @rdname hash
+#' @export hash.hash
+#' @export
 hash.hash <- function(x, ...) {
-  message("\nx is already a hash - returnung x unprocessed")
+  message("\nx is already a hash - returning x unprocessed")
   return(x)
 }
 
 #'
-#'  @export
+#' Calculates the hash of the object x.
+#' @rdname hash
+#' @export hash.default
+#' @export
 hash.default <- function(x, ...) {
   message("\nCreate sha356 hash from R object x")
   x_ser <- serialize(x, connection = NULL, ascii = FALSE, xdr = TRUE, version = 2, refhook = NULL)
@@ -63,6 +73,9 @@ hash.default <- function(x, ...) {
 }
 
 #'
+#' Calculates the hash of the file \code{x}. Is called automatically as described in the Details section.
+#' @rdname hash
+#' @export hash.file
 #' @export
 hash.file <- function(x) {
   message("\nCreate sha356 hash from R file x [", x, "]")
@@ -70,4 +83,28 @@ hash.file <- function(x) {
   hash <- openssl::sha256(f)
   close(f)
   return(hash)
+}
+
+#' Convert x into hash
+#'
+#' When \code{length(x) == 1} and x can be converted to a character by using the
+#' \code{as.character()} function, x is converted to a hash object. This does
+#' \bold{not} imply an=y hashing, just type conversion!
+#'
+#' Only really useful to convert a hash represented as a string into an object of class \code{hash}.
+#' @param x a vector which can be, by using \code{as.character(x)}, converted to a character vector of length 1
+#'
+#' @return the to a character converted object x with the class \code{hash} assigned
+#' @export
+#'
+#' @examples
+#' as.hash("2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e")
+#'
+as.hash <- function(x) {
+  x <- as.character(x)
+  if (length(x) != 1) {
+    stop("'as.character(x)' has to result in a character vector of length of exactly 1!")
+  }
+  class(x) <- "hash"
+  return(x)
 }

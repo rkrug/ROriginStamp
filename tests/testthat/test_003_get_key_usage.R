@@ -18,9 +18,10 @@ test_that(
     expect_snapshot_output(
       x = {
         api_key("dadada")
-        get_key_usage(error_on_fail = FALSE) %>%
-          unlist(recursive = FALSE) %>%
-          names()
+        res <- get_key_usage(error_on_fail = FALSE)
+        res$content$error_message <- grep("You do not have a valid API key.", res$content$error_message)
+        res$headers <- NA
+        res
       },
       cran = TRUE
     )
@@ -33,9 +34,20 @@ test_that(
     expect_snapshot_output(
       x = {
         api_key("")
-        get_key_usage() %>%
-          unlist(recursive = FALSE) %>%
-          names()
+        res <- get_key_usage()
+        res$headers <- NA
+        res$content$data$credits_per_month <- NA
+        res$content$data$remaining_credits <- NA
+        res$content$data$consumed_credits <- NA
+
+        res$content$data$timestamps_per_month <- NA
+        res$content$data$consumed_timestamps <- NA
+
+        res$content$data$consumed_certificates <- NA
+        res$content$data$limitation_type <- NA
+
+        res$content$data$certificate_per_month <- NA
+        res
       },
       cran = TRUE
     )

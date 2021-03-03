@@ -146,4 +146,4 @@ list: list_variables list_targets
 
 #############
 
-.PHONY: list files clean
+.PHONY: list files clean docs

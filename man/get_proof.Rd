@@ -4,24 +4,38 @@
 \alias{get_proof}
 \title{Get the Proof (Merkle Tree) for the hash calculated from an R object or file.}
 \usage{
-get_proof(x, file, error_on_fail = TRUE, url = api_url(), key = api_key())
+get_proof(
+  x,
+  file,
+  proof_type = "pdf",
+  error_on_fail = TRUE,
+  url = api_url(),
+  key = api_key()
+)
 }
 \arguments{
-\item{x}{an R object of which a hash will be calculated using the function \code{hash(x)}. The resulting hash will be submitted to OriginStamp.}
+\item{x}{an R object of which a hash will be calculated using the function
+\code{hash(x)}. The resulting hash will be submitted to OriginStamp.}
 
-\item{file}{if provided, file name to store the merkle tree as xml file to.}
+\item{file}{if provided, file name to store the proof in. Otherwise, the from
+OriginStamp is used \code{proof.CURRENCY.HASH.xml} for \code{proof_type == "xml"}
+or \code{certificate.CURRENCY.HASH.pdf} for \code{proof_type == "pdf"}.}
+
+\item{proof_type}{The type of the proof format. Either "pdf" or "xml" are
+supported at the moment by OriginStamp.}
 
 \item{error_on_fail}{if TRUE, raise error when api call fails, otherwise
 return the failed response.}
 
-\item{url}{the url of the api. The default is to use the url as returned by the function \code{api_url()}}
+\item{url}{the url of the api. The default is to use the url as returned by
+the function \code{api_url()}}
 
-\item{key}{the api key. The default is to use the key as returned by the function \code{api_key()}}
+\item{key}{the api key. The default is to use the key as returned by the
+function \code{api_key()}}
 }
 \value{
 object of class \code{OriginStampResponse}, with an additional
-element, \code{return$proof}, which contains the merkle tree as an
-\code{xml_document}.
+element, \code{file}, which contains the name of the saved certificate or proof.
 }
 \description{
 Wrapper around \url{https://api.originstamp.com/swagger/swagger-ui.html#/proof/getProof}. The

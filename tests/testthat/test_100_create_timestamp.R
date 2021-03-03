@@ -18,13 +18,15 @@ test_that(
     expect_snapshot_output(
       x = {
         api_key("dadada")
-        create_timestamp(
-          x = structure("2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e", class = c("hash")),
-          error_on_fail = FALSE
-        ) %>%
-          unlist(recursive = FALSE) %>%
-          names() %>%
-          print()
+        res <- suppressMessages(
+          create_timestamp(
+            x = as.hash("2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"),
+            error_on_fail = FALSE
+          )
+        )
+        res$content$error_message <- grep("You do not have a valid API key.", res$content$error_message)
+        res$headers <- NA
+        res
       },
       cran = TRUE
     )
@@ -38,8 +40,11 @@ test_that(
     expect_snapshot_output(
       x = {
         api_key("")
-        create_timestamp(x = structure("2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e", class = c("hash")))$content %>%
-          print()
+        res <- suppressMessages(
+          create_timestamp(x = as.hash("2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"))
+        )
+        res$headers <- NA
+        res
       },
       cran = TRUE
     )

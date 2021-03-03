@@ -15,7 +15,7 @@
 #' @param key the api key. The default is to use the key as returned by the function \code{api_key()}
 #'
 #' @return object of type \code{OriginStampResponse}, \code{content} contains the additional info as \code{list}.
-#' @importFrom httr GET add_headers stop_for_status content
+#' @importFrom curl new_handle handle_setheaders curl_fetch_memory
 #' @importFrom jsonlite fromJSON
 #' @export
 #'
@@ -32,14 +32,13 @@
 #' get_hash_status(x = letters)
 #' }
 get_hash_status <- function(
-                            x,
-                            error_on_fail = TRUE,
-                            url = api_url(),
-                            key = api_key()) {
+  x,
+  error_on_fail = TRUE,
+  url = api_url(),
+  key = api_key()
+) {
   hash <- as.character(hash(x))
   class(hash) <- NULL
-
-  result <- new_OriginStampResponse()
 
   # Assemble URL ------------------------------------------------------------
 
@@ -49,51 +48,26 @@ get_hash_status <- function(
 
   # GET request -------------------------------------------------------------
 
-  result$response <- httr::GET(
-    url = url,
-    ## -H
-    config = httr::add_headers(
-      accept = "application/json",
-      Authorization = key
-    )
+  h <- curl::new_handle()
+  curl::handle_setheaders(
+    h,
+    accept = " application/json",
+    Authorization = key
   )
+
+  response <- curl::curl_fetch_memory( url, h )
 
   # Process return value ----------------------------------------------------
 
-  if (error_on_fail) {
-    httr::stop_for_status(result$response)
-  }
-  ##
-  try(
-    {
-      result$content <- extract_content(result$response)
-    },
-    silent = TRUE
-  )
-  ##
-  # if (is.null(file)) {
-  #   file <- paste0(hash, ".OriginStamp.hash-info.yml")
-  # }
-  # if (file != "") {
-  #   yaml::write_yaml(
-  #     x = result$content,
-  #     file = file
-  #   )
-  # }
+  result <- new_OriginStampResponse( response )
 
-  # Check if error  ---------------------------------------------------------
+  # Error handling
 
-  if ((result$content$error_code != 0) & error_on_fail) {
-    stop(
-      sprintf(
-        "OriginStamp API request failed [%s]\n%s\n\n<%s>",
-        result$content$error_code,
-        result$content$error_message,
-        "see https://api.originstamp.com/swagger/swagger-ui.html#/proof/getHashStatus for details"
-      )
-    )
+  if (!isTRUE(content_is_OK(result)) & error_on_fail) {
+    stop(content_is_OK(result))
   }
 
   ##
+
   return(result)
 }

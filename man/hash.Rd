@@ -2,12 +2,23 @@
 % Please edit documentation in R/hash_helper.R
 \name{hash}
 \alias{hash}
+\alias{hash.hash}
+\alias{hash.default}
+\alias{hash.file}
 \title{Calculate sha256 hash}
 \usage{
 hash(x)
+
+\method{hash}{hash}(x, ...)
+
+\method{hash}{default}(x, ...)
+
+\method{hash}{file}(x)
 }
 \arguments{
 \item{x}{object}
+
+\item{...}{additional arguments for methods - not used at the moment}
 }
 \value{
 sha256 hash object

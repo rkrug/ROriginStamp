@@ -18,9 +18,10 @@ test_that(
     expect_snapshot_output(
       x = {
         api_key("dadada")
-        get_currencies(error_on_fail = FALSE) %>%
-          unlist(recursive = FALSE) %>%
-          names()
+        res <- get_currencies(error_on_fail = FALSE)
+        res$content$error_message <- grep("You do not have a valid API key.", res$content$error_message)
+        res$headers <- NA
+        res
       },
       cran = TRUE
     )
@@ -33,9 +34,9 @@ test_that(
     expect_snapshot_output(
       x = {
         api_key("")
-        get_currencies(error_on_fail = FALSE) %>%
-          unlist(recursive = FALSE) %>%
-          names()
+        res <- get_currencies(error_on_fail = FALSE)
+        res$headers <- NA
+        res
       },
       cran = TRUE
     )
