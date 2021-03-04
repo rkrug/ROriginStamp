@@ -32,6 +32,7 @@ library(ROriginStamp)
 valid_key <- openssl::sha1(api_key()) == "4a0b1541d679c18ed81b2ee79052984cd6ab5597"
 ```
 
+For the documentation see [https://rkrug.github.io/ROriginStamp/](https://rkrug.github.io/ROriginStamp/)
 # Dependencies
 
 This package aims at minimizing the number of dependencies It has at the moment only three direct dependencies, which are not avoidable as `curl` [@curlR] is used to access the [OriginStamp](https://originstamp.com) API, `openssl` [@opensslR] to calculate the hashes, and `jsonlite` [@jsonliteR] to encode and decode the API communications. The dependency graph looks as followes: 

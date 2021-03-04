@@ -2,6 +2,13 @@ ROriginStamp - a simple interface to
 [OriginStamp](https://originstamp.org/)
 ================
 
+-   [Overview](#overview)
+    -   [Background](#background)
+        -   [What are Trusted Timestamps?](#what-are-trusted-timestamps)
+        -   [How is it done](#how-is-it-done)
+    -   [Prerequisites](#prerequisites)
+    -   [Installation](#installation)
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 [![Build
@@ -15,7 +22,8 @@ Status](https://img.shields.io/codecov/c/github/rkrug/ROriginStamp/master.svg)](
 
 ------------------------------------------------------------------------
 
-# Dependencies
+For the documentation see <https://rkrug.github.io/ROriginStamp/> \#
+Dependencies
 
 This package aims at minimizing the number of dependencies It has at the
 moment only three direct dependencies, which are not avoidable as `curl`
