@@ -12,7 +12,7 @@ ROriginStamp - a simple interface to
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 [![Build
-Status](https://travis-ci.org/rkrug/ROriginStamp.svg?branch=master)](https://travis-ci.org/rkrug/ROriginStamp)
+Status](https://travis-ci.com/rkrug/ROriginStamp.svg?branch=master)](https://travis-ci.com/rkrug/ROriginStamp)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-orange.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Coverage
 Status](https://img.shields.io/codecov/c/github/rkrug/ROriginStamp/master.svg)](https://codecov.io/github/rkrug/ROriginStamp?branch=master)
