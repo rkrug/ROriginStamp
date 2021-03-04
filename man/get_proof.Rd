@@ -2,32 +2,62 @@
 % Please edit documentation in R/get_proof.R
 \name{get_proof}
 \alias{get_proof}
-\title{Get the Proof (Merkle Tree)}
+\title{Get the Proof (Merkle Tree) for the hash calculated from an R object or file.}
 \usage{
-get_proof(hash, file, error_on_fail = TRUE)
+get_proof(
+  x,
+  file,
+  proof_type = "pdf",
+  error_on_fail = TRUE,
+  url = api_url(),
+  key = api_key()
+)
 }
 \arguments{
-\item{hash}{hash from which to download the seed}
+\item{x}{an R object of which a hash will be calculated using the function
+\code{hash(x)}. The resulting hash will be submitted to OriginStamp.}
 
-\item{file}{if provided, file name to store the merkle tree as xml file to.}
+\item{file}{if provided, file name to store the proof in. Otherwise, the from
+OriginStamp is used \code{proof.CURRENCY.HASH.xml} for \code{proof_type == "xml"}
+or \code{certificate.CURRENCY.HASH.pdf} for \code{proof_type == "pdf"}.}
+
+\item{proof_type}{The type of the proof format. Either "pdf" or "xml" are
+supported at the moment by OriginStamp.}
 
 \item{error_on_fail}{if TRUE, raise error when api call fails, otherwise
 return the failed response.}
+
+\item{url}{the url of the api. The default is to use the url as returned by
+the function \code{api_url()}}
+
+\item{key}{the api key. The default is to use the key as returned by the
+function \code{api_key()}}
 }
 \value{
 object of class \code{OriginStampResponse}, with an additional
-  element, \code{return$proof}, which contains the merkle tree as an
-  \code{xml_document}.
+element, \code{file}, which contains the name of the saved certificate or proof.
 }
 \description{
-wrapper around \url{https://api.originstamp.com/v3/timestamp/proof/url}. The
+Wrapper around \url{https://api.originstamp.com/swagger/swagger-ui.html#/proof/getProof}. The
 function downloads the merkle tree as proof.
 }
+\details{
+The behavior depends on the class of the argument \code{x}:
+\itemize{
+\item \strong{an object of class \code{hash} as returned by the package openssl}: the hash is submitted to OriginStamp
+\item \strong{\code{character} vector of length 1 containing the name of an existing file}: the hash of the file is
+calculated and submitted to OriginStamp
+\item \strong{any other R object}: the hash is calculated using the function \code{hash()} and submitted to OriginStamp
+}
+}
 \examples{
-  \dontrun{
-    # Retrieve complete merkle tree proof
-    get_proof(
-      hash = "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
-    )
-  }
+
+\dontrun{
+# Retrieve complete merkle tree proof
+x <- "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
+class(x) <- "hash"
+get_proof(
+  x = x
+)
+}
 }

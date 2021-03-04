@@ -32,7 +32,7 @@ READMEHTML = Readme.html
 
 #############
 
-all: readme docs vignettes build
+all: docs readme pkgdown vignettes build
 
 #############
 
@@ -53,6 +53,14 @@ clean_readme:
 
 ####
 
+pkgdown:
+	@Rscript -e "pkgdown::build_site()"
+
+clean_pkgdown:
+	@Rscript -e "pkgdown::clean_site()"
+
+####
+
 ########### Package  ###########
 
 ####
@@ -64,6 +72,7 @@ deps:
 
 docs:
 	Rscript -e "devtools::document(roclets = c('rd', 'collate', 'namespace', 'vignette'))"
+	Rscript -e "codemetar::write_codemeta()"
 
 ####
 
@@ -137,4 +146,4 @@ list: list_variables list_targets
 
 #############
 
-.PHONY: list files clean
+.PHONY: list files clean docs

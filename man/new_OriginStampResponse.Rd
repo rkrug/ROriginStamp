@@ -4,7 +4,10 @@
 \alias{new_OriginStampResponse}
 \title{New \code{OriginStampResponse} object}
 \usage{
-new_OriginStampResponse()
+new_OriginStampResponse(response = NULL)
+}
+\arguments{
+\item{response}{a response from a call to \code{curl::curl_fetch_memory()} which is used to fill the return values of the new object}
 }
 \value{
 object of class \code{OriginStampResponse}
@@ -12,8 +15,9 @@ object of class \code{OriginStampResponse}
 \description{
 Create new \code{OriginStampResponse} object. The object contains the following fields:
 \describe{
+  \item{status}{TThe status code of the request. 200 if OK. see \url{https://api.originstamp.com/swagger/swagger-ui.html} for details.}
   \item{content}{The returned object, converted into a format suitable for R. The exact format depends on the type of request.}
-  \item{response}{The actual respons from the call via the \code{httr} package as an object of type \code{response}.}
+  \item{headers}{The returned eaders.}
 }
 }
 \examples{

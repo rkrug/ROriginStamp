@@ -6,3 +6,16 @@
 ^README\.md$
 tests/ONLY_LOCAL_NOT_ON_GITHUB\.R
 ^Makefile$
+^codemeta\.json$
+^.*\.bbprojectd$
+^_pkgdown\.yml$
+^docs$
+^README_files$
+^README_cache$
+^references\.bib$
+^figures$
+^pkgdown$
+^documents$
+^dep_graph\.png$
+^doc$
+^Meta$

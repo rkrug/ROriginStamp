@@ -1,26 +1,51 @@
-context("002 get hash status")
-
-api_key("none")
+# test_that(
+#   "error",
+#   {
+#     expect_snapshot_error(
+#       x = {
+#         api_key("none")
+#         get_hash_status(x = "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e")
+#       },
+#       class= "error",
+#       cran = FALSE
+#     )
+#   }
+# )
 
 test_that(
-  "result is as expected",
+  "error suppressed",
   {
-    expect_error(
-      object = get_hash_status(hash = "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"),
-      regexp = "OriginStamp API request failed [3201]*."
+    expect_snapshot_output(
+      x = {
+        api_key("dadada")
+        res <- suppressMessages(
+          get_hash_status(
+            x = as.hash("2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"),
+            error_on_fail = FALSE
+          )
+        )
+        res$content$error_message <- grep("You do not have a valid API key.", res$content$error_message)
+        res$headers <- NA
+        res
+      },
+      cran = FALSE
     )
   }
 )
 
-api_key("")
-
 test_that(
-  "result is as expected",
+  "correct",
   {
-    expect_known_value(
-      object = get_hash_status(hash = "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e")$content,
-      file = "ref_002_get_hash_status.rda",
-      update = TRUE
+    expect_snapshot_output(
+      x = {
+        api_key("")
+        res <- suppressMessages(
+          get_hash_status(as.hash("2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"))
+        )
+        res$headers <- NA
+        res
+      },
+      cran = FALSE
     )
   }
 )

@@ -1,20 +1,25 @@
 Package: ROriginStamp
 Type: Package
 Title: Interface to OriginStamp API to Obtain Trusted Time Stamps
-Version: 0.6.1
+Version: 0.7.0
 Authors@R: c(
     person( "Rainer M.", "Krug", , "Rainer@krugs.de", c("aut", "cre", "cph"))
     )
-Description: Functions to get and download trusted timestamps and seed files from OriginStamp.
-License: GPL-3 + file LICENSE
+Description: Functions to get and download trusted timestamps and seed files from OriginStamp <https://originstamp.com>.
+URL: https://github.com/rkrug/ROriginStamp
+BugReports: https://github.com/rkrug/ROriginStamp/issues
+License: GPL (>= 2)
 Imports:
-        httr,
+        curl,
         jsonlite,
-        xml2,
         openssl
+Suggests: 
+    testthat,
+    covr,
+    knitr,
+    rmarkdown
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
-Suggests: 
-        testthat,
-        covr
+Config/testthat/edition: 3
+VignetteBuilder: knitr

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>HierarchyData</key>
+	<array>
+		<string>9912A1EC-7741-4168-976D-8C3064C1B090</string>
+	</array>
+	<key>ProjectItems</key>
+	<dict>
+		<key>9912A1EC-7741-4168-976D-8C3064C1B090</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>BookmarkData</key>
+				<data>
+				Ym9vaxQDAAAAAAQQMAAAAIZCcVhwnKBjlXxikIn7/N6N
+				XFzMuYbavbnV4KOAoML5EAIAAAQAAAADAwAAAAgAKAUA
+				AAABAQAAVXNlcnMAAAAKAAAAAQEAAHJhaW5lcmtydWcA
+				AA8AAAABAQAARG9jdW1lbnRzX0xvY2FsAAMAAAABAQAA
+				Z2l0AAsAAAABAQAAMC5SUGFja2FnZXMADAAAAAEBAABS
+				T3JpZ2luU3RhbXAYAAAAAQYAABAAAAAgAAAANAAAAEwA
+				AABYAAAAbAAAAAgAAAAEAwAAHrsKAAAAAAAIAAAABAMA
+				ANq5DAAAAAAACAAAAAQDAADPfJICAAAAAAgAAAAEAwAA
+				/FGSAgAAAAAIAAAABAMAAFtykgIAAAAACAAAAAQDAADD
+				rOABAAAAABgAAAABBgAAoAAAALAAAADAAAAA0AAAAOAA
+				AADwAAAACAAAAAAEAABBwXE+UgAAABgAAAABAgAAAgAA
+				AAAAAAAPAAAAAAAAAAAAAAAAAAAACAAAAAQDAAAEAAAA
+				AAAAAAQAAAADAwAA9wEAAAgAAAABCQAAZmlsZTovLy8K
+				AAAAAQEAAER1bWJsZWRvcmUAAAgAAAAEAwAAAMC0g98A
+				AAAIAAAAAAQAAEHBsGZcUY8bJAAAAAEBAAA0NURBMUJE
+				Mi01OEMyLTQwOUQtODU2OC1ENDVDOEM0ODEyQjAYAAAA
+				AQIAAIEAAAABAAAA7xMAAAEAAAAAAAAAAAAAAAEAAAAB
+				AQAALwAAAAAAAAABBQAAzAAAAP7///8BAAAAAAAAABAA
+				AAAEEAAAgAAAAAAAAAAFEAAAAAEAAAAAAAAQEAAAMAEA
+				AAAAAABAEAAAIAEAAAAAAAACIAAA/AEAAAAAAAAFIAAA
+				bAEAAAAAAAAQIAAAfAEAAAAAAAARIAAAsAEAAAAAAAAS
+				IAAAkAEAAAAAAAATIAAAoAEAAAAAAAAgIAAA3AEAAAAA
+				AAAwIAAACAIAAAAAAAABwAAAUAEAAAAAAAARwAAAIAAA
+				AAAAAAASwAAAYAEAAAAAAAAQ0AAABAAAAAAAAAA=
+				</data>
+				<key>FileURL</key>
+				<string>file:///Users/rainerkrug/Documents_Local/git/0.RPackages/ROriginStamp/</string>
+				<key>HasSecurityScope</key>
+				<true/>
+				<key>RelativePath</key>
+				<string>./</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>ROriginStamp</string>
+			<key>ItemType</key>
+			<string>FolderReference</string>
+		</dict>
+	</dict>
+	<key>com.barebones.DocumentFormatVersion</key>
+	<integer>5</integer>
+	<key>com.barebones.DocumentType</key>
+	<string>Project</string>
+</dict>
+</plist>
