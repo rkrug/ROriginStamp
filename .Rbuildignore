@@ -19,3 +19,4 @@ tests/ONLY_LOCAL_NOT_ON_GITHUB\.R
 ^dep_graph\.png$
 ^doc$
 ^Meta$
+^\.github$
