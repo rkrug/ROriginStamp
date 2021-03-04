@@ -8,7 +8,7 @@
   "description": "Functions to get and download trusted timestamps and seed files from OriginStamp <https://originstamp.com>.",
   "name": "ROriginStamp: Interface to OriginStamp API to Obtain Trusted Time Stamps",
   "codeRepository": "https://github.com/rkrug/ROriginStamp",
-  "issueTracker": "<https://github.com/rkrug/ROriginStamp/issues>",
+  "issueTracker": "https://github.com/rkrug/ROriginStamp/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
   "version": "0.7.0",
   "programmingLanguage": {
@@ -67,6 +67,30 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=covr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "knitr",
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
     }
   ],
   "softwareRequirements": [
@@ -108,7 +132,7 @@
     }
   ],
   "readme": "https://github.com/rkrug/ROriginStamp/blob/master/README.md",
-  "fileSize": "804.374KB",
+  "fileSize": "1101.373KB",
   "contIntegration": ["https://travis-ci.org/rkrug/ROriginStamp", "https://codecov.io/github/rkrug/ROriginStamp?branch=master"],
   "developmentStatus": "https://www.tidyverse.org/lifecycle/#maturing"
 }

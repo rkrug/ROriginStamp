@@ -7,7 +7,7 @@
 #         create_timestamp(x = "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e")
 #       },
 #       class = "error",
-#       cran = TRUE
+#       cran = FALSE
 #     )
 #   }
 # )
@@ -28,7 +28,7 @@ test_that(
         res$headers <- NA
         res
       },
-      cran = TRUE
+      cran = FALSE
     )
   }
 )
@@ -46,7 +46,7 @@ test_that(
         res$headers <- NA
         res
       },
-      cran = TRUE
+      cran = FALSE
     )
   }
 )

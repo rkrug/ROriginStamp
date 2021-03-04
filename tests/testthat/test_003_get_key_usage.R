@@ -7,7 +7,7 @@
 #         get_key_usage()
 #       },
 #       class = "error",
-#       cran = TRUE
+#       cran = FALSE
 #     )
 #   }
 # )
@@ -23,7 +23,7 @@ test_that(
         res$headers <- NA
         res
       },
-      cran = TRUE
+      cran = FALSE
     )
   }
 )
@@ -49,7 +49,7 @@ test_that(
         res$content$data$certificate_per_month <- NA
         res
       },
-      cran = TRUE
+      cran = FALSE
     )
   }
 )

@@ -32,7 +32,7 @@ READMEHTML = Readme.html
 
 #############
 
-all: readme docs vignettes build
+all: docs readme pkgdown vignettes build
 
 #############
 
@@ -57,7 +57,7 @@ pkgdown:
 	@Rscript -e "pkgdown::build_site()"
 
 clean_pkgdown:
-	rm -rf ./docs
+	@Rscript -e "pkgdown::clean_site()"
 
 ####
 

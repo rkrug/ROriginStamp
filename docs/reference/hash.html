@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ROriginStamp</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.0</span>
       </span>
     </div>
 
@@ -80,18 +80,30 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/introduction.html">Introduction</a>
+    </li>
+  </ul>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rkrug/ROriginStamp/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -117,7 +129,16 @@
     <p>A generic function function to calculate the sha256 hash from an R object or from a file.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>hash</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>hash</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S3 method for hash</span>
+<span class='fu'>hash</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S3 method for default</span>
+<span class='fu'>hash</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S3 method for file</span>
+<span class='fu'>hash</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -125,6 +146,10 @@
     <tr>
       <th>x</th>
       <td><p>object</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>additional arguments for methods - not used at the moment</p></td>
     </tr>
     </table>
 
@@ -142,9 +167,9 @@ created from that serialized object.</p></li>
 </ul>
 
 <p>The methods doing the work are:</p><ul>
-<li><p><code><a href='hash.hash.html'>hash.hash(x)</a></code>: returns the object <code>x</code></p></li>
+<li><p><code>hash.hash(x)</code>: returns the object <code>x</code></p></li>
 <li><p><code>hash.file()</code>: assumes <code>x</code> is an existing file and tries to calculate the hash from the file</p></li>
-<li><p><code><a href='hash.default.html'>hash.default()</a></code>: calculates the hash from the serialized R object <code>x</code>
+<li><p><code>hash.default()</code>: calculates the hash from the serialized R object <code>x</code>
 <em>NB</em>: These functions do assume the object <code>x</code> is what they expect it to be.
 It is recommended to use the generic function <code>hash()</code> as this functiuon
 auti=omatically selects the most appropriate method. Only use these if you
@@ -160,13 +185,14 @@ object, by assigning the class <code>hash</code> (see example).</p>
 
 <span class='fu'>hash</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"DESCRIPTION"</span>, package <span class='op'>=</span> <span class='st'>"ROriginStamp"</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Create sha356 hash from R file x [/private/var/folders/50/wcr5bjwn75q595n6x82gxj280000gq/T/RtmpKinAfk/temp_libpatha740440e8263/ROriginStamp/DESCRIPTION]</span></div><div class='output co'>#&gt; sha256 2b:73:f5:01:16:eb:d2:9b:c9:c9:d5:20:7b:72:29:c3:b5:d2:9a:09:10:e6:c1:3f:b1:90:5b:9b:ac:e6:77:7a </div><div class='input'>
+#&gt; <span class='message'>Create sha356 hash from R file x [/private/var/folders/50/wcr5bjwn75q595n6x82gxj280000gq/T/RtmpVVuHtF/temp_libpath4b13368abecb/ROriginStamp/DESCRIPTION]</span></div><div class='output co'>#&gt; sha256 f7:36:16:fa:aa:8a:e6:58:a9:4c:e9:18:84:ca:63:4d:cd:f1:de:78:b4:c2:b2:d7:4e:12:a4:c0:1d:22:9b:91 </div><div class='input'>
 <span class='co'>## convert a character vector to a hash:</span>
 
 <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='st'>"2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"</span>
 <span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"hash"</span>
 <span class='fu'>hash</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in UseMethod("hash", x): no applicable method for 'hash' applied to an object of class "hash"</span></div></pre>
+</div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>x is already a hash - returning x unprocessed</span></div><div class='output co'>#&gt; [1] "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -6,7 +6,7 @@ test_that(
         new_OriginStampResponse() %>%
           print()
       },
-      cran = TRUE
+      cran = FALSE
     )
   }
 )

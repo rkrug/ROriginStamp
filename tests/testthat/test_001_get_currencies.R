@@ -7,7 +7,7 @@
 #         get_currencies()
 #       },
 #       class = "error",
-#       cran = TRUE
+#       cran = FALSE
 #     )
 #   }
 # )
@@ -23,7 +23,7 @@ test_that(
         res$headers <- NA
         res
       },
-      cran = TRUE
+      cran = FALSE
     )
   }
 )
@@ -38,7 +38,7 @@ test_that(
         res$headers <- NA
         res
       },
-      cran = TRUE
+      cran = FALSE
     )
   }
 )
