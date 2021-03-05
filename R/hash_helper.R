@@ -43,7 +43,7 @@
 #' class(x) <- "hash"
 #' hash(x)
 hash <- function(x) {
-  if (is.character(x) && length(x == 1) && file.exists(x)) {
+  if (is.character(x) && (length(x) == 1) && file.exists(x)) {
     hash.file(x)
   } else {
     UseMethod("hash", x)

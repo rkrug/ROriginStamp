@@ -12,8 +12,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
   
 resource_files:
-  - certificate.Bitcoin.2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e.pdf
-  - proof.Bitcoin.2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e.xml
+  - certificate.Bitcoin.pdf
   - dep_graph.png
 ---
 
@@ -203,7 +202,9 @@ get_proof(
 The function returns an object containing the url where the document can be downloaded (`$content$data$download_url`) which is automatically processed further and the document is downloaded. As file name, the argument `file` is used. If it is not provided, the file name in the return value is used, which is of the format \code{proof.CURRENCY.HASH.xml} for \code{proof_type == "xml"} or \code{certificate.CURRENCY.HASH.pdf} for \code{proof_type == "pdf"}
 
 To see the downloaded files, click 
-<a href="certificate.Bitcoin.2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e.pdf" target="_blank">here for the pdf</a> [here for the pdf](certificate.Bitcoin.2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e.pdf){:target="_blank"} or [here for the xml](proof.Bitcoin.2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e.xml){:target="_blank"}.
+<a href="certificate.Bitcoin.pdf" target="_blank">here for the pdf</a> or <a href="proof.Bitcoin.xml" target="_blank">here for the xml</a>.
+
+
 
 # References
 

@@ -10,12 +10,17 @@ ROriginStamp - a simple interface to
     -   [Installation](#installation)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- badges: start -->
 
 [![Build
 Status](https://github.com/rkrug/ROriginStamp/actions/workflows/ci-eb.yaml/badge.svg)](https://github.com/rkrug/ROriginStamp/actions/workflows/ci-eb.yaml)
-[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-orange.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Coverage
 Status](https://img.shields.io/codecov/c/github/rkrug/ROriginStamp/master.svg)](https://codecov.io/github/rkrug/ROriginStamp?branch=master)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-orange.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+<!-- badges: end -->
 
 <!-- [![Inline docs](http://inch-ci.org/github/rkrug/ROriginStamp.svg?branch=master)](http://inch-ci.org/github/rkrug/ROriginStamp) -->
 <!-- [CII Best Practices Badge](https://bestpractices.coreinfrastructure.org/en/projects/2094) -->
