@@ -36,4 +36,5 @@ jobs:
         run: ./run.sh run_tests
 
       - name: Coverage
+        if: ${{ os == 'ubuntu-latest' && success() }}
         run: ./run.sh coverage
