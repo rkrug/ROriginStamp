@@ -8,6 +8,11 @@ ROriginStamp - a simple interface to
         -   [How is it done](#how-is-it-done)
     -   [Prerequisites](#prerequisites)
     -   [Installation](#installation)
+    -   [Usage](#usage)
+        -   [Obtain a TTS for an object or
+            file](#obtain-a-tts-for-an-object-or-file)
+        -   [Download certificate for an
+            object](#download-certificate-for-an-object)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
@@ -16,6 +21,7 @@ ROriginStamp - a simple interface to
 Status](https://github.com/rkrug/ROriginStamp/actions/workflows/ci-eb.yaml/badge.svg)](https://github.com/rkrug/ROriginStamp/actions/workflows/ci-eb.yaml)
 [![Coverage
 Status](https://img.shields.io/codecov/c/github/rkrug/ROriginStamp/master.svg)](https://codecov.io/github/rkrug/ROriginStamp?branch=master)
+
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-orange.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
@@ -102,6 +108,44 @@ if (!require(devtools)) {
 }
 devtools::install_github("rkrug/ROriginStamp")
 ```
+
+## Usage
+
+This package makes it easy to obtain and verify a hashed object or file
+in R, after getting an API key as described above.
+
+### Obtain a TTS for an object or file
+
+``` r
+create_timestamp(
+  x = obj, 
+  comment = "This is a dummy test for creating a timestamp."
+)
+```
+
+where obj can be an R object or filename, and the TTS is for the R
+object or the file the filename obj points to.
+
+### Download certificate for an object
+
+``` r
+get_proof(
+  x = obj, 
+  proof_type = "pdf"
+)
+```
+
+will download a pdf certificate of the R object or filename, while
+
+``` r
+get_proof(
+  x = obj, 
+  proof_type = "xml"
+)
+```
+
+will download an xml file which can be verified using an approach
+otlined on the OriginStamp website.
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 

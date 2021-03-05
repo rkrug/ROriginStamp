@@ -9,6 +9,7 @@ link-citations: yes
 resource_files:
   - dep_graph.png
 ---
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
 [![Build Status](https://github.com/rkrug/ROriginStamp/actions/workflows/ci-eb.yaml/badge.svg)](https://github.com/rkrug/ROriginStamp/actions/workflows/ci-eb.yaml)
@@ -106,7 +107,7 @@ where obj can be an R object or filename, and the TTS is for the R object or the
 
 ### Download certificate for an object
 
-```{r eval = false}
+```{r eval = FALSE}
 get_proof(
   x = obj, 
   proof_type = "pdf"
@@ -115,7 +116,7 @@ get_proof(
 
 will download a pdf certificate of the R object or filename, while
 
-```{r eval = false}
+```{r eval = FALSE}
 get_proof(
   x = obj, 
   proof_type = "xml"
