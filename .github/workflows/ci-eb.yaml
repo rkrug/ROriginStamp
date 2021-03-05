@@ -34,3 +34,6 @@ jobs:
 
       - name: Test
         run: ./run.sh run_tests
+
+      - name: Coverage
+        run: ./run.sh coverage
