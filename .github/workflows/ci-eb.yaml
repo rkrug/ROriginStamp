@@ -36,7 +36,7 @@ jobs:
         run: ./run.sh run_tests
 
       - name: Coverage
-        if: ${{ runner.os == 'Linux' && success() }}
         env:
 +          ROriginStamp_api_key: ${{ secrets.RORIGINSTAMP_API_KEY }}
+        if: ${{ runner.os == 'Linux' && success() }}
         run: ./run.sh coverage
