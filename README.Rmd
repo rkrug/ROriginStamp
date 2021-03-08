@@ -1,14 +1,12 @@
 ---
-title: "ROriginStamp - a simple interface to [OriginStamp](https://originstamp.org/)"
-output: 
-  github_document:
-    toc: true
+output: github_document
 bibliography: references.bib 
-link-citations: yes
 
 resource_files:
   - dep_graph.png
 ---
+
+# ROriginStamp - a simple interface to [OriginStamp](https://originstamp.org/)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
@@ -40,17 +38,8 @@ valid_key <- openssl::sha1(api_key()) == "4a0b1541d679c18ed81b2ee79052984cd6ab55
 ```
 
 For the documentation see [https://rkrug.github.io/ROriginStamp/](https://rkrug.github.io/ROriginStamp/)
-# Dependencies
 
-This package aims at minimizing the number of dependencies It has at the moment only three direct dependencies, which are not avoidable as `curl` [@curlR] is used to access the [OriginStamp](https://originstamp.com) API, `openssl` [@opensslR] to calculate the hashes, and `jsonlite` [@jsonliteR] to encode and decode the API communications. The dependency graph looks as followes: 
 
-```{r dep_graph, eval=FALSE, include=FALSE}
-# if (!file.exists()) {
-  depgraph::plot_dependency_graph(here::here(), suggests = FALSE)
-# } else {
-```
-
-![Dependency graph](dep_graph.png)
 
 # Overview
 This packages allows to obtain Trusted Timestamps (TTS) from [OriginStamp](https://originstamp.com) for R objects and files. To obtain the TTS, the sha256 hashes are calculated and submitted to [OriginStamp](https://originstamp.com)
@@ -126,3 +115,15 @@ get_proof(
 ```
 
 will download an xml file which can be verified using an approach otlined on the OriginStamp website.
+
+# Dependencies
+
+This package aims at minimizing the number of dependencies It has at the moment only three direct dependencies, which are not avoidable as `curl` [@curlR] is used to access the [OriginStamp](https://originstamp.com) API, `openssl` [@opensslR] to calculate the hashes, and `jsonlite` [@jsonliteR] to encode and decode the API communications. The dependency graph looks as followes: 
+
+```{r dep_graph, eval=FALSE, include=FALSE}
+# if (!file.exists()) {
+  depgraph::plot_dependency_graph(here::here(), suggests = FALSE)
+# } else {
+```
+
+![Dependency graph](./dep_graph.png)

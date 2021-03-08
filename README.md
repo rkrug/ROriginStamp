@@ -1,18 +1,5 @@
-ROriginStamp - a simple interface to
-[OriginStamp](https://originstamp.org/)
-================
 
--   [Overview](#overview)
-    -   [Background](#background)
-        -   [What are Trusted Timestamps?](#what-are-trusted-timestamps)
-        -   [How is it done](#how-is-it-done)
-    -   [Prerequisites](#prerequisites)
-    -   [Installation](#installation)
-    -   [Usage](#usage)
-        -   [Obtain a TTS for an object or
-            file](#obtain-a-tts-for-an-object-or-file)
-        -   [Download certificate for an
-            object](#download-certificate-for-an-object)
+# ROriginStamp - a simple interface to [OriginStamp](https://originstamp.org/)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
@@ -35,18 +22,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 ------------------------------------------------------------------------
 
-For the documentation see <https://rkrug.github.io/ROriginStamp/> \#
-Dependencies
-
-This package aims at minimizing the number of dependencies It has at the
-moment only three direct dependencies, which are not avoidable as `curl`
-([Ooms 2019](#ref-curlR)) is used to access the
-[OriginStamp](https://originstamp.com) API, `openssl` ([Ooms
-2020](#ref-opensslR)) to calculate the hashes, and `jsonlite` ([Ooms
-2014](#ref-jsonliteR)) to encode and decode the API communications. The
-dependency graph looks as followes:
-
-![Dependency graph](dep_graph.png)
+For the documentation see <https://rkrug.github.io/ROriginStamp/>
 
 # Overview
 
@@ -148,6 +124,17 @@ get_proof(
 
 will download an xml file which can be verified using an approach
 otlined on the OriginStamp website.
+
+# Dependencies
+
+This package aims at minimizing the number of dependencies It has at the
+moment only three direct dependencies, which are not avoidable as `curl`
+(Ooms 2019) is used to access the [OriginStamp](https://originstamp.com)
+API, `openssl` (Ooms 2020) to calculate the hashes, and `jsonlite` (Ooms
+2014) to encode and decode the API communications. The dependency graph
+looks as followes:
+
+![Dependency graph](./dep_graph.png)
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 
