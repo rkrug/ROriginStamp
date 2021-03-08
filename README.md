@@ -17,6 +17,8 @@ ROriginStamp - a simple interface to
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4588336.svg)](https://doi.org/10.5281/zenodo.4588336)
+
 [![Build
 Status](https://github.com/rkrug/ROriginStamp/actions/workflows/ci-eb.yaml/badge.svg)](https://github.com/rkrug/ROriginStamp/actions/workflows/ci-eb.yaml)
 [![Coverage
