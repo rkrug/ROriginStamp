@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/rkrug/ROriginStamp",
   "issueTracker": "https://github.com/rkrug/ROriginStamp/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -22,25 +22,20 @@
       "@type": "Person",
       "givenName": "Rainer M.",
       "familyName": "Krug",
-      "email": "Rainer@krugs.de"
+      "email": "Rainer.Krug@uzh.ch",
+      "@id": "https://orcid.org/0000-0002-7490-0066"
     }
   ],
   "contributor": {},
-  "copyrightHolder": [
-    {
-      "@type": "Person",
-      "givenName": "Rainer M.",
-      "familyName": "Krug",
-      "email": "Rainer@krugs.de"
-    }
-  ],
+  "copyrightHolder": {},
   "funder": {},
   "maintainer": [
     {
       "@type": "Person",
       "givenName": "Rainer M.",
       "familyName": "Krug",
-      "email": "Rainer@krugs.de"
+      "email": "Rainer.Krug@uzh.ch",
+      "@id": "https://orcid.org/0000-0002-7490-0066"
     }
   ],
   "softwareSuggestions": [
@@ -132,7 +127,7 @@
     }
   ],
   "readme": "https://github.com/rkrug/ROriginStamp/blob/master/README.md",
-  "fileSize": "1323.726KB",
+  "fileSize": "1325.06KB",
   "contIntegration": "https://codecov.io/github/rkrug/ROriginStamp?branch=master",
   "developmentStatus": ["https://www.tidyverse.org/lifecycle/#maturing", "https://www.repostatus.org/#active"]
 }
