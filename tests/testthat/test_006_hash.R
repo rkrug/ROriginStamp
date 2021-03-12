@@ -2,9 +2,8 @@ test_that(
   "hash",
   {
     expect_snapshot_error(
-      as.hash(letters)
-      ,
-      cran = FALSE
+      as.hash(letters),
+      cran = TRUE
     )
     expect_snapshot(
       x = {

@@ -3,12 +3,16 @@ test_that(
   {
     expect_snapshot_value(
       x = {
-        list(
+        Sys.setenv(ROriginStamp_api_key_bak = Sys.getenv("ROriginStamp_api_key"))
+        Sys.setenv(ROriginStamp_api_key = "My_secret_key")
+        x <- list(
           api_key("dadada"),
           api_key(),
           api_key(""),
           api_key()
         )
+        Sys.setenv(ROriginStamp_api_key = Sys.getenv("ROriginStamp_api_key_bak"))
+        x
       },
       cran = TRUE
     )

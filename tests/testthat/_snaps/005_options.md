@@ -4,7 +4,7 @@
       "",
       "dadada",
       "dadada",
-      "7b2e8873-aa86-4670-a8ca-645b68cefcca"
+      "My_secret_key"
     ]
 
 # test api_url()
