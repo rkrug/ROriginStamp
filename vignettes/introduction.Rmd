@@ -14,17 +14,17 @@ vignette: >
 resource_files:
   - certificate.Bitcoin.pdf
   - dep_graph.png
+  - proof.Bitcoin.xml
 ---
 
 
-```{r setup}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
-  echo    = TRUE,
-  eval    = FALSE,
-  comment = "",
-  cache   = FALSE
+	eval = FALSE,
+	echo = TRUE,
+	cache = FALSE,
+	comment = ""
 )
-
 library(ROriginStamp)
 
 valid_key <- openssl::sha1(api_key()) == "4a0b1541d679c18ed81b2ee79052984cd6ab5597"
@@ -33,7 +33,7 @@ valid_key <- openssl::sha1(api_key()) == "4a0b1541d679c18ed81b2ee79052984cd6ab55
 
 # Prerequisites
 
-Before you can use the package, you have to get an API key from [OriginStamp](https://docs.originstamp.com). For details, see their [Get anAPI key documentation](https://docs.originstamp.com/guide/gettingstarted.html#get-an-api-key).
+Before you can use the package, you have to get an API key from [OriginStamp](https://docs.originstamp.com). For details, see their [Get an API key documentation](https://docs.originstamp.com/guide/gettingstarted.html#get-an-api-key).
 
 # Installation
 
@@ -48,6 +48,7 @@ devtools::install_github("rkrug/ROriginStamp")
 ```
 
 # How to use it
+
 
 ## Hashing
 
@@ -88,7 +89,7 @@ identical(
 )
 ```
 
-## Preparation
+## Provide API Key to the Functions
 
 If you want to do anything more than hashing with this package, you have to register with [OriginStamp](https://originstamp.com) and get an API key. You can register for a free account and still use all the functionality of this package.
 To get an API key is described in the [Get an API key section](https://docs.originstamp.com/guide/gettingstarted.html#get-an-api-key) of the documentation. 
@@ -99,13 +100,16 @@ To make this key available to the package, you have to
 
 ```{r, eval = FALSE, include = TRUE}
 Sys.setenv(ROriginStamp_api_key = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
-```
+```     
 or
+
 2. use the `api_key()` function to set the api key by running 
 ```{r, eval = FALSE, include = TRUE }
 api_key("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")`
 ````
+or
 
+3. specify it in each call by using the `key` argument.
 
 ## `get_key_usage()` - Getting infomation about your OriginStamp account
 

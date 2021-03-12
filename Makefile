@@ -53,8 +53,9 @@ clean_readme:
 
 ####
 
-pkgdown:
+pkgdown: readme
 	@Rscript -e "pkgdown::build_site()"
+	cp dep_graph.png ./docs/dep_graph.png
 
 clean_pkgdown:
 	@Rscript -e "pkgdown::clean_site()"

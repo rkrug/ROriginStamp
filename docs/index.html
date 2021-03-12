@@ -140,10 +140,26 @@
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>This package makes it easy to obtain and verify a hashed object or file in R, after getting an API key as described above.</p>
+<p>Once you have an API key, you have to make it available to the functions in the package.</p>
+<p>This can be done by</p>
+<ol>
+<li>either set it as an environmental variable, by e.g. using</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html">Sys.setenv</a></span><span class="op">(</span>ROriginStamp_api_key <span class="op">=</span> <span class="st">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="op">)</span></code></pre></div>
+<p>or</p>
+<ol>
+<li>use the <code><a href="reference/api_key.html">api_key()</a></code> function to set the api key by running</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">api_key</span>(<span class="st">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>)<span class="st">`</span></span></code></pre></div>
+<p>or</p>
+<ol>
+<li>specify it in each call by using the <code>key</code> argument.</li>
+</ol>
 <div id="obtain-a-tts-for-an-object-or-file" class="section level3">
 <h3 class="hasAnchor">
 <a href="#obtain-a-tts-for-an-object-or-file" class="anchor"></a>Obtain a TTS for an object or file</h3>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/create_timestamp.html">create_timestamp</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">obj</span>, 
   comment <span class="op">=</span> <span class="st">"This is a dummy test for creating a timestamp."</span>
@@ -153,13 +169,13 @@
 <div id="download-certificate-for-an-object" class="section level3">
 <h3 class="hasAnchor">
 <a href="#download-certificate-for-an-object" class="anchor"></a>Download certificate for an object</h3>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/get_proof.html">get_proof</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">obj</span>, 
   proof_type <span class="op">=</span> <span class="st">"pdf"</span>
 <span class="op">)</span></code></pre></div>
 <p>will download a pdf certificate of the R object or filename, while</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/get_proof.html">get_proof</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">obj</span>, 
   proof_type <span class="op">=</span> <span class="st">"xml"</span>
@@ -172,7 +188,7 @@
 <h1 class="hasAnchor">
 <a href="#dependencies" class="anchor"></a>Dependencies</h1>
 <p>This package aims at minimizing the number of dependencies It has at the moment only three direct dependencies, which are not avoidable as <code>curl</code> (Ooms 2019) is used to access the <a href="https://originstamp.com">OriginStamp</a> API, <code>openssl</code> (Ooms 2020) to calculate the hashes, and <code>jsonlite</code> (Ooms 2014) to encode and decode the API communications. The dependency graph looks as followes:</p>
-<p><img src="./dep_graph.png" alt="Dependency graph"></p>
+<p><img src="dep_graph.png" alt="Dependency graph"></p>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-jsonliteR" class="csl-entry">
 Ooms, Jeroen. 2014. “The Jsonlite Package: A Practical and Consistent Mapping Between JSON Data and r Objects.” <em>arXiv:1403.2805 <span class="math display"><em>S</em><em>t</em><em>a</em><em>t</em>.<em>C</em><em>O</em></span></em>. <a href="https://arxiv.org/abs/1403.2805" class="uri">https://arxiv.org/abs/1403.2805</a>.

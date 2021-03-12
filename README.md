@@ -92,6 +92,29 @@ devtools::install_github("rkrug/ROriginStamp")
 This package makes it easy to obtain and verify a hashed object or file
 in R, after getting an API key as described above.
 
+Once you have an API key, you have to make it available to the functions
+in the package.
+
+This can be done by
+
+1.  either set it as an environmental variable, by e.g. using
+
+``` r
+Sys.setenv(ROriginStamp_api_key = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
+```
+
+or
+
+2.  use the `api_key()` function to set the api key by running
+
+``` r
+api_key("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")`
+```
+
+or
+
+3.  specify it in each call by using the `key` argument.
+
 ### Obtain a TTS for an object or file
 
 ``` r
@@ -134,7 +157,7 @@ API, `openssl` (Ooms 2020) to calculate the hashes, and `jsonlite` (Ooms
 2014) to encode and decode the API communications. The dependency graph
 looks as followes:
 
-![Dependency graph](./dep_graph.png)
+![Dependency graph](dep_graph.png)
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 
