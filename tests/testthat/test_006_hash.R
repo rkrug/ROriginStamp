@@ -3,7 +3,7 @@ test_that(
   {
     expect_snapshot_error(
       as.hash(letters),
-      cran = TRUE
+      cran = FALSE
     )
     expect_snapshot(
       x = {
