@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get the Proof (Merkle Tree) for the hash calculated from an R object or file. — get_proof • ROriginStamp</title>
+<title>Changelog • ROriginStamp</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,7 @@
 
 
 
-<meta property="og:title" content="Get the Proof (Merkle Tree) for the hash calculated from an R object or file. — get_proof" />
-<meta property="og:description" content="Wrapper around https://api.originstamp.com/swagger/swagger-ui.html#/proof/getProof. The
-function downloads the merkle tree as proof." />
+<meta property="og:title" content="Changelog" />
 
 
 
@@ -60,7 +58,7 @@ function downloads the merkle tree as proof." />
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-topic">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -124,92 +122,51 @@ function downloads the merkle tree as proof." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get the Proof (Merkle Tree) for the hash calculated from an R object or file.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/rkrug/ROriginStamp/blob/master/R/get_proof.R'><code>R/get_proof.R</code></a></small>
-    <div class="hidden name"><code>get_proof.Rd</code></div>
+      <h1 data-toc-skip>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/rkrug/ROriginStamp/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="ref-description">
-    <p>Wrapper around <a href='https://api.originstamp.com/swagger/swagger-ui.html#/proof/getProof'>https://api.originstamp.com/swagger/swagger-ui.html#/proof/getProof</a>. The
-function downloads the merkle tree as proof.</p>
-    </div>
-
-    <pre class="usage"><span class='fu'>get_proof</span><span class='op'>(</span>
-  <span class='va'>x</span>,
-  <span class='va'>file</span>,
-  proof_type <span class='op'>=</span> <span class='st'>"pdf"</span>,
-  error_on_fail <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  url <span class='op'>=</span> <span class='fu'><a href='api_url.html'>api_url</a></span><span class='op'>(</span><span class='op'>)</span>,
-  key <span class='op'>=</span> <span class='fu'><a href='api_key.html'>api_key</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='op'>)</span></pre>
-
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>x</th>
-      <td><p>an R object of which a hash will be calculated using the function
-<code><a href='hash.html'>hash(x)</a></code>. The resulting hash will be submitted to OriginStamp.</p></td>
-    </tr>
-    <tr>
-      <th>file</th>
-      <td><p>if provided, file name to store the proof in. Otherwise, the from
-OriginStamp is used <code>proof.CURRENCY.HASH.xml</code> for <code>proof_type == "xml"</code>
-or <code>certificate.CURRENCY.HASH.pdf</code> for <code>proof_type == "pdf"</code>.</p></td>
-    </tr>
-    <tr>
-      <th>proof_type</th>
-      <td><p>The type of the proof format. Either "pdf" or "xml" are
-supported at the moment by OriginStamp.</p></td>
-    </tr>
-    <tr>
-      <th>error_on_fail</th>
-      <td><p>if TRUE, raise error when api call fails, otherwise
-return the failed response.</p></td>
-    </tr>
-    <tr>
-      <th>url</th>
-      <td><p>the url of the api. The default is to use the url as returned by
-the function <code><a href='api_url.html'>api_url()</a></code></p></td>
-    </tr>
-    <tr>
-      <th>key</th>
-      <td><p>the api key. The default is to use the key as returned by the
-function <code><a href='api_key.html'>api_key()</a></code></p></td>
-    </tr>
-    </table>
-
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>object of class <code>OriginStampResponse</code>, with an additional
-element, <code>file</code>, which contains the name of the saved certificate or proof.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>The behavior depends on the class of the argument <code>x</code>:</p><ul>
-<li><p><strong>an object of class <code>hash</code> as returned by the package openssl</strong>: the hash is submitted to OriginStamp</p></li>
-<li><p><strong><code>character</code> vector of length 1 containing the name of an existing file</strong>: the hash of the file is
-calculated and submitted to OriginStamp</p></li>
-<li><p><strong>any other R object</strong>: the hash is calculated using the function <code><a href='hash.html'>hash()</a></code> and submitted to OriginStamp</p></li>
-</ul>
-
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'># Retrieve complete merkle tree proof</span>
-<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='st'>"2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"</span>
-<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"hash"</span>
-<span class='fu'>get_proof</span><span class='op'>(</span>
-  x <span class='op'>=</span> <span class='va'>x</span>
-<span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <div id="roriginstamp-080-2021-03-28" class="section level1">
+<h1 class="page-header" data-toc-text="0.8.0">
+<a href="#roriginstamp-080-2021-03-28" class="anchor"></a>ROriginStamp 0.8.0 (2021-03-28)</h1>
+<p>Submission ropensci</p>
+</div>
+    <div id="roriginstamp-08x-xxxx-xx-xx" class="section level1">
+<h1 class="page-header" data-toc-text="0.8">
+<a href="#roriginstamp-08x-xxxx-xx-xx" class="anchor"></a>ROriginStamp 0.8.x (xxxx-xx-xx)</h1>
+<div id="new-features" class="section level3">
+<h3 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>NEW FEATURES</h3>
+</div>
+<div id="minor-improvements" class="section level3">
+<h3 class="hasAnchor">
+<a href="#minor-improvements" class="anchor"></a>MINOR IMPROVEMENTS</h3>
+</div>
+<div id="bug-fixes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#bug-fixes" class="anchor"></a>BUG FIXES</h3>
+</div>
+<div id="deprecated-and-defunct" class="section level3">
+<h3 class="hasAnchor">
+<a href="#deprecated-and-defunct" class="anchor"></a>DEPRECATED AND DEFUNCT</h3>
+</div>
+<div id="documentation-fixes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#documentation-fixes" class="anchor"></a>DOCUMENTATION FIXES</h3>
+</div>
+<div id="a-special-any-heading-grouping-a-large-number-of-changes-under-one-thing" class="section level3">
+<h3 class="hasAnchor">
+<a href="#a-special-any-heading-grouping-a-large-number-of-changes-under-one-thing" class="anchor"></a>(a special: any heading grouping a large number of changes under one thing)</h3>
+</div>
+</div>
   </div>
+
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
+
 </div>
 
 

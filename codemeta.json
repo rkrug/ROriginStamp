@@ -127,7 +127,8 @@
     }
   ],
   "readme": "https://github.com/rkrug/ROriginStamp/blob/master/README.md",
-  "fileSize": "1334.041KB",
+  "fileSize": "1071.356KB",
   "contIntegration": "https://codecov.io/github/rkrug/ROriginStamp?branch=master",
-  "developmentStatus": ["https://www.tidyverse.org/lifecycle/#maturing", "https://www.repostatus.org/#active"]
+  "developmentStatus": ["https://www.tidyverse.org/lifecycle/#maturing", "https://www.repostatus.org/#active"],
+  "releaseNotes": "https://github.com/rkrug/ROriginStamp/blob/master/NEWS.md"
 }

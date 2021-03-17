@@ -4,6 +4,9 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
 
+[![Status at rOpenSci Software Peer
+Review](https://badges.ropensci.org/433_status.svg)](https://github.com/ropensci/software-review/issues/433)
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4588336.svg)](https://doi.org/10.5281/zenodo.4588336)
 
 [![Build
