@@ -1,0 +1,133 @@
+---
+title: "Verification TTS"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Verification TTS}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Verification of TTS
+
+## Verification with OriginStamp
+[link](https://docs.originstamp.com/howto/verification.html)
+
+## Verification without OriginStamp
+[link](https://docs.originstamp.com/howto/verification_without_OriginStamp.html)
+[video](https://www.youtube.com/watch?v=0480TQGQP2Y)
+
+Search OP_RETURN
+https://bitcoin.stackexchange.com/questions/36478/how-can-i-search-for-op-return-data
+
+https://www.smartbit.com.au
+
+OK - smartbit Has an API. I can search for the OP_RETURN value by using curl:
+
+curl https://api.smartbit.com.au/v1/blockchain/search?q=d1d90a5730f0a596dfa4b83e167b02801a74273ffd0cf21e419c3f04ffb3e6df
+
+{
+    "success": true,
+    "results": [
+        {
+            "type": "transaction",
+            "data": "d1d90a5730f0a596dfa4b83e167b02801a74273ffd0cf21e419c3f04ffb3e6df"
+        }
+    ],
+    "search": "d1d90a5730f0a596dfa4b83e167b02801a74273ffd0cf21e419c3f04ffb3e6df"
+}
+
+The return value includes the transaction. Then
+
+curl https://api.smartbit.com.au/v1/blockchain/tx/d1d90a5730f0a596dfa4b83e167b02801a74273ffd0cf21e419c3f04ffb3e6df
+
+{
+    "success": true,
+    "transaction": {
+        "txid": "d1d90a5730f0a596dfa4b83e167b02801a74273ffd0cf21e419c3f04ffb3e6df",
+        "hash": "d1d90a5730f0a596dfa4b83e167b02801a74273ffd0cf21e419c3f04ffb3e6df",
+        "block": 674803,
+        "confirmations": 1114,
+        "version": "1",
+        "locktime": 0,
+        "time": 1615853224,
+        "first_seen": 1615852887,
+        "propagation": null,
+        "double_spend": false,
+        "size": 266,
+        "vsize": 266,
+        "input_amount": "0.04228154",
+        "input_amount_int": 4228154,
+        "output_amount": "0.04201022",
+        "output_amount_int": 4201022,
+        "fee": "0.00027132",
+        "fee_int": 27132,
+        "fee_size": "102.00000000",
+        "coinbase": false,
+        "input_count": 1,
+        "inputs": [
+            {
+                "addresses": [
+                    "1Stampap27ZbxugEmWPbxNXJxzmYWn2op"
+                ],
+                "value": "0.04228154",
+                "value_int": 4228154,
+                "txid": "95aa750d9e365651646497407cad5cecfc9e372fa8e1d699a86f9d1357a18ba2",
+                "vout": 1,
+                "script_sig": {
+                    "asm": "304402202acfdc5fe6de4971970509e5d24e4c7622cbdd76cb13d85f2e3ecb21ae20de7402201e33ef5f9a0f0278eb22a8f4149096f6dc4c627f3d47ba50c35c51918f95957281 048997ba70cd2005b4e2f21bba96b6fdf8268cd503cb5de2223ee1511780a50936c9403ef6a6e087dad88e88721ad5725938f104e969baff2b4ddac9ab57d2a0c5",
+                    "hex": "47304402202acfdc5fe6de4971970509e5d24e4c7622cbdd76cb13d85f2e3ecb21ae20de7402201e33ef5f9a0f0278eb22a8f4149096f6dc4c627f3d47ba50c35c51918f9595728141048997ba70cd2005b4e2f21bba96b6fdf8268cd503cb5de2223ee1511780a50936c9403ef6a6e087dad88e88721ad5725938f104e969baff2b4ddac9ab57d2a0c5"
+                },
+                "type": "pubkeyhash",
+                "witness": [
+                    "NULL"
+                ],
+                "sequence": 4294967295
+            }
+        ],
+        "output_count": 2,
+        "outputs": [
+            {
+                "addresses": [],
+                "value": "0.00000000",
+                "value_int": 0,
+                "n": 0,
+                "script_pub_key": {
+                    "asm": "OP_RETURN bf6eec9f213846a53ed187d41d2b9ed2e954649a45d2883e5df6b107b2eb0b75",
+                    "hex": "6a20bf6eec9f213846a53ed187d41d2b9ed2e954649a45d2883e5df6b107b2eb0b75"
+                },
+                "req_sigs": 0,
+                "type": "nulldata",
+                "spend_txid": null
+            },
+            {
+                "addresses": [
+                    "1Stampap27ZbxugEmWPbxNXJxzmYWn2op"
+                ],
+                "value": "0.04201022",
+                "value_int": 4201022,
+                "n": 1,
+                "script_pub_key": {
+                    "asm": "OP_DUP OP_HASH160 04e575307e92a334979d5198cda84d974b3ab20b OP_EQUALVERIFY OP_CHECKSIG",
+                    "hex": "76a91404e575307e92a334979d5198cda84d974b3ab20b88ac"
+                },
+                "req_sigs": 1,
+                "type": "pubkeyhash",
+                "spend_txid": "5222827cad650b0b4a4537255152429ae60c69fa74cee3d023644c13e5b1344b"
+            }
+        ],
+        "tx_index": 625893340,
+        "block_index": 765
+    }
+}
+
+
+# Function
+
+`verify_timestamp()`
