@@ -7,10 +7,10 @@
 transaction_from_txid(txid)
 }
 \arguments{
-\item{txid}{transaction ID}
+\item{txid}{a vector containing the transaction ids. Usiully only one}
 }
 \value{
-The transaction
+a list of the transactions identified by the txid
 }
 \description{
 Find transaction based on transaction ID

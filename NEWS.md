@@ -1,4 +1,12 @@
 
+ROriginStamp 0.8.01 (2021-mm-dd)
+=========================
+
+### NEW FEATURES
+- added verification functions and vignette
+
+
+
 ROriginStamp 0.8.0 (2021-03-28)
 =========================
 

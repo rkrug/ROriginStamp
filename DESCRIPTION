@@ -1,7 +1,7 @@
 Package: ROriginStamp
 Type: Package
 Title: Interface to OriginStamp API to Obtain Trusted Time Stamps
-Version: 0.8.0
+Version: 0.8.1
 Authors@R: c(
     person(given = "Rainer M.",
              family = "Krug",

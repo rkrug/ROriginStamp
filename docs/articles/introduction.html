@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ROriginStamp</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.1</span>
       </span>
     </div>
 
@@ -55,6 +55,12 @@
   <ul class="dropdown-menu" role="menu">
 <li>
       <a href="../articles/introduction.html">Introduction</a>
+    </li>
+    <li>
+      <a href="../articles/usecases.html">Usecases</a>
+    </li>
+    <li>
+      <a href="../articles/verification_tts.html">Verification TTS</a>
     </li>
   </ul>
 </li>
@@ -128,20 +134,20 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/hash.html">hash</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"DESCRIPTION"</span>, package <span class="op">=</span> <span class="st">"ROriginStamp"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>
-Create sha356 hash from R file x [/private/var/folders/50/wcr5bjwn75q595n6x82gxj280000gq/T/RtmpNDEUt1/temp_libpathbb14166f0ec/ROriginStamp/DESCRIPTION]</code></pre>
-<pre><code>sha256 7a:65:02:73:98:57:00:c6:84:23:13:b4:34:79:b6:cb:d4:5a:fa:5a:03:f1:55:dd:3a:b4:b8:b4:2b:1d:74:ca </code></pre>
+Create sha356 hash from R file x [/private/var/folders/50/wcr5bjwn75q595n6x82gxj280000gq/T/RtmpJOR8AC/temp_libpath72ec38149341/ROriginStamp/DESCRIPTION]</code></pre>
+<pre><code>sha256 d5:40:9d:6a:8f:b4:05:fb:92:be:76:64:1f:df:16:e2:cf:d5:7e:55:fb:b5:f7:ec:cc:31:ca:c3:d4:f2:08:3a </code></pre>
 <p>returns the hash of the file. This is identical to directly call the hash method which calculates the hash of the file:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/hash.html">hash.file</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"DESCRIPTION"</span>, package <span class="op">=</span> <span class="st">"ROriginStamp"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>
-Create sha356 hash from R file x [/private/var/folders/50/wcr5bjwn75q595n6x82gxj280000gq/T/RtmpNDEUt1/temp_libpathbb14166f0ec/ROriginStamp/DESCRIPTION]</code></pre>
-<pre><code>sha256 7a:65:02:73:98:57:00:c6:84:23:13:b4:34:79:b6:cb:d4:5a:fa:5a:03:f1:55:dd:3a:b4:b8:b4:2b:1d:74:ca </code></pre>
+Create sha356 hash from R file x [/private/var/folders/50/wcr5bjwn75q595n6x82gxj280000gq/T/RtmpJOR8AC/temp_libpath72ec38149341/ROriginStamp/DESCRIPTION]</code></pre>
+<pre><code>sha256 d5:40:9d:6a:8f:b4:05:fb:92:be:76:64:1f:df:16:e2:cf:d5:7e:55:fb:b5:f7:ec:cc:31:ca:c3:d4:f2:08:3a </code></pre>
 <p>If you want to calculate the hash of the actual R object, you have to method which handles all R objects:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/hash.html">hash.default</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"DESCRIPTION"</span>, package <span class="op">=</span> <span class="st">"ROriginStamp"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>
 Create sha356 hash from R object x</code></pre>
-<pre><code>sha256 a8:98:e7:2d:80:e8:b7:87:45:4e:94:4d:51:b7:0b:f9:cf:cd:53:04:67:ee:e1:30:91:b0:d8:5e:5a:6f:1f:71 </code></pre>
+<pre><code>sha256 8f:1a:9a:43:94:f9:34:33:6f:1b:96:d3:c8:5f:7f:ff:43:b4:f8:05:b1:98:93:8c:74:71:67:34:0b:3c:ba:03 </code></pre>
 <p>If <code>x</code> is an object of class <code>hash</code>, the object x is returned as is:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span> 
@@ -182,6 +188,68 @@ x is already a hash - returning x unprocessed</code></pre>
 <p>To get the key usage statistics is accomplished by using</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/get_key_usage.html">get_key_usage</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>$status
+[1] 200
+
+$content
+$content$error_code
+[1] 0
+
+$content$error_message
+NULL
+
+$content$data
+$content$data$credits_per_month
+[1] 6000
+
+$content$data$remaining_credits
+[1] 5260.2
+
+$content$data$consumed_credits
+[1] 739.8
+
+$content$data$timestamps_per_month
+[1] 1000
+
+$content$data$consumed_timestamps
+[1] 18
+
+$content$data$certificate_per_month
+[1] 1000
+
+$content$data$consumed_certificates
+[1] 186
+
+$content$data$limitation_type
+[1] 1
+
+
+
+$headers
+$headers[[1]]
+ [1] "HTTP/2 200 "                                                                                                                                                                                                                                    
+ [2] "date: Wed, 24 Mar 2021 14:52:54 GMT"                                                                                                                                                                                                            
+ [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                   
+ [4] "set-cookie: __cfduid=d076291466a9342c84aefafde0bf613541616597574; expires=Fri, 23-Apr-21 14:52:54 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                 
+ [5] "x-content-type-options: nosniff"                                                                                                                                                                                                                
+ [6] "x-xss-protection: 1; mode=block"                                                                                                                                                                                                                
+ [7] "cache-control: no-cache, no-store, max-age=0, must-revalidate"                                                                                                                                                                                  
+ [8] "pragma: no-cache"                                                                                                                                                                                                                               
+ [9] "expires: 0"                                                                                                                                                                                                                                     
+[10] "x-frame-options: DENY"                                                                                                                                                                                                                          
+[11] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                       
+[12] "cf-request-id: 0906527a690000a8738fbad000000001"                                                                                                                                                                                                
+[13] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                           
+[14] "report-to: {\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=EHNgVfy2G9U9o8idMwKso9w5qvpyAkpeDtOl8jWYxYq2eHocNMKhep7dC9UcHlon80Yf9GUwT6Srwim5UEQ1y066qONNrEEcCk3wYa2lkRjkK5lh\"}],\"max_age\":604800,\"group\":\"cf-nel\"}"
+[15] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                             
+[16] "server: cloudflare"                                                                                                                                                                                                                             
+[17] "cf-ray: 6350b9d70dbba873-CDG"                                                                                                                                                                                                                   
+[18] "content-encoding: gzip"                                                                                                                                                                                                                         
+[19] ""                                                                                                                                                                                                                                               
+
+
+attr(,"class")
+[1] "OriginStampResponse"</code></pre>
 <p>This gives an overview over your usage of your credits. The actual numbers depend on the plan you are on and the number of credits used already.</p>
 <p>For a detailed description of the return value see <a href="https://api.originstamp.com/swagger/swagger-ui.html#/">the Default«UsageResponse» in the models section</a> of the API documentation.</p>
 </div>
@@ -189,8 +257,45 @@ x is already a hash - returning x unprocessed</code></pre>
 <h2 class="hasAnchor">
 <a href="#get_currencies---getting-infomation-about-your-originstamp-account" class="anchor"></a><code>get_currencies()</code> - Getting infomation about your OriginStamp account</h2>
 <p>OriginStamp can work with different blockchain based currencies. The list of the currencies supported can be retrieved by using</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/get_currencies.html">get_currencies</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>$status
+[1] 200
+
+$content
+$content$error_code
+[1] 0
+
+$content$error_message
+NULL
+
+$content$data
+  currency_id   currency
+1           0    BITCOIN
+2           1   ETHEREUM
+3           2       AION
+4         100 SUEDKURIER
+
+
+$headers
+$headers[[1]]
+ [1] "HTTP/2 200 "                                                                                                                                                                                                                                              
+ [2] "date: Wed, 24 Mar 2021 14:52:54 GMT"                                                                                                                                                                                                                      
+ [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                             
+ [4] "set-cookie: __cfduid=d076291466a9342c84aefafde0bf613541616597574; expires=Fri, 23-Apr-21 14:52:54 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                           
+ [5] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                                 
+ [6] "cf-request-id: 0906527b530000a8736f1fb000000001"                                                                                                                                                                                                          
+ [7] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                                     
+ [8] "report-to: {\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=%2Fezw3vPHB3hKtkm4CoJ1eTW4j%2FbtCuUYWS%2Bhm4B9sGu4BPBdyVlhmJqR7EH0rHKKtAL4G6eWCB4lbOekS%2F55EWk59y%2Fr46bktlfwIB5jCvUEIcVy\"}],\"max_age\":604800,\"group\":\"cf-nel\"}"
+ [9] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                                       
+[10] "server: cloudflare"                                                                                                                                                                                                                                       
+[11] "cf-ray: 6350b9d88f1ea873-CDG"                                                                                                                                                                                                                             
+[12] "content-encoding: gzip"                                                                                                                                                                                                                                   
+[13] ""                                                                                                                                                                                                                                                         
+
+
+attr(,"class")
+[1] "OriginStampResponse"</code></pre>
 <p>For a detailed description of the return value see <a href="https://api.originstamp.com/swagger/swagger-ui.html#/">the DefaultOfListOfCurrencyModel in the models section</a> of the API documentation.</p>
 </div>
 <div id="create_timestamp---create-a-new-timestamp" class="section level2">
@@ -198,18 +303,124 @@ x is already a hash - returning x unprocessed</code></pre>
 <a href="#create_timestamp---create-a-new-timestamp" class="anchor"></a><code>create_timestamp()</code> - Create a new timestamp</h2>
 <p>Let’s create a new timestamp.</p>
 <p>As an example, let’s create a timestamp for 100 random numbers, to make sure, that the hash has not been timestamped by OriginStamp already.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>
 <span class="fu"><a href="../reference/create_timestamp.html">create_timestamp</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">obj</span>, 
   comment <span class="op">=</span> <span class="st">"This is a dummy test for creating a timestamp."</span>
 <span class="op">)</span></code></pre></div>
+<pre><code>
+Create sha356 hash from R object x</code></pre>
+<pre><code>$status
+[1] 200
+
+$content
+$content$error_code
+[1] 0
+
+$content$error_message
+NULL
+
+$content$data
+$content$data$created
+[1] TRUE
+
+$content$data$date_created
+[1] 1.616598e+12
+
+$content$data$comment
+[1] "This is a dummy test for creating a timestamp."
+
+$content$data$hash_string
+[1] "eaedb2f64c5062718189fd65451d05b86c687cb43748c645f67df06051475a7e"
+
+$content$data$timestamps
+  currency_id transaction private_key timestamp submit_status
+1           0          NA          NA        NA             0
+2           1          NA          NA        NA             0
+3           2          NA          NA        NA             0
+4         100          NA          NA        NA             0
+
+
+
+$headers
+$headers[[1]]
+ [1] "HTTP/2 200 "                                                                                                                                                                                                                                                    
+ [2] "date: Wed, 24 Mar 2021 14:52:55 GMT"                                                                                                                                                                                                                            
+ [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                                   
+ [4] "set-cookie: __cfduid=d076291466a9342c84aefafde0bf613541616597574; expires=Fri, 23-Apr-21 14:52:54 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                                 
+ [5] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                                       
+ [6] "cf-request-id: 0906527c7b0000a873711c1000000001"                                                                                                                                                                                                                
+ [7] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                                           
+ [8] "report-to: {\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=Ct6z3wyKAQGlXpq1Un%2Bca4BUFUHk5MG%2B9t2B4hUaOkfQ%2F9LYy%2Fg%2BHt4k8%2Fwv%2BvoVSr2aadAbLF207so6uRVaAytINcbSy1jaS4j2JFM%2FhUQLTNsT\"}],\"max_age\":604800,\"group\":\"cf-nel\"}"
+ [9] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                                             
+[10] "server: cloudflare"                                                                                                                                                                                                                                             
+[11] "cf-ray: 6350b9da589fa873-CDG"                                                                                                                                                                                                                                   
+[12] "content-encoding: gzip"                                                                                                                                                                                                                                         
+[13] ""                                                                                                                                                                                                                                                               
+
+
+attr(,"class")
+[1] "OriginStampResponse"</code></pre>
 <p>Now let’s submit the same hash again and see what happens:</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/create_timestamp.html">create_timestamp</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">obj</span>, 
   comment <span class="op">=</span> <span class="st">"This is a dummy test for creating a timestamp a second time."</span>
 <span class="op">)</span></code></pre></div>
+<pre><code>
+Create sha356 hash from R object x</code></pre>
+<pre><code>$status
+[1] 200
+
+$content
+$content$error_code
+[1] 0
+
+$content$error_message
+NULL
+
+$content$data
+$content$data$created
+[1] FALSE
+
+$content$data$date_created
+[1] 1.616598e+12
+
+$content$data$comment
+[1] "This is a dummy test for creating a timestamp a second time."
+
+$content$data$hash_string
+[1] "eaedb2f64c5062718189fd65451d05b86c687cb43748c645f67df06051475a7e"
+
+$content$data$timestamps
+  currency_id transaction private_key timestamp submit_status
+1           0          NA          NA        NA             0
+2           1          NA          NA        NA             0
+3           2          NA          NA        NA             0
+4         100          NA          NA        NA             0
+
+
+
+$headers
+$headers[[1]]
+ [1] "HTTP/2 200 "                                                                                                                                                                                                                                                  
+ [2] "date: Wed, 24 Mar 2021 14:52:55 GMT"                                                                                                                                                                                                                          
+ [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                                 
+ [4] "set-cookie: __cfduid=d539893adaa4b4bb3bc05e5fae4635ec51616597575; expires=Fri, 23-Apr-21 14:52:55 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                               
+ [5] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                                     
+ [6] "cf-request-id: 09065280190000a87366320000000001"                                                                                                                                                                                                              
+ [7] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                                         
+ [8] "report-to: {\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=WUxZ6AJn6sIY%2FoQ%2FIKdDP6KS6uW6eO9CFueuK2lhacelADBuZ%2FuYObHXuNVb4%2B6ZLQuS335P%2F5LDkBWGirVVw43yI1l%2FD%2BsCPPiG4JWcbLHg3t2A\"}],\"max_age\":604800,\"group\":\"cf-nel\"}"
+ [9] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                                           
+[10] "server: cloudflare"                                                                                                                                                                                                                                           
+[11] "cf-ray: 6350b9e02c64a873-CDG"                                                                                                                                                                                                                                 
+[12] "content-encoding: gzip"                                                                                                                                                                                                                                       
+[13] ""                                                                                                                                                                                                                                                             
+
+
+attr(,"class")
+[1] "OriginStampResponse"</code></pre>
 <p>The difference is in <code>$content$data$created</code> which is <code>TRUE</code> when the submitted hash has not been timestamped already and subsequently created, and <code>FALSE</code> when it already exists. This is an easy way to check if the submission was successful.</p>
 <p>It is important to note, that the timestamps are not created immediately, but put in a bash cue, which is submitted at certain intervalls, depending on the currency used. See <a href="https://docs.originstamp.com/guide/#blockchain-currencies">the documentation on currencies</a> for details.</p>
 </div>
@@ -217,15 +428,122 @@ x is already a hash - returning x unprocessed</code></pre>
 <h2 class="hasAnchor">
 <a href="#get_hash_status---getting-the-status-of-a-submitted-hash" class="anchor"></a><code>get_hash_status()</code> - Getting the status of a submitted hash</h2>
 <p>Let’s get information about the status of some hashes submitted. We start with the status of the just submitted hash of <code>obj</code></p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/get_hash_status.html">get_hash_status</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">obj</span>
 <span class="op">)</span></code></pre></div>
+<pre><code>
+Create sha356 hash from R object x</code></pre>
+<pre><code>$status
+[1] 200
+
+$content
+$content$error_code
+[1] 0
+
+$content$error_message
+NULL
+
+$content$data
+$content$data$created
+[1] FALSE
+
+$content$data$date_created
+[1] 1.616598e+12
+
+$content$data$comment
+[1] "This is a dummy test for creating a timestamp."
+
+$content$data$hash_string
+[1] "eaedb2f64c5062718189fd65451d05b86c687cb43748c645f67df06051475a7e"
+
+$content$data$timestamps
+  currency_id transaction private_key timestamp submit_status
+1           0          NA          NA        NA             0
+2           1          NA          NA        NA             0
+3           2          NA          NA        NA             0
+4         100          NA          NA        NA             0
+
+
+
+$headers
+$headers[[1]]
+ [1] "HTTP/2 200 "                                                                                                                                                                                                                                          
+ [2] "date: Wed, 24 Mar 2021 14:52:56 GMT"                                                                                                                                                                                                                  
+ [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                         
+ [4] "set-cookie: __cfduid=d539893adaa4b4bb3bc05e5fae4635ec51616597575; expires=Fri, 23-Apr-21 14:52:55 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                       
+ [5] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                             
+ [6] "cf-request-id: 09065280f40000a8736991f000000001"                                                                                                                                                                                                      
+ [7] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                                 
+ [8] "report-to: {\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=GUDv%2F4bDMvsQ5PwaZn73I%2BDFXPI9x%2BvbVBx1JmZTQzCJbg1ZXK3sZwFOpBbH37TqhSA3vOrW7R15NLaAmjozeJX2U8OokTuXuE57ATcChM8gff8e\"}],\"max_age\":604800,\"group\":\"cf-nel\"}"
+ [9] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                                   
+[10] "server: cloudflare"                                                                                                                                                                                                                                   
+[11] "cf-ray: 6350b9e18d7ca873-CDG"                                                                                                                                                                                                                         
+[12] "content-encoding: gzip"                                                                                                                                                                                                                               
+[13] ""                                                                                                                                                                                                                                                     
+
+
+attr(,"class")
+[1] "OriginStampResponse"</code></pre>
 <p>Now lets look at the status of a hash submitted in the past and which is already processed and timestamped:</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/get_hash_status.html">get_hash_status</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="fu"><a href="../reference/as.hash.html">as.hash</a></span><span class="op">(</span><span class="st">"2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
+<pre><code>
+x is already a hash - returning x unprocessed</code></pre>
+<pre><code>$status
+[1] 200
+
+$content
+$content$error_code
+[1] 0
+
+$content$error_message
+NULL
+
+$content$data
+$content$data$created
+[1] FALSE
+
+$content$data$date_created
+[1] 1.541203e+12
+
+$content$data$comment
+[1] "test"
+
+$content$data$hash_string
+[1] "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
+
+$content$data$timestamps
+  currency_id                                                      transaction
+1           0 aed3db9ef94953f65e93d56a4e5bcf234d43e27a1b3e7ce0f274cc7ed750d0e2
+                                                       private_key    timestamp
+1 5e92ec09501a5d39e251a151f84b5e2228312c445eb23b4e1de6360e27bad54b 1.541204e+12
+  submit_status
+1             3
+
+
+
+$headers
+$headers[[1]]
+ [1] "HTTP/2 200 "                                                                                                                                                                                                                                                
+ [2] "date: Wed, 24 Mar 2021 14:52:56 GMT"                                                                                                                                                                                                                        
+ [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                               
+ [4] "set-cookie: __cfduid=dc50ccda5366d837f74733b21b22e626d1616597576; expires=Fri, 23-Apr-21 14:52:56 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                             
+ [5] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                                   
+ [6] "cf-request-id: 09065281ec0000a87364a73000000001"                                                                                                                                                                                                            
+ [7] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                                       
+ [8] "report-to: {\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=GJ56%2FiyNb%2FAOnuzLb9tra%2BJ7u72uxjbz%2FXenGie55HhRY3tlJBYq0FAiNAVLkQTOac3M7N9WQB%2FW7utQJi7WMOWAmDzxE%2BOkLFzta1PEVQaHMPN3\"}],\"max_age\":604800,\"group\":\"cf-nel\"}"
+ [9] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                                         
+[10] "server: cloudflare"                                                                                                                                                                                                                                         
+[11] "cf-ray: 6350b9e31ea5a873-CDG"                                                                                                                                                                                                                               
+[12] "content-encoding: gzip"                                                                                                                                                                                                                                     
+[13] ""                                                                                                                                                                                                                                                           
+
+
+attr(,"class")
+[1] "OriginStampResponse"</code></pre>
 <p>The difference is in <code>$content$data$timestamps</code> which is in the case of a submitted hash but not yet created timestamp an essentially empty table, while in the case of a created timestamp, a table lie=sting the timestamp information.</p>
 <p>But this information is neither particularly useful, nor userfriendly if one wan’s to proof the timestamp. For this, let’s move the final command.</p>
 </div>
@@ -233,13 +551,13 @@ x is already a hash - returning x unprocessed</code></pre>
 <h2 class="hasAnchor">
 <a href="#get_proof---downloading-proof-of-a-created-timestamp" class="anchor"></a><code>get_proof()</code> - Downloading proof of a created timestamp</h2>
 <p>The structure of the command is very similar to the previous one, only that one can specify the type of the proof. This can be either in the form of a <code>pdf</code> file (a ‘certificate’), or as an xml file (a ‘proof’).</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/get_proof.html">get_proof</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="fu"><a href="../reference/as.hash.html">as.hash</a></span><span class="op">(</span><span class="st">"2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"</span><span class="op">)</span>, 
   proof_type <span class="op">=</span> <span class="st">"pdf"</span>
 <span class="op">)</span></code></pre></div>
 <p>or</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/get_proof.html">get_proof</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="fu"><a href="../reference/as.hash.html">as.hash</a></span><span class="op">(</span><span class="st">"2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"</span><span class="op">)</span>, 
   proof_type <span class="op">=</span> <span class="st">"xml"</span>

@@ -1,8 +1,8 @@
 #' Find transaction based on transaction ID
 #'
-#' @param txid transaction ID
+#' @param txid a vector containing the transaction ids. Usiully only one
 #'
-#' @return The transaction
+#' @return a list of the transactions identified by the txid
 #'
 #' @importFrom curl curl_fetch_memory
 #' @importFrom jsonlite fromJSON
@@ -16,13 +16,13 @@ transaction_from_txid <- function(
 ) {
   url <- paste0("https://api.smartbit.com.au/v1/blockchain/tx/", txid )
 
-  # GET request -------------------------------------------------------------
-
-  response <- curl::curl_fetch_memory( url )
-
-  # Process return value ----------------------------------------------------
-
-  result <- jsonlite::fromJSON( rawToChar(response$content) )
+  result <- lapply(
+    url,
+    function(x) {
+      response <- curl::curl_fetch_memory( x )
+      jsonlite::fromJSON( rawToChar(response$content) )
+    }
+  )
 
   return(result)
 }

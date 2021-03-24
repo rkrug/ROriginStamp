@@ -1,22 +1,34 @@
-#' Return the transaction id from the pdf certificate
+#' Return the hash of an xml proof or pdf certificate
 #'
-#' @param x filename or URL pointing either to the the pdf certificate issued from OriginStamp.
+#' @param x filename or URL pointing either to the xml proof or the pdf certificate issued from OriginStamp.
+#' @param verify if `TRUE`, verify the root hash using the proof.
 #'
-#' @return the transaction id
+#' @return an `hash` object containing the hash as used in the proof
 #'
-#' @importFrom pdftools pdf_text
+#' @md
+#'
+#' @importFrom xml2 xml_attr
+#'
 #' @export
 #'
 #' @examples
-#' transaction("https://raw.githubusercontent.com/rkrug/ROriginStamp/master/inst/certificate.Bitcoin.pdf")
+#' extract_hash("https://raw.githubusercontent.com/rkrug/ROriginStamp/master/inst/proof.Bitcoin.xml")
+#' extract_hash("https://raw.githubusercontent.com/rkrug/ROriginStamp/master/inst/certificate.Bitcoin.pdf")
 #'
-extract_transaction <- function(
-  x
+extract_hash <- function(
+  x,
+  verify = TRUE
 ) {
-  p1 <- pdftools::pdf_text(x)[[1]]
-  p1 <- strsplit(p1, "\n")
-  p1 <- sapply(p1, trimws)
-  result <- p1[[7]]
 
-  return( result )
+  proof <- extract_proof(x, verify)
+
+  nodes <- xml2::xml_find_all(proof, ".//*")
+  hash_node <- nodes[xml2::xml_attr(nodes, "type") == "hash"]
+  hash <- xml2::xml_attr(hash_node, "value")
+
+  if (length(hash) == 0) {
+    stop("The document does not contain a valid proof!")
+  }
+
+  return( as.hash(hash) )
 }
