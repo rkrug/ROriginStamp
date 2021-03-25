@@ -4,21 +4,26 @@
 \alias{extract_proof}
 \title{Extract the proof from an xml proof or pdf certificate}
 \usage{
-extract_proof(x, verify = FALSE)
+extract_proof(x, verify = TRUE, verbose = FALSE)
 }
 \arguments{
 \item{x}{filename or URL pointing either to the xml proof or the pdf certificate issued from OriginStamp.}
 
 \item{verify}{if \code{FALSE}, read the root hash from the xml file. If \code{TRUE}, verify the root hash using the proof.}
+
+\item{verbose}{if \code{TRUE}, details on the verification will be printed which can help to see where the proof is wrong.}
 }
 \value{
 the root hash
 }
 \description{
-If the v arification fails, the function aborts and raises an error.
+If the v verification fails, the function aborts and raises an error.
 }
 \examples{
-extract_proof("https://raw.githubusercontent.com/rkrug/ROriginStamp/master/inst/proof.Bitcoin.xml")
-extract_proof("https://raw.githubusercontent.com/rkrug/ROriginStamp/master/inst/certificate.Bitcoin.pdf")
+extract_proof(system.file("certificate.Bitcoin.pdf", package = "ROriginStamp"))
+extract_proof(system.file("proof.Bitcoin.xml", package = "ROriginStamp"))
+extract_proof(system.file("proof.Bitcoin.xml", package = "ROriginStamp"), cverify = FALSE)
+extract_proof(system.file("proof.faulty.xml", package = "ROriginStamp"))
+extract_proof(system.file("proof.faulty.xml", package = "ROriginStamp"), verbose = TRUE)
 
 }

@@ -52,13 +52,13 @@ verify_timestamp <- function(
 
     # Check hash --------------------------------------------------------------
 
-    if (hash != extract_hash(proof, verify = TRUE)) {
+    if (hash != extract_hash(proof)) {
       stop( "The `hash` does not match the `proof`.\nPlease profide matching `hash` and `proof`!")
     }
 
     # Extract root hash -----------------------------------------------------
 
-    root_hash <- extract_root_hash(proof, verify = TRUE)
+    root_hash <- extract_root_hash(proof)
 
     # Get txid ------------------------------------------------------------
 

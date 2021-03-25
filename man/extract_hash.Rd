@@ -4,12 +4,10 @@
 \alias{extract_hash}
 \title{Return the hash of an xml proof or pdf certificate}
 \usage{
-extract_hash(x, verify = TRUE)
+extract_hash(x)
 }
 \arguments{
 \item{x}{filename or URL pointing either to the xml proof or the pdf certificate issued from OriginStamp.}
-
-\item{verify}{if \code{TRUE}, verify the root hash using the proof.}
 }
 \value{
 an \code{hash} object containing the hash as used in the proof

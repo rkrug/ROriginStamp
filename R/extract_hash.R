@@ -1,7 +1,6 @@
 #' Return the hash of an xml proof or pdf certificate
 #'
 #' @param x filename or URL pointing either to the xml proof or the pdf certificate issued from OriginStamp.
-#' @param verify if `TRUE`, verify the root hash using the proof.
 #'
 #' @return an `hash` object containing the hash as used in the proof
 #'
@@ -16,11 +15,10 @@
 #' extract_hash("https://raw.githubusercontent.com/rkrug/ROriginStamp/master/inst/certificate.Bitcoin.pdf")
 #'
 extract_hash <- function(
-  x,
-  verify = TRUE
+  x
 ) {
 
-  proof <- extract_proof(x, verify)
+  proof <- extract_proof(x)
 
   nodes <- xml2::xml_find_all(proof, ".//*")
   hash_node <- nodes[xml2::xml_attr(nodes, "type") == "hash"]

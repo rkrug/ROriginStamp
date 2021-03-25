@@ -2,9 +2,9 @@
 % Please edit documentation in R/int_verify_proof.R
 \name{verify_proof}
 \alias{verify_proof}
-\title{Verify proof}
+\title{Verify the proof}
 \usage{
-verify_proof(proof)
+verify_proof(proof, verbose = FALSE)
 }
 \arguments{
 \item{proof}{}

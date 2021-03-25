@@ -6,19 +6,15 @@ test_that(
       cran = FALSE
     )
     expect_snapshot(
-      x = extract_root_hash(system.file("certificate.Bitcoin.pdf", package = "ROriginStamp"), verify = FALSE),
+      x = extract_root_hash(system.file("certificate.Bitcoin.pdf", package = "ROriginStamp")),
       cran = TRUE
     )
     expect_snapshot(
-      x = extract_root_hash(system.file("certificate.Bitcoin.pdf", package = "ROriginStamp"), verify = TRUE),
+      x = extract_root_hash(system.file("proof.Bitcoin.xml", package = "ROriginStamp")),
       cran = TRUE
     )
     expect_snapshot(
-      x = extract_root_hash(system.file("proof.Bitcoin.xml", package = "ROriginStamp"), verify = TRUE),
-      cran = TRUE
-    )
-    expect_snapshot(
-      x = extract_root_hash(system.file("proof.Bitcoin.xml", package = "ROriginStamp"), verify = TRUE),
+      x = extract_root_hash(system.file("proof.Bitcoin.xml", package = "ROriginStamp")),
       cran = TRUE
     )
   }

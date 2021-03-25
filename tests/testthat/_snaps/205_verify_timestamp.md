@@ -58,9 +58,6 @@
     Message <simpleMessage>
       
       x is already a hash - returning x unprocessed
-    Warning <simpleWarning>
-      Verification of proof not implemented yet!
-      Verification of proof not implemented yet!
     Output
       [1] currency_id transaction timestamp  
       <0 rows> (or 0-length row.names)
