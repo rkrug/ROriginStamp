@@ -19,5 +19,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Rainer M. Krug \email{Rainer.Krug@uzh.ch} (\href{https://orcid.org/0000-0002-7490-0066}{ORCID})
 
+Other contributors:
+\itemize{
+  \item SNF Project 310030_188431 [funder]
+}
+
 }
 \keyword{internal}

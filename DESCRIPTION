@@ -7,7 +7,8 @@ Authors@R: c(
              family = "Krug",
              role = c("aut", "cre"),
              email = "Rainer.Krug@uzh.ch",
-             comment = c(ORCID = "0000-0002-7490-0066"))
+             comment = c(ORCID = "0000-0002-7490-0066")),
+    person("SNF Project 310030_188431", role = "fnd")
     )
 Description: Functions to get and download trusted timestamps and seed files from OriginStamp <https://originstamp.com>.
 URL: https://github.com/rkrug/ROriginStamp

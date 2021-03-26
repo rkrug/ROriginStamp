@@ -40,7 +40,7 @@
 
 
 <meta property="og:title" content="Extract the proof from an xml proof or pdf certificate — extract_proof" />
-<meta property="og:description" content="If the v arification fails, the function aborts and raises an error." />
+<meta property="og:description" content="If the v verification fails, the function aborts and raises an error." />
 
 
 
@@ -135,10 +135,10 @@
     </div>
 
     <div class="ref-description">
-    <p>If the v arification fails, the function aborts and raises an error.</p>
+    <p>If the v verification fails, the function aborts and raises an error.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>extract_proof</span><span class='op'>(</span><span class='va'>x</span>, verify <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>extract_proof</span><span class='op'>(</span><span class='va'>x</span>, verify <span class='op'>=</span> <span class='cn'>TRUE</span>, verbose <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,6 +151,10 @@
       <th>verify</th>
       <td><p>if <code>FALSE</code>, read the root hash from the xml file. If <code>TRUE</code>, verify the root hash using the proof.</p></td>
     </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>if <code>TRUE</code>, details on the verification will be printed which can help to see where the proof is wrong.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -158,23 +162,30 @@
     <p>the root hash</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>extract_proof</span><span class='op'>(</span><span class='st'>"https://raw.githubusercontent.com/rkrug/ROriginStamp/master/inst/proof.Bitcoin.xml"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: </span>
-#&gt; <span class='warning'>#############################</span>
-#&gt; <span class='warning'> This proof is read from the document as provided.</span>
-#&gt; <span class='warning'> It is NOT verified for consistency!</span>
-#&gt; <span class='warning'>#############################</span></div><div class='output co'>#&gt; {xml_document}
-#&gt; &lt;node value="5e92ec09501a5d39e251a151f84b5e2228312c445eb23b4e1de6360e27bad54b" type="key"&gt;
-#&gt; [1] &lt;left value="7811e3130908fd2678eb2dd3928d245db7f3ed578c21f2ae4fbe680424dc ...
-#&gt; [2] &lt;right value="a62eedb07080ce5a21ad26230bcd50ef37cac8cca43a2f1d946db2d1d47 ...</div><div class='input'><span class='fu'>extract_proof</span><span class='op'>(</span><span class='st'>"https://raw.githubusercontent.com/rkrug/ROriginStamp/master/inst/certificate.Bitcoin.pdf"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: </span>
-#&gt; <span class='warning'>#############################</span>
-#&gt; <span class='warning'> This proof is read from the document as provided.</span>
-#&gt; <span class='warning'> It is NOT verified for consistency!</span>
-#&gt; <span class='warning'>#############################</span></div><div class='output co'>#&gt; {xml_document}
+    <pre class="examples"><div class='input'><span class='fu'>extract_proof</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"certificate.Bitcoin.pdf"</span>, package <span class='op'>=</span> <span class='st'>"ROriginStamp"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; {xml_document}
 #&gt; &lt;node type="key" value="5e92ec09501a5d39e251a151f84b5e2228312c445eb23b4e1de6360e27bad54b"&gt;
 #&gt; [1] &lt;left type="mesh" value="7811e3130908fd2678eb2dd3928d245db7f3ed578c21f2ae ...
-#&gt; [2] &lt;right type="mesh" value="a62eedb07080ce5a21ad26230bcd50ef37cac8cca43a2f1 ...</div><div class='input'>
+#&gt; [2] &lt;right type="mesh" value="a62eedb07080ce5a21ad26230bcd50ef37cac8cca43a2f1 ...</div><div class='input'><span class='fu'>extract_proof</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"proof.Bitcoin.xml"</span>, package <span class='op'>=</span> <span class='st'>"ROriginStamp"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; {xml_document}
+#&gt; &lt;node value="5e92ec09501a5d39e251a151f84b5e2228312c445eb23b4e1de6360e27bad54b" type="key"&gt;
+#&gt; [1] &lt;left value="7811e3130908fd2678eb2dd3928d245db7f3ed578c21f2ae4fbe680424dc ...
+#&gt; [2] &lt;right value="a62eedb07080ce5a21ad26230bcd50ef37cac8cca43a2f1d946db2d1d47 ...</div><div class='input'><span class='fu'>extract_proof</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"proof.Bitcoin.xml"</span>, package <span class='op'>=</span> <span class='st'>"ROriginStamp"</span><span class='op'>)</span>, cverify <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in extract_proof(system.file("proof.Bitcoin.xml", package = "ROriginStamp"),     cverify = FALSE): unused argument (cverify = FALSE)</span></div><div class='input'><span class='fu'>extract_proof</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"proof.faulty.xml"</span>, package <span class='op'>=</span> <span class='st'>"ROriginStamp"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in extract_proof(system.file("proof.faulty.xml", package = "ROriginStamp")): </span>
+#&gt; <span class='error'>#################################################################</span>
+#&gt; <span class='error'>## ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ##</span>
+#&gt; <span class='error'>##              This is not a valid proof!!!                   ##</span>
+#&gt; <span class='error'>## ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ##</span>
+#&gt; <span class='error'>#################################################################</span>
+#&gt; <span class='error'></span></div><div class='input'><span class='fu'>extract_proof</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"proof.faulty.xml"</span>, package <span class='op'>=</span> <span class='st'>"ROriginStamp"</span><span class='op'>)</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>key: 5e92ec09501a5d39e251a151f84b5e2228312c445eb23b4e1de6360e27bad54b</span></div><div class='output co'>#&gt; <span class='message'>  left : 7811e3130908fd2678eb2dd3928d245db7f3fd578c21f2ae4fbe680424dc735e</span></div><div class='output co'>#&gt; <span class='message'>  right: a62eedb07080ce5a21ad26230bcd50ef37cac8cca43a2f1d946db2d1d47e1f94</span></div><div class='output co'>#&gt; <span class='error'>Error in extract_proof(system.file("proof.faulty.xml", package = "ROriginStamp"),     verbose = TRUE): </span>
+#&gt; <span class='error'>#################################################################</span>
+#&gt; <span class='error'>## ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ##</span>
+#&gt; <span class='error'>##              This is not a valid proof!!!                   ##</span>
+#&gt; <span class='error'>## ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ATTENTION ##</span>
+#&gt; <span class='error'>#################################################################</span>
+#&gt; <span class='error'></span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -187,7 +198,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Rainer M. Krug.</p>
+  <p>Developed by Rainer M. Krug, SNF Project 310030_188431.</p>
 </div>
 
 <div class="pkgdown">

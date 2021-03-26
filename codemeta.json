@@ -28,7 +28,12 @@
   ],
   "contributor": {},
   "copyrightHolder": {},
-  "funder": {},
+  "funder": [
+    {
+      "@type": "Organization",
+      "name": "SNF Project 310030_188431"
+    }
+  ],
   "maintainer": [
     {
       "@type": "Person",
@@ -151,7 +156,7 @@
     }
   ],
   "readme": "https://github.com/rkrug/ROriginStamp/blob/master/README.md",
-  "fileSize": "1145.365KB",
+  "fileSize": "1264.148KB",
   "contIntegration": "https://codecov.io/github/rkrug/ROriginStamp?branch=master",
   "developmentStatus": ["https://www.tidyverse.org/lifecycle/#maturing", "https://www.repostatus.org/#active"],
   "releaseNotes": "https://github.com/rkrug/ROriginStamp/blob/master/NEWS.md",

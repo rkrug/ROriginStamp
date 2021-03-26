@@ -134,20 +134,20 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/hash.html">hash</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"DESCRIPTION"</span>, package <span class="op">=</span> <span class="st">"ROriginStamp"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>
-Create sha356 hash from R file x [/private/var/folders/50/wcr5bjwn75q595n6x82gxj280000gq/T/RtmpJOR8AC/temp_libpath72ec38149341/ROriginStamp/DESCRIPTION]</code></pre>
-<pre><code>sha256 d5:40:9d:6a:8f:b4:05:fb:92:be:76:64:1f:df:16:e2:cf:d5:7e:55:fb:b5:f7:ec:cc:31:ca:c3:d4:f2:08:3a </code></pre>
+Create sha356 hash from R file x [/private/var/folders/50/wcr5bjwn75q595n6x82gxj280000gq/T/RtmpBkcx2Y/temp_libpathd0c20fc5a9f/ROriginStamp/DESCRIPTION]</code></pre>
+<pre><code>sha256 af:69:1f:06:ee:50:03:18:22:9c:00:13:ed:57:00:ed:e1:bb:11:09:19:30:13:92:64:9a:2e:8d:d0:43:5d:1e </code></pre>
 <p>returns the hash of the file. This is identical to directly call the hash method which calculates the hash of the file:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/hash.html">hash.file</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"DESCRIPTION"</span>, package <span class="op">=</span> <span class="st">"ROriginStamp"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>
-Create sha356 hash from R file x [/private/var/folders/50/wcr5bjwn75q595n6x82gxj280000gq/T/RtmpJOR8AC/temp_libpath72ec38149341/ROriginStamp/DESCRIPTION]</code></pre>
-<pre><code>sha256 d5:40:9d:6a:8f:b4:05:fb:92:be:76:64:1f:df:16:e2:cf:d5:7e:55:fb:b5:f7:ec:cc:31:ca:c3:d4:f2:08:3a </code></pre>
+Create sha356 hash from R file x [/private/var/folders/50/wcr5bjwn75q595n6x82gxj280000gq/T/RtmpBkcx2Y/temp_libpathd0c20fc5a9f/ROriginStamp/DESCRIPTION]</code></pre>
+<pre><code>sha256 af:69:1f:06:ee:50:03:18:22:9c:00:13:ed:57:00:ed:e1:bb:11:09:19:30:13:92:64:9a:2e:8d:d0:43:5d:1e </code></pre>
 <p>If you want to calculate the hash of the actual R object, you have to method which handles all R objects:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/hash.html">hash.default</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"DESCRIPTION"</span>, package <span class="op">=</span> <span class="st">"ROriginStamp"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>
 Create sha356 hash from R object x</code></pre>
-<pre><code>sha256 8f:1a:9a:43:94:f9:34:33:6f:1b:96:d3:c8:5f:7f:ff:43:b4:f8:05:b1:98:93:8c:74:71:67:34:0b:3c:ba:03 </code></pre>
+<pre><code>sha256 6b:a3:48:5d:43:d0:44:73:88:ba:0b:69:59:52:a3:10:4a:4b:f3:37:d1:e0:e3:6f:b8:70:87:a1:0d:c7:e9:6a </code></pre>
 <p>If <code>x</code> is an object of class <code>hash</code>, the object x is returned as is:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span> 
@@ -203,22 +203,22 @@ $content$data$credits_per_month
 [1] 6000
 
 $content$data$remaining_credits
-[1] 5260.2
+[1] 5199.5
 
 $content$data$consumed_credits
-[1] 739.8
+[1] 800.5
 
 $content$data$timestamps_per_month
 [1] 1000
 
 $content$data$consumed_timestamps
-[1] 18
+[1] 19
 
 $content$data$certificate_per_month
 [1] 1000
 
 $content$data$consumed_certificates
-[1] 186
+[1] 201
 
 $content$data$limitation_type
 [1] 1
@@ -227,25 +227,25 @@ $content$data$limitation_type
 
 $headers
 $headers[[1]]
- [1] "HTTP/2 200 "                                                                                                                                                                                                                                    
- [2] "date: Wed, 24 Mar 2021 14:52:54 GMT"                                                                                                                                                                                                            
- [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                   
- [4] "set-cookie: __cfduid=d076291466a9342c84aefafde0bf613541616597574; expires=Fri, 23-Apr-21 14:52:54 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                 
- [5] "x-content-type-options: nosniff"                                                                                                                                                                                                                
- [6] "x-xss-protection: 1; mode=block"                                                                                                                                                                                                                
- [7] "cache-control: no-cache, no-store, max-age=0, must-revalidate"                                                                                                                                                                                  
- [8] "pragma: no-cache"                                                                                                                                                                                                                               
- [9] "expires: 0"                                                                                                                                                                                                                                     
-[10] "x-frame-options: DENY"                                                                                                                                                                                                                          
-[11] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                       
-[12] "cf-request-id: 0906527a690000a8738fbad000000001"                                                                                                                                                                                                
-[13] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                           
-[14] "report-to: {\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=EHNgVfy2G9U9o8idMwKso9w5qvpyAkpeDtOl8jWYxYq2eHocNMKhep7dC9UcHlon80Yf9GUwT6Srwim5UEQ1y066qONNrEEcCk3wYa2lkRjkK5lh\"}],\"max_age\":604800,\"group\":\"cf-nel\"}"
-[15] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                             
-[16] "server: cloudflare"                                                                                                                                                                                                                             
-[17] "cf-ray: 6350b9d70dbba873-CDG"                                                                                                                                                                                                                   
-[18] "content-encoding: gzip"                                                                                                                                                                                                                         
-[19] ""                                                                                                                                                                                                                                               
+ [1] "HTTP/2 200 "                                                                                                                                                                                                                                      
+ [2] "date: Fri, 26 Mar 2021 09:58:11 GMT"                                                                                                                                                                                                              
+ [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                     
+ [4] "set-cookie: __cfduid=d9023052446c223442a143cd11c5aae131616752691; expires=Sun, 25-Apr-21 09:58:11 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                   
+ [5] "x-content-type-options: nosniff"                                                                                                                                                                                                                  
+ [6] "x-xss-protection: 1; mode=block"                                                                                                                                                                                                                  
+ [7] "cache-control: no-cache, no-store, max-age=0, must-revalidate"                                                                                                                                                                                    
+ [8] "pragma: no-cache"                                                                                                                                                                                                                                 
+ [9] "expires: 0"                                                                                                                                                                                                                                       
+[10] "x-frame-options: DENY"                                                                                                                                                                                                                            
+[11] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                         
+[12] "cf-request-id: 090f91616c0000dfe315b75000000001"                                                                                                                                                                                                  
+[13] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                             
+[14] "report-to: {\"group\":\"cf-nel\",\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=4zJb4RnqPLNrsQm5lJIz8gdOFUsjWfR0IJygRE3KwARmdtmQ8tZz443phJG808Iy4YpAwCtdom0ZVjrSJs6LoueD0RAPAtZ65Ums%2B5LHn7aGxNUP\"}],\"max_age\":604800}"
+[15] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                               
+[16] "server: cloudflare"                                                                                                                                                                                                                               
+[17] "cf-ray: 635f84e24cf5dfe3-FRA"                                                                                                                                                                                                                     
+[18] "content-encoding: gzip"                                                                                                                                                                                                                           
+[19] ""                                                                                                                                                                                                                                                 
 
 
 attr(,"class")
@@ -279,19 +279,19 @@ $content$data
 
 $headers
 $headers[[1]]
- [1] "HTTP/2 200 "                                                                                                                                                                                                                                              
- [2] "date: Wed, 24 Mar 2021 14:52:54 GMT"                                                                                                                                                                                                                      
- [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                             
- [4] "set-cookie: __cfduid=d076291466a9342c84aefafde0bf613541616597574; expires=Fri, 23-Apr-21 14:52:54 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                           
- [5] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                                 
- [6] "cf-request-id: 0906527b530000a8736f1fb000000001"                                                                                                                                                                                                          
- [7] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                                     
- [8] "report-to: {\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=%2Fezw3vPHB3hKtkm4CoJ1eTW4j%2FbtCuUYWS%2Bhm4B9sGu4BPBdyVlhmJqR7EH0rHKKtAL4G6eWCB4lbOekS%2F55EWk59y%2Fr46bktlfwIB5jCvUEIcVy\"}],\"max_age\":604800,\"group\":\"cf-nel\"}"
- [9] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                                       
-[10] "server: cloudflare"                                                                                                                                                                                                                                       
-[11] "cf-ray: 6350b9d88f1ea873-CDG"                                                                                                                                                                                                                             
-[12] "content-encoding: gzip"                                                                                                                                                                                                                                   
-[13] ""                                                                                                                                                                                                                                                         
+ [1] "HTTP/2 200 "                                                                                                                                                                                                                                                  
+ [2] "date: Fri, 26 Mar 2021 09:58:11 GMT"                                                                                                                                                                                                                          
+ [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                                 
+ [4] "set-cookie: __cfduid=d9023052446c223442a143cd11c5aae131616752691; expires=Sun, 25-Apr-21 09:58:11 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                               
+ [5] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                                     
+ [6] "cf-request-id: 090f9161ff0000dfe30eadd000000001"                                                                                                                                                                                                              
+ [7] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                                         
+ [8] "report-to: {\"group\":\"cf-nel\",\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=HwH%2BWkaxelhCyhN%2BcesZPslm2kBbBA0xwAGoH%2FV6zlKj%2B0u6cl4r9VrGryH9zu7VldIkeLMm43t3z%2BUGPefReLGUkQHHpfNlbJ5c%2Bdcw%2F5f4A5jd\"}],\"max_age\":604800}"
+ [9] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                                           
+[10] "server: cloudflare"                                                                                                                                                                                                                                           
+[11] "cf-ray: 635f84e33dd7dfe3-FRA"                                                                                                                                                                                                                                 
+[12] "content-encoding: gzip"                                                                                                                                                                                                                                       
+[13] ""                                                                                                                                                                                                                                                             
 
 
 attr(,"class")
@@ -326,13 +326,13 @@ $content$data$created
 [1] TRUE
 
 $content$data$date_created
-[1] 1.616598e+12
+[1] 1.616753e+12
 
 $content$data$comment
 [1] "This is a dummy test for creating a timestamp."
 
 $content$data$hash_string
-[1] "eaedb2f64c5062718189fd65451d05b86c687cb43748c645f67df06051475a7e"
+[1] "8ffa738c77fc3e9e0c7321e06adc0b6ed2301f0a28d5c064fcb9b3fe68c6a564"
 
 $content$data$timestamps
   currency_id transaction private_key timestamp submit_status
@@ -345,19 +345,19 @@ $content$data$timestamps
 
 $headers
 $headers[[1]]
- [1] "HTTP/2 200 "                                                                                                                                                                                                                                                    
- [2] "date: Wed, 24 Mar 2021 14:52:55 GMT"                                                                                                                                                                                                                            
- [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                                   
- [4] "set-cookie: __cfduid=d076291466a9342c84aefafde0bf613541616597574; expires=Fri, 23-Apr-21 14:52:54 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                                 
- [5] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                                       
- [6] "cf-request-id: 0906527c7b0000a873711c1000000001"                                                                                                                                                                                                                
- [7] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                                           
- [8] "report-to: {\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=Ct6z3wyKAQGlXpq1Un%2Bca4BUFUHk5MG%2B9t2B4hUaOkfQ%2F9LYy%2Fg%2BHt4k8%2Fwv%2BvoVSr2aadAbLF207so6uRVaAytINcbSy1jaS4j2JFM%2FhUQLTNsT\"}],\"max_age\":604800,\"group\":\"cf-nel\"}"
- [9] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                                             
-[10] "server: cloudflare"                                                                                                                                                                                                                                             
-[11] "cf-ray: 6350b9da589fa873-CDG"                                                                                                                                                                                                                                   
-[12] "content-encoding: gzip"                                                                                                                                                                                                                                         
-[13] ""                                                                                                                                                                                                                                                               
+ [1] "HTTP/2 200 "                                                                                                                                                                                                                                      
+ [2] "date: Fri, 26 Mar 2021 09:58:12 GMT"                                                                                                                                                                                                              
+ [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                     
+ [4] "set-cookie: __cfduid=d9023052446c223442a143cd11c5aae131616752691; expires=Sun, 25-Apr-21 09:58:11 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                   
+ [5] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                         
+ [6] "cf-request-id: 090f9162e70000dfe3080f6000000001"                                                                                                                                                                                                  
+ [7] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                             
+ [8] "report-to: {\"group\":\"cf-nel\",\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=SwYAj1ig%2Bq7fSHu7PHODS1qZPCvB88yYXnRuTErMSexrJgySxFi2F2ADZwCUMYlrfPbgTGQYpYrKk0vC5zjIvXby1n7ArCpB5Hs84QFtleRvhQ6Y\"}],\"max_age\":604800}"
+ [9] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                               
+[10] "server: cloudflare"                                                                                                                                                                                                                               
+[11] "cf-ray: 635f84e4af5edfe3-FRA"                                                                                                                                                                                                                     
+[12] "content-encoding: gzip"                                                                                                                                                                                                                           
+[13] ""                                                                                                                                                                                                                                                 
 
 
 attr(,"class")
@@ -385,13 +385,13 @@ $content$data$created
 [1] FALSE
 
 $content$data$date_created
-[1] 1.616598e+12
+[1] 1.616753e+12
 
 $content$data$comment
 [1] "This is a dummy test for creating a timestamp a second time."
 
 $content$data$hash_string
-[1] "eaedb2f64c5062718189fd65451d05b86c687cb43748c645f67df06051475a7e"
+[1] "8ffa738c77fc3e9e0c7321e06adc0b6ed2301f0a28d5c064fcb9b3fe68c6a564"
 
 $content$data$timestamps
   currency_id transaction private_key timestamp submit_status
@@ -404,19 +404,19 @@ $content$data$timestamps
 
 $headers
 $headers[[1]]
- [1] "HTTP/2 200 "                                                                                                                                                                                                                                                  
- [2] "date: Wed, 24 Mar 2021 14:52:55 GMT"                                                                                                                                                                                                                          
- [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                                 
- [4] "set-cookie: __cfduid=d539893adaa4b4bb3bc05e5fae4635ec51616597575; expires=Fri, 23-Apr-21 14:52:55 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                               
- [5] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                                     
- [6] "cf-request-id: 09065280190000a87366320000000001"                                                                                                                                                                                                              
- [7] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                                         
- [8] "report-to: {\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=WUxZ6AJn6sIY%2FoQ%2FIKdDP6KS6uW6eO9CFueuK2lhacelADBuZ%2FuYObHXuNVb4%2B6ZLQuS335P%2F5LDkBWGirVVw43yI1l%2FD%2BsCPPiG4JWcbLHg3t2A\"}],\"max_age\":604800,\"group\":\"cf-nel\"}"
- [9] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                                           
-[10] "server: cloudflare"                                                                                                                                                                                                                                           
-[11] "cf-ray: 6350b9e02c64a873-CDG"                                                                                                                                                                                                                                 
-[12] "content-encoding: gzip"                                                                                                                                                                                                                                       
-[13] ""                                                                                                                                                                                                                                                             
+ [1] "HTTP/2 200 "                                                                                                                                                                                                                                            
+ [2] "date: Fri, 26 Mar 2021 09:58:12 GMT"                                                                                                                                                                                                                    
+ [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                           
+ [4] "set-cookie: __cfduid=d298633c6091d0bc7d02df837b7ac41c61616752692; expires=Sun, 25-Apr-21 09:58:12 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                         
+ [5] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                               
+ [6] "cf-request-id: 090f91654a0000dfe312809000000001"                                                                                                                                                                                                        
+ [7] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                                   
+ [8] "report-to: {\"group\":\"cf-nel\",\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=1e4NtE0A%2F0WoAqBh3LCQz2JcEgnCkTQC3zeDpbyyVV1hIHl0yY0%2B%2B47%2BEPu8FvFYaheNQVc0L8zDm8s97JpYJzOv5mS5jmfstF1n5mEi3A1hbfXh\"}],\"max_age\":604800}"
+ [9] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                                     
+[10] "server: cloudflare"                                                                                                                                                                                                                                     
+[11] "cf-ray: 635f84e87c2adfe3-FRA"                                                                                                                                                                                                                           
+[12] "content-encoding: gzip"                                                                                                                                                                                                                                 
+[13] ""                                                                                                                                                                                                                                                       
 
 
 attr(,"class")
@@ -449,13 +449,13 @@ $content$data$created
 [1] FALSE
 
 $content$data$date_created
-[1] 1.616598e+12
+[1] 1.616753e+12
 
 $content$data$comment
 [1] "This is a dummy test for creating a timestamp."
 
 $content$data$hash_string
-[1] "eaedb2f64c5062718189fd65451d05b86c687cb43748c645f67df06051475a7e"
+[1] "8ffa738c77fc3e9e0c7321e06adc0b6ed2301f0a28d5c064fcb9b3fe68c6a564"
 
 $content$data$timestamps
   currency_id transaction private_key timestamp submit_status
@@ -468,19 +468,19 @@ $content$data$timestamps
 
 $headers
 $headers[[1]]
- [1] "HTTP/2 200 "                                                                                                                                                                                                                                          
- [2] "date: Wed, 24 Mar 2021 14:52:56 GMT"                                                                                                                                                                                                                  
- [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                         
- [4] "set-cookie: __cfduid=d539893adaa4b4bb3bc05e5fae4635ec51616597575; expires=Fri, 23-Apr-21 14:52:55 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                       
- [5] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                             
- [6] "cf-request-id: 09065280f40000a8736991f000000001"                                                                                                                                                                                                      
- [7] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                                 
- [8] "report-to: {\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=GUDv%2F4bDMvsQ5PwaZn73I%2BDFXPI9x%2BvbVBx1JmZTQzCJbg1ZXK3sZwFOpBbH37TqhSA3vOrW7R15NLaAmjozeJX2U8OokTuXuE57ATcChM8gff8e\"}],\"max_age\":604800,\"group\":\"cf-nel\"}"
- [9] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                                   
-[10] "server: cloudflare"                                                                                                                                                                                                                                   
-[11] "cf-ray: 6350b9e18d7ca873-CDG"                                                                                                                                                                                                                         
-[12] "content-encoding: gzip"                                                                                                                                                                                                                               
-[13] ""                                                                                                                                                                                                                                                     
+ [1] "HTTP/2 200 "                                                                                                                                                                                                                                        
+ [2] "date: Fri, 26 Mar 2021 09:58:12 GMT"                                                                                                                                                                                                                
+ [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                       
+ [4] "set-cookie: __cfduid=d298633c6091d0bc7d02df837b7ac41c61616752692; expires=Sun, 25-Apr-21 09:58:12 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                     
+ [5] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                           
+ [6] "cf-request-id: 090f9166120000dfe360242000000001"                                                                                                                                                                                                    
+ [7] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                               
+ [8] "report-to: {\"group\":\"cf-nel\",\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=HfkUgRmTAGtoCK02SqTmu7x8inTezJtr0f1gCbgGUr3TAESnbLPb95%2B5UUv4eKuzD75Ud3vhwoTh4Non20KxSUojl9ugQ5gg%2BVyIGZzEdm0tedW9\"}],\"max_age\":604800}"
+ [9] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                                 
+[10] "server: cloudflare"                                                                                                                                                                                                                                 
+[11] "cf-ray: 635f84e9bd9adfe3-FRA"                                                                                                                                                                                                                       
+[12] "content-encoding: gzip"                                                                                                                                                                                                                             
+[13] ""                                                                                                                                                                                                                                                   
 
 
 attr(,"class")
@@ -527,19 +527,19 @@ $content$data$timestamps
 
 $headers
 $headers[[1]]
- [1] "HTTP/2 200 "                                                                                                                                                                                                                                                
- [2] "date: Wed, 24 Mar 2021 14:52:56 GMT"                                                                                                                                                                                                                        
- [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                               
- [4] "set-cookie: __cfduid=dc50ccda5366d837f74733b21b22e626d1616597576; expires=Fri, 23-Apr-21 14:52:56 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                             
- [5] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                                   
- [6] "cf-request-id: 09065281ec0000a87364a73000000001"                                                                                                                                                                                                            
- [7] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                                       
- [8] "report-to: {\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=GJ56%2FiyNb%2FAOnuzLb9tra%2BJ7u72uxjbz%2FXenGie55HhRY3tlJBYq0FAiNAVLkQTOac3M7N9WQB%2FW7utQJi7WMOWAmDzxE%2BOkLFzta1PEVQaHMPN3\"}],\"max_age\":604800,\"group\":\"cf-nel\"}"
- [9] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                                         
-[10] "server: cloudflare"                                                                                                                                                                                                                                         
-[11] "cf-ray: 6350b9e31ea5a873-CDG"                                                                                                                                                                                                                               
-[12] "content-encoding: gzip"                                                                                                                                                                                                                                     
-[13] ""                                                                                                                                                                                                                                                           
+ [1] "HTTP/2 200 "                                                                                                                                                                                                                                            
+ [2] "date: Fri, 26 Mar 2021 09:58:13 GMT"                                                                                                                                                                                                                    
+ [3] "content-type: application/json;charset=UTF-8"                                                                                                                                                                                                           
+ [4] "set-cookie: __cfduid=d9d008c8ab040e9e3e4d30f28b68c197b1616752693; expires=Sun, 25-Apr-21 09:58:13 GMT; path=/; domain=.originstamp.com; HttpOnly; SameSite=Lax"                                                                                         
+ [5] "cf-cache-status: DYNAMIC"                                                                                                                                                                                                                               
+ [6] "cf-request-id: 090f9167150000dfe3f783d000000001"                                                                                                                                                                                                        
+ [7] "expect-ct: max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""                                                                                                                                                   
+ [8] "report-to: {\"group\":\"cf-nel\",\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=2pUW93d9AuCcYlam8JZz0l9C5nPYNqhKHRMEwrt2%2BwPn7ZqItjVFeinl2DMGWQpVTAd8U3VSjokj5RaK1mpjPgV%2Bgi1n4XqUE%2B3WeRKG63nh1Pz%2B\"}],\"max_age\":604800}"
+ [9] "nel: {\"report_to\":\"cf-nel\",\"max_age\":604800}"                                                                                                                                                                                                     
+[10] "server: cloudflare"                                                                                                                                                                                                                                     
+[11] "cf-ray: 635f84eb4f57dfe3-FRA"                                                                                                                                                                                                                           
+[12] "content-encoding: gzip"                                                                                                                                                                                                                                 
+[13] ""                                                                                                                                                                                                                                                       
 
 
 attr(,"class")
@@ -588,7 +588,7 @@ Ooms, Jeroen. 2020. <em>Openssl: Toolkit for Encryption, Signatures and Certific
 
 
       <footer><div class="copyright">
-  <p>Developed by Rainer M. Krug.</p>
+  <p>Developed by Rainer M. Krug, SNF Project 310030_188431.</p>
 </div>
 
 <div class="pkgdown">
