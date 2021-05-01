@@ -16,6 +16,7 @@ bibliography: references.bib
 
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-orange.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+
 <!-- badges: end -->
 
 <!-- [![Inline docs](http://inch-ci.org/github/rkrug/ROriginStamp.svg?branch=master)](http://inch-ci.org/github/rkrug/ROriginStamp) -->
