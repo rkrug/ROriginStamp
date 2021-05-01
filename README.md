@@ -18,8 +18,8 @@ Status](https://img.shields.io/codecov/c/github/rkrug/ROriginStamp/master.svg)](
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-<!-- badges: end -->
 
+<!-- badges: end -->
 <!-- [![Inline docs](http://inch-ci.org/github/rkrug/ROriginStamp.svg?branch=master)](http://inch-ci.org/github/rkrug/ROriginStamp) -->
 <!-- [CII Best Practices Badge](https://bestpractices.coreinfrastructure.org/en/projects/2094) -->
 
