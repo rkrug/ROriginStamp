@@ -80,8 +80,8 @@ hash.default <- function(x, ...) {
 hash.file <- function(x) {
   message("\nCreate sha356 hash from R file x [", x, "]")
   f <- file(x, open = "rb")
+  on.exit( close(f) )
   hash <- openssl::sha256(f)
-  close(f)
   return(hash)
 }
 
