@@ -11,11 +11,12 @@
 #'   the function `extract_proof()`. Here, we assume that all verification should be done without any interaction with OriginStamp.
 #'   **Only timestamps issued after middle February 2021 can be veryfied using this approach (OP_RETURN usage by OriginStamp.**
 #'
-#' @param x The object whose timestamp should be verified
+#' @param x x an R object (character vector containing file names of existing files or strings) of which a hash will be calculated using the function
+#'   `hash(x)`. The object whose timestamp should be verified
 #' @param proof either a file name or an URL pointing to the proof or certificate of the timestamp
 #' @param use_originstamp if `TRUE`, OriginStamp will be used to verity the timestamp of the hash. In this case, `proof` is not needed.
 #' @param error_on_fail if TRUE, raise error when api call fails, otherwise
-#'   return the failed response.
+#'   return the failed response.ß
 #' @param url the url of the api. The default is to use the url as returned by
 #'   the function \code{api_url()}
 #' @param key the api key. The default is to use the key as returned by the

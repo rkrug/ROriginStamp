@@ -7,7 +7,7 @@
 get_hash_status(x, error_on_fail = TRUE, url = api_url(), key = api_key())
 }
 \arguments{
-\item{x}{an R object of which a hash will be calculated using the function \code{hash(x)}. The resulting hash will be submitted to OriginStamp.}
+\item{x}{an R object (character vector containing file names of existing files or strings) of which a hash will be calculated using the function \code{hash(x)}. The resulting hash will be submitted to OriginStamp.}
 
 \item{error_on_fail}{if \code{TRUE}, raise error when api call fails, otherwise return the failed response.}
 

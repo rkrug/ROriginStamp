@@ -1,89 +1,68 @@
-#' Calculate sha256 hash
+#' Calculate the hash from a character vector or vector of file names
 #'
-#' A generic function function to calculate the sha256 hash from an R object or from a file.
-#'
-#' The behavior depends on the class of the argument `x`:
-#'    - **an object of class `sha256` as returned by the package openssl**: the hash is returned as is
-#'    - **`character` vector of length 1 containing the name of an existing file**: the sha256 hash of the file is calculated
-#'    - **any other R object**: is serialized using `serialize(x, connection = NULL,
-#'      ascii = FALSE, xdr = TRUE, version = 2, refhook = NULL)`` and the sha256 hash is
-#'      created from that serialized object.
-#'
-#' The methods doing the work are:
-#'    - `hash.hash(x)`: returns the object `x`
-#'    - `hash.file()`: assumes `x` is an existing file and tries to calculate the hash from the file
-#'    - `hash.default()`: calculates the hash from the serialized R object `x`
-#' _NB_: These functions do assume the object `x` is what they expect it to be.
-#' It is recommended to use the generic function `hash()` as this functiuon
-#' auti=omatically selects the most appropriate method. Only use these if you
-#' need to force a certain method (e.g. calculate the hash of a file name
-#' instead of the existing file).
-#'
-#' _Remark_: if a hash is in  haracter form, it can be converted to a `hash`
-#' object, by assigning the class `hash` (see example).
-#' @md
-#' @param x object
-#' @param ... additional arguments for methods - not used at the moment
-#'
-#' @return sha256 hash object
-#' @importFrom openssl sha256
-#'
+#' If all elements point to existing files, the hashes of these files
+#'   are calculated, otherwise the hashes of the character vector, one per element.
 #' @rdname hash
-#'
+#' @export hash.file
 #' @export
-#'
-#' @examples
-#' ## hash of a file:
-#'
-#' hash(system.file("DESCRIPTION", package = "ROriginStamp"))
-#'
-#' ## convert a character vector to a hash:
-#'
-#' x <- "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
-#' class(x) <- "hash"
-#' hash(x)
 hash <- function(x) {
-  if (is.character(x) && (length(x) == 1) && file.exists(x)) {
-    hash.file(x)
+  if (inherits(x, "hash")) {
+    hashs <- x
   } else {
-    UseMethod("hash", x)
+    if (class(x) != "character") {
+      stop("x must be of class character!")
+    }
+    if (!all(file.exists(x))) {
+      hashs <- hash.character(x)
+    } else {
+      hashs <- hash.file(x)
+    }
   }
+  return(hashs)
 }
 
+#' Calculate the hash from a vector of filenames
 #'
-#' Return x as is.
-#' @rdname hash
-#' @export hash.hash
-#' @export
-hash.hash <- function(x, ...) {
-  message("\nx is already a hash - returning x unprocessed")
-  return(x)
-}
-
-#'
-#' Calculates the hash of the object x.
-#' @rdname hash
-#' @export hash.default
-#' @export
-hash.default <- function(x, ...) {
-  message("\nCreate sha356 hash from R object x")
-  x_ser <- serialize(x, connection = NULL, ascii = FALSE, xdr = TRUE, version = 2, refhook = NULL)
-  hash <- openssl::sha256(x_ser)
-  return(hash)
-}
-
-#'
-#' Calculates the hash of the file \code{x}. Is called automatically as described in the Details section.
+#' Calculates the sha256 hash of each file in \code{x}.
 #' @rdname hash
 #' @export hash.file
 #' @export
 hash.file <- function(x) {
-  message("\nCreate sha356 hash from R file x [", x, "]")
-  f <- file(x, open = "rb")
-  on.exit( close(f) )
-  hash <- openssl::sha256(f)
+  if (class(x) != "character") {
+    stop("x must be of class character!")
+  }
+  if (!all(file.exists(x))) {
+    stop("All elements in x must be existing file names!")
+  }
+  hashs <- sapply(
+    x,
+    function(fn) {
+      f <- file(fn, open = "rb")
+      on.exit( close(f) )
+      hash <- openssl::sha256(f)
+      return(as.character(hash))
+    }
+  )
+  names(hashs) <- NULL
+  return(as.hash(hashs))
+}
+
+#' Calculate the hash from a character vector
+#'
+#' Calculates the sha256 hash of each element in \code{x}.
+#' @rdname hash
+#' @export hash.character
+#' @export
+hash.character <- function(x) {
+  if (class(x) != "character") {
+    stop("x must be of class character!")
+  }
+  message("Create sha356 hash from character vector x")
+  hash <- openssl::sha256(x)
   return(hash)
 }
+
+
 
 #' Convert x into hash
 #'
@@ -101,10 +80,9 @@ hash.file <- function(x) {
 #' as.hash("2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e")
 #'
 as.hash <- function(x) {
-  x <- as.character(x)
-  if (length(x) != 1) {
-    stop("'as.character(x)' has to result in a character vector of length of exactly 1!")
+  if (!inherits(x, "character")) {
+    stop("x must be of class character!")
   }
-  class(x) <- "hash"
+  class(x) <- c("hash", "sha256")
   return(x)
 }

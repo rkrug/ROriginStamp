@@ -7,6 +7,8 @@
 \title{ROriginStamp: Interface to OriginStamp API to Obtain Trusted Time Stamps}
 \description{
 Functions to get and download trusted timestamps and seed files from OriginStamp <https://originstamp.com>.
+  This package is not associated with OriginStamp <https://originstamp.com>. It only uses the API provided by them. 
+  OriginStamp does not take any responsibility or guarantee for this package.
 }
 \seealso{
 Useful links:

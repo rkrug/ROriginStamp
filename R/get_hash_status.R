@@ -9,7 +9,7 @@
 #'    - **any other R object**: the hash is calculated using the function `hash()` and submitted to OriginStamp
 #'
 #' @md
-#' @param x an R object of which a hash will be calculated using the function `hash(x)`. The resulting hash will be submitted to OriginStamp.
+#' @param x an R object (character vector containing file names of existing files or strings) of which a hash will be calculated using the function `hash(x)`. The resulting hash will be submitted to OriginStamp.
 #' @param error_on_fail if \code{TRUE}, raise error when api call fails, otherwise return the failed response.
 #' @param url the url of the api. The default is to use the url as returned by the function \code{api_url()}
 #' @param key the api key. The default is to use the key as returned by the function \code{api_key()}

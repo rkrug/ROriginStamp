@@ -10,7 +10,8 @@
 #'    - **any other R object**: the hash is calculated using the function `hash()` and submitted to OriginStamp
 #'
 #' @md
-#' @param x an R object of which a hash will be calculated using the function `hash(x)`. The resulting hash will be submitted to OriginStamp.
+#' @param x an R object (character vector containing file names of existing files or strings) of which a hash will be calculated using the function `hash(x)`.
+#'   The resulting hash will be submitted to OriginStamp.
 #' @param error_on_fail if \code{TRUE}, raise error when api call fails, otherwise return the failed response.
 #' @param comment a comment for the new timestamp
 #' @param notifications notification settings

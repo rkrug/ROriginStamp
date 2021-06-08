@@ -11,6 +11,8 @@ Authors@R: c(
     person("SNF Project 310030_188431", role = "fnd")
     )
 Description: Functions to get and download trusted timestamps and seed files from OriginStamp <https://originstamp.com>.
+  This package is not associated with OriginStamp <https://originstamp.com>. It only uses the API provided by them. 
+  OriginStamp does not take any responsibility or guarantee for this package.
 URL: https://github.com/rkrug/ROriginStamp
 BugReports: https://github.com/rkrug/ROriginStamp/issues
 License: GPL (>= 2)

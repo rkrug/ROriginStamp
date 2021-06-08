@@ -2,63 +2,21 @@
 % Please edit documentation in R/hash_helper.R
 \name{hash}
 \alias{hash}
-\alias{hash.hash}
-\alias{hash.default}
 \alias{hash.file}
-\title{Calculate sha256 hash}
+\alias{hash.character}
+\title{Calculate the hash from a character vector or vector of file names}
 \usage{
 hash(x)
 
-\method{hash}{hash}(x, ...)
+hash.file(x)
 
-\method{hash}{default}(x, ...)
-
-\method{hash}{file}(x)
-}
-\arguments{
-\item{x}{object}
-
-\item{...}{additional arguments for methods - not used at the moment}
-}
-\value{
-sha256 hash object
+hash.character(x)
 }
 \description{
-A generic function function to calculate the sha256 hash from an R object or from a file.
-}
-\details{
-The behavior depends on the class of the argument \code{x}:
-\itemize{
-\item \strong{an object of class \code{sha256} as returned by the package openssl}: the hash is returned as is
-\item \strong{\code{character} vector of length 1 containing the name of an existing file}: the sha256 hash of the file is calculated
-\item \strong{any other R object}: is serialized using `serialize(x, connection = NULL,
-ascii = FALSE, xdr = TRUE, version = 2, refhook = NULL)`` and the sha256 hash is
-created from that serialized object.
-}
+If all elements point to existing files, the hashes of these files
+  are calculated, otherwise the hashes of the character vector, one per element.
 
-The methods doing the work are:
-\itemize{
-\item \code{hash.hash(x)}: returns the object \code{x}
-\item \code{hash.file()}: assumes \code{x} is an existing file and tries to calculate the hash from the file
-\item \code{hash.default()}: calculates the hash from the serialized R object \code{x}
-\emph{NB}: These functions do assume the object \code{x} is what they expect it to be.
-It is recommended to use the generic function \code{hash()} as this functiuon
-auti=omatically selects the most appropriate method. Only use these if you
-need to force a certain method (e.g. calculate the hash of a file name
-instead of the existing file).
-}
+Calculates the sha256 hash of each file in \code{x}.
 
-\emph{Remark}: if a hash is in  haracter form, it can be converted to a \code{hash}
-object, by assigning the class \code{hash} (see example).
-}
-\examples{
-## hash of a file:
-
-hash(system.file("DESCRIPTION", package = "ROriginStamp"))
-
-## convert a character vector to a hash:
-
-x <- "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"
-class(x) <- "hash"
-hash(x)
+Calculates the sha256 hash of each element in \code{x}.
 }

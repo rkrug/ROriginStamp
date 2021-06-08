@@ -6,6 +6,17 @@ ROriginStamp 0.8.1 (2021-mm-dd)
 - added verification functions and vignette
 - added verification of proof
 
+### MINOR IMPROVEMENTS
+- hash.file(): move `close()` into `on.exit()`
+
+
+### BUG FIXES
+
+
+### DEPRECATED AND DEFUNCT
+
+
+### DOCUMENTATION FIXES
 
 
 ROriginStamp 0.8.0 (2021-03-28)

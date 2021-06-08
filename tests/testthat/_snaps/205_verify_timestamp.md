@@ -3,9 +3,6 @@
     Code
       verify_timestamp(x = as.hash(
         "2d3aa25ffe0748bbe780a218028216985497a60cc22c19f7abd128468d567b86"))
-    Message <simpleMessage>
-      
-      x is already a hash - returning x unprocessed
     Output
         currency_id
       1           0
@@ -38,9 +35,6 @@
     Code
       verify_timestamp(x = as.hash(
         "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"))
-    Message <simpleMessage>
-      
-      x is already a hash - returning x unprocessed
     Output
         currency_id                                                      transaction
       1           0 aed3db9ef94953f65e93d56a4e5bcf234d43e27a1b3e7ce0f274cc7ed750d0e2
@@ -55,9 +49,6 @@
       verify_timestamp(x = as.hash(
         "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"), proof = system.file(
         "certificate.Bitcoin.pdf", package = "ROriginStamp"))
-    Message <simpleMessage>
-      
-      x is already a hash - returning x unprocessed
     Output
       [1] currency_id transaction timestamp  
       <0 rows> (or 0-length row.names)

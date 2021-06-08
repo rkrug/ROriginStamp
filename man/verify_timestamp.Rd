@@ -14,14 +14,15 @@ verify_timestamp(
 )
 }
 \arguments{
-\item{x}{The object whose timestamp should be verified}
+\item{x}{x an R object (character vector containing file names of existing files or strings) of which a hash will be calculated using the function
+\code{hash(x)}. The object whose timestamp should be verified}
 
 \item{proof}{either a file name or an URL pointing to the proof or certificate of the timestamp}
 
 \item{use_originstamp}{if \code{TRUE}, OriginStamp will be used to verity the timestamp of the hash. In this case, \code{proof} is not needed.}
 
 \item{error_on_fail}{if TRUE, raise error when api call fails, otherwise
-return the failed response.}
+return the failed response.ß}
 
 \item{url}{the url of the api. The default is to use the url as returned by
 the function \code{api_url()}}
