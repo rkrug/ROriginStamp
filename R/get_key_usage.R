@@ -20,25 +20,36 @@
 get_key_usage <- function(
   error_on_fail = TRUE,
   url = api_url(),
-  key = api_key()
+  key = api_key(),
+  save_raw_response_to = NULL,
+  load_raw_response_from = NULL
 ) {
 
-  # Assemble URL ------------------------------------------------------------
+  if (!is.null(load_raw_response_from)) {
+    response <- readRDS(load_raw_response_from)
+  } else {
 
-  url <- paste(url, "api_key", "usage", sep = "/")
-  url <- gsub("//", "/", url)
-  url <- gsub(":/", "://", url)
+    # Assemble URL ------------------------------------------------------------
 
-  # POST request ------------------------------------------------------------
+    url <- paste(url, "api_key", "usage", sep = "/")
+    url <- gsub("//", "/", url)
+    url <- gsub(":/", "://", url)
 
-  h <- curl::new_handle()
-  curl::handle_setheaders(
-    h,
-    accept = " application/json",
-    Authorization = key
-  )
+    # POST request ------------------------------------------------------------
 
-  response <- curl::curl_fetch_memory( url, h )
+    h <- curl::new_handle()
+    curl::handle_setheaders(
+      h,
+      accept = " application/json",
+      Authorization = key
+    )
+
+    response <- curl::curl_fetch_memory( url, h )
+  }
+
+  if (!is.null(save_raw_response_to)) {
+    saveRDS( response, save_raw_response_to)
+  }
 
   # Process return value ----------------------------------------------------
 
