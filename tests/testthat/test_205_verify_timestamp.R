@@ -24,7 +24,7 @@ test_that(
       ),
       cran = FALSE
     )
-    expect_snapshot(
+    expect_snapshot_error(
       verify_timestamp(
         x = as.hash("2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"),
         proof = system.file("certificate.Bitcoin.pdf", package = "ROriginStamp")

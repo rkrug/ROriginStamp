@@ -13,7 +13,8 @@ transaction_from_txid(txid)
 a list of the transactions identified by the txid
 }
 \description{
-Find transaction based on transaction ID
+\bold{This function is does not work anymore as the host used is not available anymore!}
+\bold{It is only left in to demonstrate how it could be done.}
 }
 \examples{
 

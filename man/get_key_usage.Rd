@@ -4,7 +4,13 @@
 \alias{get_key_usage}
 \title{Get the key usage}
 \usage{
-get_key_usage(error_on_fail = TRUE, url = api_url(), key = api_key())
+get_key_usage(
+  error_on_fail = TRUE,
+  url = api_url(),
+  key = api_key(),
+  save_raw_response_to = NULL,
+  load_raw_response_from = NULL
+)
 }
 \arguments{
 \item{error_on_fail}{if TRUE, raise error when api call fails, otherwise

@@ -1,5 +1,7 @@
 #' Find transaction based on transaction ID
 #'
+#' \bold{This function is does not work anymore as the host used is not available anymore!}
+#' \bold{It is only left in to demonstrate how it could be done.}
 #' @param txid a vector containing the transaction ids. Usiully only one
 #'
 #' @return a list of the transactions identified by the txid
@@ -14,6 +16,10 @@
 transaction_from_txid <- function(
   txid
 ) {
+  stop(
+    "This function is does not work anymore as the host used is not available anymore!\n",
+    "It is only left in to demonstrate how it could be done."
+  )
   url <- paste0("https://api.smartbit.com.au/v1/blockchain/tx/", txid )
 
   result <- lapply(

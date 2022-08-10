@@ -13,7 +13,11 @@ txid_from_root_hash(root_hash)
 a vector containing the transaction ids found. Usially only one
 }
 \description{
-This opnly results in valid returns for timestamps after mif February 2021.
+\bold{This function is does not work anymore as the host used is not available anymore!}
+\bold{It is only left in to demonstrate how it could be done.}
+}
+\details{
+This only results in valid returns for timestamps after mif February 2021.
 These are storing the root hash in OP_RETURN and these can therefore be searched.
 }
 \examples{

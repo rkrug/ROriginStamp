@@ -43,8 +43,12 @@ There are effectively two ways of verifying a timestamp of a hash:
 Similarly, when specifying \code{use_originstamp = TRUE} the api will be used to retrieve information about the timestamp
 using the \code{get_hash_status()} function.
 \item to not use OriginStamp. This directly queries the bitcoin blockchain.
+\strong{The host used to verify without the proof is not available anymore.}
+\strong{Therefore this part does not work anymore.}
+\strong{It is only included as an example how it could be done using a different host}
+}
+
 For this, it is essential to have either the xml proof or the pdf certificate of the timestamp as can be downloaded by
 the function \code{extract_proof()}. Here, we assume that all verification should be done without any interaction with OriginStamp.
 \strong{Only timestamps issued after middle February 2021 can be veryfied using this approach (OP_RETURN usage by OriginStamp.}
-}
 }

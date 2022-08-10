@@ -7,6 +7,10 @@
 #'   Similarly, when specifying `use_originstamp = TRUE` the api will be used to retrieve information about the timestamp
 #'   using the `get_hash_status()` function.
 #' 2. to not use OriginStamp. This directly queries the bitcoin blockchain.
+#'   **The host used to verify without the proof is not available anymore.**
+#'   **Therefore this part does not work anymore.**
+#'   **It is only included as an example how it could be done using a different host**
+#'
 #'   For this, it is essential to have either the xml proof or the pdf certificate of the timestamp as can be downloaded by
 #'   the function `extract_proof()`. Here, we assume that all verification should be done without any interaction with OriginStamp.
 #'   **Only timestamps issued after middle February 2021 can be veryfied using this approach (OP_RETURN usage by OriginStamp.**
@@ -46,6 +50,11 @@ verify_timestamp <- function(
       result$timestamp <- as.POSIXct(result$timestamp / 1000, origin =  "1970-1-1")
     }
   } else {
+    stop(
+      "This verification only works using the proof\n",
+      "as the host used is not available anymore!\n",
+      "It is only left in to demonstrate how it could be done without the proof."
+    )
 
     # Prepare hash ------------------------------------------------------------
 

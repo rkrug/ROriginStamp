@@ -27,8 +27,9 @@
 
 ---
 
-    The `hash` does not match the `proof`.
-    Please profide matching `hash` and `proof`!
+    This verification only works using the proof
+    as the host used is not available anymore!
+    It is only left in to demonstrate how it could be done without the proof.
 
 ---
 
@@ -45,11 +46,7 @@
 
 ---
 
-    Code
-      verify_timestamp(x = as.hash(
-        "2c5d36be542f8f0e7345d77753a5d7ea61a443ba6a9a86bb060332ad56dba38e"), proof = system.file(
-        "certificate.Bitcoin.pdf", package = "ROriginStamp"))
-    Output
-      [1] currency_id transaction timestamp  
-      <0 rows> (or 0-length row.names)
+    This verification only works using the proof
+    as the host used is not available anymore!
+    It is only left in to demonstrate how it could be done without the proof.
 

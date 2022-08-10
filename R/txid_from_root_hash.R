@@ -1,6 +1,9 @@
 #' Get the transaction id from the root hash
 #'
-#' This opnly results in valid returns for timestamps after mif February 2021.
+#' \bold{This function is does not work anymore as the host used is not available anymore!}
+#' \bold{It is only left in to demonstrate how it could be done.}
+#'
+#' This only results in valid returns for timestamps after mif February 2021.
 #' These are storing the root hash in OP_RETURN and these can therefore be searched.
 #' @param root_hash root hash which has been submitted as OP_RETURN
 #'
@@ -17,6 +20,10 @@
 #' txid_from_root_hash("love")
 #'
 txid_from_root_hash <- function(root_hash) {
+  stop(
+    "This function is does not work anymore as the host used is not available anymore!\n",
+    "It is only left in to demonstrate how it could be done."
+  )
   url <- paste0("https://api.smartbit.com.au/v1/blockchain/search?q=", root_hash)
 
   # GET request -------------------------------------------------------------

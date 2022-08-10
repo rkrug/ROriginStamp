@@ -60,7 +60,7 @@ test_that(
     expect_snapshot_file(
       path = fn,
       name = "proof.xml",
-      binary = TRUE,
+      compare = compare_file_binary,
       cran = FALSE
     )
     unlink(fn)
