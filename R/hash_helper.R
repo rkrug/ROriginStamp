@@ -2,6 +2,7 @@
 #'
 #' If all elements point to existing files, the hashes of these files
 #'   are calculated, otherwise the hashes of the character vector, one per element.
+#' @param x file name to be hashed
 #' @rdname hash
 #' @export hash_file
 #' @export
@@ -9,7 +10,7 @@ hash <- function(x) {
   if (inherits(x, "hash")) {
     hashs <- x
   } else {
-    if (class(x) != "character") {
+    if (!inherits(x, "character")) {
       stop("x must be of class character!")
     }
     if (!all(file.exists(x))) {
@@ -28,7 +29,7 @@ hash <- function(x) {
 #' @export hash_file
 #' @export
 hash_file <- function(x) {
-  if (class(x) != "character") {
+  if (!inherits(x, "character")) {
     stop("x must be of class character!")
   }
   if (!all(file.exists(x))) {
@@ -54,7 +55,7 @@ hash_file <- function(x) {
 #' @export hash.character
 #' @export
 hash.character <- function(x) {
-  if (class(x) != "character") {
+  if (inherits(x, "character")) {
     stop("x must be of class character!")
   }
   message("Create sha356 hash from character vector x")

@@ -6,6 +6,8 @@
 #'   return the failed response.
 #' @param url the url of the api. The default is to use the url as returned by the function \code{api_url()}
 #' @param key the api key. The default is to use the key as returned by the function \code{api_key()}
+#' @param save_raw_response_to save the response to a file in rds format
+#' @param load_raw_response_from load the response from a file in rds format
 #'
 #' @return object of class \code{OriginStampResponse}.
 #' @importFrom curl new_handle handle_setheaders curl_fetch_memory

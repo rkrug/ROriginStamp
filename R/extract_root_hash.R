@@ -11,8 +11,11 @@
 #' @export
 #'
 #' @examples
-#' extract_root_hash("https://raw.githubusercontent.com/rkrug/ROriginStamp/master/inst/proof.Bitcoin.xml")
-#' extract_root_hash("https://raw.githubusercontent.com/rkrug/ROriginStamp/master/inst/certificate.Bitcoin.pdf")
+#' hn <- "https://raw.githubusercontent.com/rkrug/ROriginStamp/master/inst/proof.Bitcoin.xml"
+#' extract_root_hash(hn)
+#'
+#' hn <- "https://raw.githubusercontent.com/rkrug/ROriginStamp/master/inst/certificate.Bitcoin.pdf"
+#' extract_root_hash(hn)
 #'
 extract_root_hash <- function(
   x

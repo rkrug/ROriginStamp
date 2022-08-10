@@ -15,9 +15,9 @@
 #' @export
 #'
 #' @examples
-#' txid_from_root_hash("bf6eec9f213846a53ed187d41d2b9ed2e954649a45d2883e5df6b107b2eb0b75")
-#' txid_from_root_hash("bf6eec9f213846a53ed187d41d2b9ed2e954649a45d2883e5dXXXXXXXXXXXXXX")
-#' txid_from_root_hash("love")
+#' # txid_from_root_hash("bf6eec9f213846a53ed187d41d2b9ed2e954649a45d2883e5df6b107b2eb0b75")
+#' # txid_from_root_hash("bf6eec9f213846a53ed187d41d2b9ed2e954649a45d2883e5dXXXXXXXXXXXXXX")
+#' # txid_from_root_hash("love")
 #'
 txid_from_root_hash <- function(root_hash) {
   stop(

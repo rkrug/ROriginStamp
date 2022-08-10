@@ -12,6 +12,9 @@ hash_file(x)
 
 hash.character(x)
 }
+\arguments{
+\item{x}{file name to be hashed}
+}
 \description{
 If all elements point to existing files, the hashes of these files
   are calculated, otherwise the hashes of the character vector, one per element.

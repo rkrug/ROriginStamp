@@ -16,7 +16,10 @@ an \code{hash} object containing the root hash
 Return the root hash of an xml proof or pdf certificate
 }
 \examples{
-extract_root_hash("https://raw.githubusercontent.com/rkrug/ROriginStamp/master/inst/proof.Bitcoin.xml")
-extract_root_hash("https://raw.githubusercontent.com/rkrug/ROriginStamp/master/inst/certificate.Bitcoin.pdf")
+hn <- "https://raw.githubusercontent.com/rkrug/ROriginStamp/master/inst/proof.Bitcoin.xml"
+extract_root_hash(hn)
+
+hn <- "https://raw.githubusercontent.com/rkrug/ROriginStamp/master/inst/certificate.Bitcoin.pdf"
+extract_root_hash(hn)
 
 }

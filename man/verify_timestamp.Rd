@@ -31,7 +31,8 @@ the function \code{api_url()}}
 function \code{api_key()}}
 }
 \value{
-
+\code{data.frame} with \code{currency_id}, \code{transaction} and
+\code{timestamp} if verification was successful. Otherwise these are all set to \code{NULL}.
 }
 \description{
 There are effectively two ways of verifying a timestamp of a hash:

@@ -11,14 +11,18 @@
 #'
 #' @importFrom xml2 read_xml xml_attr
 #' @importFrom pdftools pdf_text
+#' @importFrom utils tail
 #' @export
 #'
 #' @examples
 #' extract_proof(system.file("certificate.Bitcoin.pdf", package = "ROriginStamp"))
 #' extract_proof(system.file("proof.Bitcoin.xml", package = "ROriginStamp"))
-#' extract_proof(system.file("proof.Bitcoin.xml", package = "ROriginStamp"), cverify = FALSE)
-#' extract_proof(system.file("proof.faulty.xml", package = "ROriginStamp"))
-#' extract_proof(system.file("proof.faulty.xml", package = "ROriginStamp"), verbose = TRUE)
+#' extract_proof(system.file("proof.Bitcoin.xml", package = "ROriginStamp"), verify = FALSE)
+#' ######
+#' ## These will produce errors when executed
+#'   # extract_proof(system.file("proof.faulty.xml", package = "ROriginStamp"))
+#'   # extract_proof(system.file("proof.faulty.xml", package = "ROriginStamp"), verbose = TRUE)
+#' ######
 #'
 extract_proof <- function(
   x,

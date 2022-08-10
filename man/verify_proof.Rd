@@ -7,7 +7,9 @@
 verify_proof(proof, verbose = FALSE)
 }
 \arguments{
-\item{proof}{}
+\item{proof}{the xml proof of the timestamp}
+
+\item{verbose}{provide verbose output - mainly for debugging}
 }
 \value{
 \code{TRUE} if verified successfully, otherwise \code{FALSE}

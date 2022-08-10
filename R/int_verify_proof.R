@@ -2,7 +2,8 @@
 #'
 #' INTERNAL FUNCTION!
 #' Verify the proof. The proof needs to be provided as an xml object
-#' @param proof
+#' @param proof the xml proof of the timestamp
+#' @param verbose provide verbose output - mainly for debugging
 #'
 #' @return `TRUE` if verified successfully, otherwise `FALSE`
 #'

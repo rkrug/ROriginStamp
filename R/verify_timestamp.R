@@ -26,13 +26,13 @@
 #' @param key the api key. The default is to use the key as returned by the
 #'   function \code{api_key()}
 #'
-#' @return
+#' @return \code{data.frame} with \code{currency_id}, \code{transaction} and
+#'   \code{timestamp} if verification was successful. Otherwise these are all set to \code{NULL}.
 #'
 #' @md
 #'
 #' @export
 #'
-#' @examples
 verify_timestamp <- function(
   x,
   proof = NULL,

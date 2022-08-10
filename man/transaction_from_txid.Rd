@@ -16,6 +16,3 @@ a list of the transactions identified by the txid
 \bold{This function is does not work anymore as the host used is not available anymore!}
 \bold{It is only left in to demonstrate how it could be done.}
 }
-\examples{
-
-}

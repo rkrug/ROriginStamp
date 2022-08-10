@@ -11,7 +11,6 @@
 #'
 #' @export
 #'
-#' @examples
 #'
 transaction_from_txid <- function(
   txid

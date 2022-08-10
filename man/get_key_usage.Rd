@@ -19,6 +19,10 @@ return the failed response.}
 \item{url}{the url of the api. The default is to use the url as returned by the function \code{api_url()}}
 
 \item{key}{the api key. The default is to use the key as returned by the function \code{api_key()}}
+
+\item{save_raw_response_to}{save the response to a file in rds format}
+
+\item{load_raw_response_from}{load the response from a file in rds format}
 }
 \value{
 object of class \code{OriginStampResponse}.
