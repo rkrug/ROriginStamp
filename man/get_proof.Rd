@@ -14,7 +14,7 @@ get_proof(
 )
 }
 \arguments{
-\item{x}{an R object of which a hash will be calculated using the function
+\item{x}{an R object (character vector containing file names of existing files or strings) of which a hash will be calculated using the function
 \code{hash(x)}. The resulting hash will be submitted to OriginStamp.}
 
 \item{file}{if provided, file name to store the proof in. Otherwise, the from
@@ -40,15 +40,6 @@ element, \code{file}, which contains the name of the saved certificate or proof.
 \description{
 Wrapper around \url{https://api.originstamp.com/swagger/swagger-ui.html#/proof/getProof}. The
 function downloads the merkle tree as proof.
-}
-\details{
-The behavior depends on the class of the argument \code{x}:
-\itemize{
-\item \strong{an object of class \code{hash} as returned by the package openssl}: the hash is submitted to OriginStamp
-\item \strong{\code{character} vector of length 1 containing the name of an existing file}: the hash of the file is
-calculated and submitted to OriginStamp
-\item \strong{any other R object}: the hash is calculated using the function \code{hash()} and submitted to OriginStamp
-}
 }
 \examples{
 

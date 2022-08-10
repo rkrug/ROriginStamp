@@ -1,22 +1,19 @@
 {
-  "@context": [
-    "https://doi.org/10.5063/schema/codemeta-2.0",
-    "http://schema.org"
-  ],
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "ROriginStamp",
-  "description": "Functions to get and download trusted timestamps and seed files from OriginStamp <https://originstamp.com>.",
+  "description": "Functions to get and download trusted timestamps and seed files from OriginStamp <https://originstamp.com>. This package is not associated with OriginStamp <https://originstamp.com>. It only uses the API provided by them. OriginStamp does not take any responsibility or guarantee for this package.",
   "name": "ROriginStamp: Interface to OriginStamp API to Obtain Trusted Time Stamps",
   "codeRepository": "https://github.com/rkrug/ROriginStamp",
   "issueTracker": "https://github.com/rkrug/ROriginStamp/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.4 (2021-02-15)",
+  "runtimePlatform": "R version 4.2.1 (2022-06-23)",
   "author": [
     {
       "@type": "Person",
@@ -26,9 +23,12 @@
       "@id": "https://orcid.org/0000-0002-7490-0066"
     }
   ],
-  "contributor": {},
-  "copyrightHolder": {},
-  "funder": {},
+  "funder": [
+    {
+      "@type": "Organization",
+      "name": "SNF Project 310030_188431"
+    }
+  ],
   "maintainer": [
     {
       "@type": "Person",
@@ -88,8 +88,8 @@
       "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
     }
   ],
-  "softwareRequirements": [
-    {
+  "softwareRequirements": {
+    "1": {
       "@type": "SoftwareApplication",
       "identifier": "curl",
       "name": "curl",
@@ -101,7 +101,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=curl"
     },
-    {
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "jsonlite",
       "name": "jsonlite",
@@ -113,7 +113,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=jsonlite"
     },
-    {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "openssl",
       "name": "openssl",
@@ -124,11 +124,41 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=openssl"
-    }
-  ],
+    },
+    "4": {
+      "@type": "SoftwareApplication",
+      "identifier": "xml2",
+      "name": "xml2",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=xml2"
+    },
+    "5": {
+      "@type": "SoftwareApplication",
+      "identifier": "pdftools",
+      "name": "pdftools",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=pdftools"
+    },
+    "SystemRequirements": null
+  },
+  "fileSize": "566.304KB",
+  "releaseNotes": "https://github.com/rkrug/ROriginStamp/blob/master/NEWS.md",
   "readme": "https://github.com/rkrug/ROriginStamp/blob/master/README.md",
-  "fileSize": "1071.356KB",
-  "contIntegration": "https://codecov.io/github/rkrug/ROriginStamp?branch=master",
+  "contIntegration": ["https://github.com/rkrug/ROriginStamp/actions/workflows/ci-eb.yaml", "https://codecov.io/github/rkrug/ROriginStamp?branch=master"],
   "developmentStatus": ["https://www.tidyverse.org/lifecycle/#maturing", "https://www.repostatus.org/#active"],
-  "releaseNotes": "https://github.com/rkrug/ROriginStamp/blob/master/NEWS.md"
+  "review": {
+    "@type": "Review",
+    "url": "https://github.com/ropensci/software-review/issues/433",
+    "provider": "https://ropensci.org"
+  }
 }

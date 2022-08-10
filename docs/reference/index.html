@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ROriginStamp</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.1</span>
       </span>
     </div>
 
@@ -95,6 +95,12 @@
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/introduction.html">Introduction</a>
+    </li>
+    <li>
+      <a href="../articles/usecases.html">Usecases</a>
+    </li>
+    <li>
+      <a href="../articles/verification_tts.html">Verification TTS</a>
     </li>
   </ul>
 </li>
@@ -178,6 +184,24 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="extract_hash.html">extract_hash()</a></code> </p>
+        </td>
+        <td><p>Return the hash of an xml proof or pdf certificate</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="extract_proof.html">extract_proof()</a></code> </p>
+        </td>
+        <td><p>Extract the proof from an xml proof or pdf certificate</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="extract_root_hash.html">extract_root_hash()</a></code> </p>
+        </td>
+        <td><p>Return the root hash of an xml proof or pdf certificate</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="get_currencies.html">get_currencies()</a></code> </p>
         </td>
         <td><p>Get the active currencies</p></td>
@@ -211,6 +235,30 @@
           <p><code><a href="new_OriginStampResponse.html">new_OriginStampResponse()</a></code> </p>
         </td>
         <td><p>New <code>OriginStampResponse</code> object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="transaction_from_txid.html">transaction_from_txid()</a></code> </p>
+        </td>
+        <td><p>Find transaction based on transaction ID</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="txid_from_root_hash.html">txid_from_root_hash()</a></code> </p>
+        </td>
+        <td><p>Get the transaction id from the root hash</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="verify_proof.html">verify_proof()</a></code> </p>
+        </td>
+        <td><p>Verify the proof</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="verify_timestamp.html">verify_timestamp()</a></code> </p>
+        </td>
+        <td><p>Verify a timestamp of a hash</p></td>
       </tr>
     </tbody>
     </table>
@@ -226,7 +274,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Rainer M. Krug.</p>
+  <p>Developed by Rainer M. Krug, SNF Project 310030_188431.</p>
 </div>
 
 <div class="pkgdown">

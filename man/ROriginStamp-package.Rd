@@ -6,7 +6,7 @@
 \alias{ROriginStamp-package}
 \title{ROriginStamp: Interface to OriginStamp API to Obtain Trusted Time Stamps}
 \description{
-Functions to get and download trusted timestamps and seed files from OriginStamp <https://originstamp.com>.
+Functions to get and download trusted timestamps and seed files from OriginStamp <https://originstamp.com>. This package is not associated with OriginStamp <https://originstamp.com>. It only uses the API provided by them. OriginStamp does not take any responsibility or guarantee for this package.
 }
 \seealso{
 Useful links:
@@ -18,6 +18,11 @@ Useful links:
 }
 \author{
 \strong{Maintainer}: Rainer M. Krug \email{Rainer.Krug@uzh.ch} (\href{https://orcid.org/0000-0002-7490-0066}{ORCID})
+
+Other contributors:
+\itemize{
+  \item SNF Project 310030_188431 [funder]
+}
 
 }
 \keyword{internal}

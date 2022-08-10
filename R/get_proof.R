@@ -3,14 +3,8 @@
 #' Wrapper around \url{https://api.originstamp.com/swagger/swagger-ui.html#/proof/getProof}. The
 #' function downloads the merkle tree as proof.
 #'
-#' The behavior depends on the class of the argument `x`:
-#'    - **an object of class `hash` as returned by the package openssl**: the hash is submitted to OriginStamp
-#'    - **`character` vector of length 1 containing the name of an existing file**: the hash of the file is
-#'      calculated and submitted to OriginStamp
-#'    - **any other R object**: the hash is calculated using the function `hash()` and submitted to OriginStamp
-#'
 #' @md
-#' @param x an R object of which a hash will be calculated using the function
+#' @param x an R object (character vector containing file names of existing files or strings) of which a hash will be calculated using the function
 #'   `hash(x)`. The resulting hash will be submitted to OriginStamp.
 #' @param proof_type The type of the proof format. Either "pdf" or "xml" are
 #'   supported at the moment by OriginStamp.

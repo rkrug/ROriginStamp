@@ -44,9 +44,15 @@ if (!require(devtools)) {
   install.packages("devtools")
   library(devtools)
 }
-devtools::install_github("rkrug/ROriginStamp")
+if (!require(ROriginStamp)) {
+  devtools::install_github("rkrug/ROriginStamp")
+  library(ROriginStamp)
+}
 ```
 
+```{r load, eval = TRUE, echo = FALSE}
+library(ROriginStamp)
+```
 # How to use it
 
 
@@ -54,7 +60,7 @@ devtools::install_github("rkrug/ROriginStamp")
 
 This package is based on sha256 hashes as calculated by the openssl package by @opensslR as OriginStamp is using sha256 hashes.
 
-The function `hash(x)` is the workhorse for calculating hashes. It calculates sha256 from R objects as well as, from files. It returns an object of class `hash`, which is simply a character vector of length 1 with the class `hash` assigned.
+The function `hash(x)` is the workhorse for calculating hashes. It calculates sha256 from files. It returns an object of class `hash`, which is simply a character vector of length 1 with the class `hash` assigned.
 
 The hash is calculated when
 
@@ -72,22 +78,9 @@ returns the hash of the file.
 This is identical to directly call the hash method which calculates the hash of the file:
 
 ```{r,  eval = TRUE}
-hash.file(system.file("DESCRIPTION", package = "ROriginStamp"))
+hash_file(system.file("DESCRIPTION", package = "ROriginStamp"))
 ```
 
-If you want to calculate the hash of the actual R object, you have to method which handles all R objects:
-
-```{r, eval = TRUE}
-hash.default(system.file("DESCRIPTION", package = "ROriginStamp"))
-```
-
-If `x` is an object of class `hash`, the object x is returned as is:
-```{r, eval = TRUE}
-identical( 
-  hash(letters), 
-  hash(hash(letters))
-)
-```
 
 ## Provide API Key to the Functions
 
@@ -105,8 +98,8 @@ or
 
 2. use the `api_key()` function to set the api key by running 
 ```{r, eval = FALSE, include = TRUE }
-api_key("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")`
-````
+api_key("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
+```
 or
 
 3. specify it in each call by using the `key` argument.
@@ -138,12 +131,14 @@ For a detailed description of the return value see [the DefaultOfListOfCurrencyM
 
 Let's create a new timestamp.
 
-As an example, let's create a timestamp for 100 random numbers, to make sure, that the hash has not been timestamped by OriginStamp already. 
+As an example, let's create a dummy file contining a data.frame with 26 random numbers, to make sure, that the hash has not been timestamped by OriginStamp already. 
 
 ```{r create_timestamp, eval = valid_key}
-obj <- runif(100)
+tf <- tempfile()
+write.csv(data.frame(letters, LETTERS, 1:26, runif(26)), tf)
+
 create_timestamp(
-  x = obj, 
+  x = tf, 
   comment = "This is a dummy test for creating a timestamp."
 )
 ```
@@ -152,14 +147,14 @@ Now let's submit the same hash again and see what happens:
 
 ```{r create_timestamp_second_time, eval = valid_key}
 create_timestamp(
-  x = obj, 
+  x = tf, 
   comment = "This is a dummy test for creating a timestamp a second time."
 )
 ```
 
 The difference is in `$content$data$created` which is `TRUE` when the submitted hash has not been timestamped already and subsequently created, and `FALSE` when it already exists. This is an easy way to check if the submission was successful. 
 
-It is important to note, that the timestamps are not created immediately, but put in a bash cue, which is submitted at certain intervalls, depending on the currency used. See [the documentation on currencies](https://docs.originstamp.com/guide/#blockchain-currencies) for details. 
+It is important to note, that the timestamps are not created immediately, but put in a cue, which is submitted at certain intervals, depending on the currency used. See [the documentation on currencies](https://docs.originstamp.com/guide/#blockchain-currencies) for details. 
 
 ## `get_hash_status()` - Getting the status of a submitted hash
 
@@ -167,7 +162,7 @@ Let's get information about the status of some hashes submitted. We start with t
 
 ```{r get_hash_status, eval = valid_key}
 get_hash_status(
-  x = obj
+  x = tf
 )
 ```
 
