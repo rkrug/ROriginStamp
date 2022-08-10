@@ -3,7 +3,7 @@
 #' If all elements point to existing files, the hashes of these files
 #'   are calculated, otherwise the hashes of the character vector, one per element.
 #' @rdname hash
-#' @export hash.file
+#' @export hash_file
 #' @export
 hash <- function(x) {
   if (inherits(x, "hash")) {
@@ -13,9 +13,9 @@ hash <- function(x) {
       stop("x must be of class character!")
     }
     if (!all(file.exists(x))) {
-      hashs <- hash.character(x)
+      stop("Each element of x must be a file name of an existing file!")
     } else {
-      hashs <- hash.file(x)
+      hashs <- hash_file(x)
     }
   }
   return(hashs)
@@ -25,9 +25,9 @@ hash <- function(x) {
 #'
 #' Calculates the sha256 hash of each file in \code{x}.
 #' @rdname hash
-#' @export hash.file
+#' @export hash_file
 #' @export
-hash.file <- function(x) {
+hash_file <- function(x) {
   if (class(x) != "character") {
     stop("x must be of class character!")
   }

@@ -2,13 +2,13 @@
 % Please edit documentation in R/hash_helper.R
 \name{hash}
 \alias{hash}
-\alias{hash.file}
+\alias{hash_file}
 \alias{hash.character}
 \title{Calculate the hash from a character vector or vector of file names}
 \usage{
 hash(x)
 
-hash.file(x)
+hash_file(x)
 
 hash.character(x)
 }
